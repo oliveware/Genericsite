@@ -9,7 +9,7 @@ import SwiftUI
 
 // Bouton pour générer un site fonctionnant avec generic
 struct Genericator: View {
-    @State var site: Sitegeneric
+    @State var site: Genericsite
     @State var changename = false
     
     var body: some View {

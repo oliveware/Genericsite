@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Putex
 
 struct Rubric: Codable {
     var name: String = ""       //= String(Immeuble.begining.année)
@@ -36,14 +37,14 @@ struct Rubric: Codable {
             }
         }
     }
-    init(_ début:JMA, _ apartlabel:String, _ bail:Bail) {
+    init(_ début:JMA) { //}, _ apartlabel:String, _ bail:Bail) {
         let an = String(début.année)
         firstmonth = début.mois
         name = an
         label = an
         titre = "année " + an
         exergue = "consommation en chiffres"
-        items = [] //[Topic(bail.titulaire.initials, début.année), Topic(bail, début.année)]
+        items = []      //[Topic(bail.titulaire.initials, début.année), Topic(bail, début.année)]
         for m in 0...11 {
             conso.append(Consomois(mois: JMA.moisfr[m], moyenne: Conso.zero, cumul: [], total: Conso.zero))
         }
