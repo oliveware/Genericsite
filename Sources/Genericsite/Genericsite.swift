@@ -2,7 +2,7 @@
 // https://docs.swift.org/swift-book
 
 public struct Genericsite: Codable {
-    static var piroot = "locations/"
+    static var siteroot = "locations/"
     static var localroot = "locations/site/"
     
     var name : String = ""
