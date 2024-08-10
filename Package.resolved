@@ -1,0 +1,15 @@
+{
+  "originHash" : "d7ecb7ea210a1954f7bf672b7df1bd255dbc4def14f9fe69638f5ab64817ea61",
+  "pins" : [
+    {
+      "identity" : "putex",
+      "kind" : "remoteSourceControl",
+      "location" : "http://github.com/oliveware/Putex",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c9e02439d18686de7e7c85068159bb82c673765d"
+      }
+    }
+  ],
+  "version" : 3
+}
