@@ -8,18 +8,7 @@
 import Foundation
 
 
-struct Comptejson: Codable {
-    let name: String
-    let slide: String
-    let color: String
-    let label: String
-    let titre: String
-    let exergue: String
-    let d: Int
-    let releve: Relevejson
-}
-
-struct Relevejson : Codable {
+struct Comptejson : Codable {
     var solde: Soldejson
     var ecritures: [Ecriturejson]
 }

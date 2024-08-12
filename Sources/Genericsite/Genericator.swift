@@ -38,6 +38,6 @@ struct Genericator: View {
     
 }
 
-/*#Preview {
-    Genericator(site:Sitegeneric())
-}*/
+#Preview {
+    Genericator(site:Genericsite())
+}

@@ -7,21 +7,21 @@ public struct Genericsite: Codable {
     
     var name : String = ""
     var initials : String = ""
-    var main = Sitelocal(Theme("",""))
-    var master = Sitemaster()
+    var sitemain = Sitemain(Theme("",""))
+    var sitemaster = Sitemaster()
     
     var isNaN : Bool {
         name == ""
     }
     
     mutating func generate(_ titre:String, _ label:String) {
-        main = Sitelocal(Theme(titre,label))
-        master = Sitemaster()
+        sitemain = Sitemain(Theme(titre,label))
+        sitemaster = Sitemaster()
     }
-    
+    init() {}
     init(_ intro:Theme) {
       //  histoconso = Interpolan(logement.index)
-      //  main.intro = Theme(location)
+      //  mainjson.intro = Theme(location)
     }
 }
 

@@ -37,6 +37,7 @@ struct Rubric: Codable {
             }
         }
     }
+    
     init(_ début:JMA) { //}, _ apartlabel:String, _ bail:Bail) {
         let an = String(début.année)
         firstmonth = début.mois

@@ -8,8 +8,11 @@
 import Foundation
 
 struct Theme: Codable {
+    
+    static var intro = Theme("intro", nil)
+    
     var name: String = "intro"
-    var label: String
+    var label: String?
     var color: String = colors[0]
     var titre: String
     var exergue: String = ""
@@ -24,7 +27,7 @@ struct Theme: Codable {
     
     var items: [Rubric] = []
     
-    init(_ t:String, _ l:String) {
+    init(_ t:String, _ l:String?) {
         titre = t
         label = l
     }

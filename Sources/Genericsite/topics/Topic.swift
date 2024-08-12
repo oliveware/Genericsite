@@ -8,6 +8,7 @@
 import Foundation
 
 enum KindofTopic : String, Codable {
+    case compte
     case conso
     case paiement
     case solde
@@ -32,8 +33,12 @@ struct Topic: Codable {
     var edition: String? //= "S0F0"
     var d:Int = 1
     
+    // compte bancaire
+    var releve: Comptejson?
+    
     // historique des paiements
   //  var paiement: [Paiement] = []
+    
     init(_ k:KindofTopic) {
         name = "consommation"
         label = "consommation"
