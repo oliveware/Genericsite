@@ -14,10 +14,10 @@ extension UTType {
     }
 }
 
-struct MainFile: FileDocument {
+public struct MainFile: FileDocument {
     var sitemain = Sitemain()
     
-    init(_ string:String)  {
+   public init(_ string:String)  {
         do {
             guard let json = string.data(using: .utf8)
             else {
@@ -31,9 +31,9 @@ struct MainFile: FileDocument {
         }
     }
 
-    static var readableContentTypes: [UTType] { [.jsonText] }
+  public  static var readableContentTypes: [UTType] { [.jsonText] }
 
-    init(configuration: ReadConfiguration) throws {
+   public init(configuration: ReadConfiguration) throws {
         guard let json = configuration.file.regularFileContents
              //, let string = String(data: data, encoding: .utf8)
         else {
@@ -43,7 +43,7 @@ struct MainFile: FileDocument {
         sitemain = try JSONDecoder().decode(Sitemain.self, from: json)
     }
     
-    func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+   public func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
         let json = try JSONEncoder().encode(sitemain)
        // let data = text.data(using: .utf8)!
         return .init(regularFileWithContents: json)
