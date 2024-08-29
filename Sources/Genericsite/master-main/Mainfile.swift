@@ -15,7 +15,7 @@ extension UTType {
 }
 
 public struct MainFile: FileDocument {
-    var sitemain = Sitemain()
+    public var sitemain = Sitemain()
     
    public init(_ string:String)  {
         do {

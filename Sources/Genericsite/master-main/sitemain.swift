@@ -9,7 +9,7 @@ import Foundation
 
 
 // produit le fichier main json
-struct Sitemain : Codable {
+public struct Sitemain : Codable {
     var footexerg = "Comprendre - Respecter - Utiliser - Expliquer"
     var enter = "retour ..."
     var titre = MainTitle( "Data", " ", "Opera")
