@@ -14,22 +14,8 @@ extension UTType {
     }
 }
 
-public struct MainFile: FileDocument {
+public struct MainDocument: FileDocument {
     public var sitemain = Sitemain()
-    
-   public init(_ string:String)  {
-        do {
-            guard let json = string.data(using: .utf8)
-            else {
-                throw CocoaError(.fileReadCorruptFile)
-            }
-            sitemain = try JSONDecoder().decode(Sitemain.self, from: json)
-            
-        }
-        catch {
-            print ("inexistant \(error)")
-        }
-    }
 
   public  static var readableContentTypes: [UTType] { [.jsonText] }
 

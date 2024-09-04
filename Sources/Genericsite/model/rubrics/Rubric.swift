@@ -14,9 +14,8 @@ struct Rubric: Codable {
     var color: String = colors[1]
     var titre: String = ""       //= "année \(Immeuble.begining.année)"
     var exergue: String = ""
-    var firstmonth: Int = 1
+    
     var slide: String  = ""     //= "second\(Immeuble.begining.année)"
-    var type = "conso"
     
     var first: Int?
     var last: Int?
@@ -25,7 +24,11 @@ struct Rubric: Codable {
     var d:Int = 1
     
     var items: [Topic]
+    
+    
     // consommation globale par mois (index = mois - 1, 0 pour janvier)
+    var type = "conso"
+    var firstmonth: Int = 1
     var conso: [Consomois] = []
     
     init(_ topics:[Topic], _ t:String) {

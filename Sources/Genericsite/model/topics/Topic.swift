@@ -40,11 +40,28 @@ struct Topic: Codable {
   //  var paiement: [Paiement] = []
     
     init(_ k:KindofTopic) {
-        name = "consommation"
-        label = "consommation"
-        titre = "Suivi de consommation"
-        exergue = "et moyenne journalière"
-
+        switch k {
+        case .conso:
+            name = "consommation"
+            label = "consommation"
+            titre = "Suivi de consommation"
+            exergue = "et moyenne journalière"
+        case .compte:
+            name = "compte"
+            label = "compte"
+            titre = "Compte"
+            exergue = ""
+        case .paiement:
+            name = "paiement"
+            label = "paiement"
+            titre = "Compte"
+            exergue = ""
+        case .solde:
+            name = "solde"
+            label = "solde"
+            titre = "Compte"
+            exergue = ""
+        }
     }
 
     init() {
