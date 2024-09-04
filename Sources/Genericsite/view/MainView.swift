@@ -8,11 +8,14 @@
 import SwiftUI
 
 struct MainView: View {
+    @Binding var sitemain: Sitemain
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(sitemain.intro.name)
+        Text(sitemain.intro.titre)
     }
 }
 
 #Preview {
-    MainView()
+    MainView(sitemain:.constant(Sitemain()))
 }
