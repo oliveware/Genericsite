@@ -24,7 +24,7 @@ public struct Sitemain : Codable {
     var guide = Guide(
         Guide.Desc("synopsis",2,3,"synopsis"),
         Guide.Desc("lecture",2,3,"lecture linéaire"))
-    var intro : Theme
+    public var intro : Theme
     
     init() {
         intro = Theme.intro

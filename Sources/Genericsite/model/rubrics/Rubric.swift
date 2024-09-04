@@ -8,7 +8,7 @@
 import Foundation
 import Putex
 
-struct Rubric: Codable {
+public struct Rubric: Codable {
     var name: String = ""       //= String(Immeuble.begining.année)
     var label: String = ""       //= String(Immeuble.begining.année)
     var color: String = colors[1]
@@ -23,7 +23,7 @@ struct Rubric: Codable {
     var edition: String?    //"S0F0"
     var d:Int = 1
     
-    var items: [Topic]
+    public var items: [Topic]
     
     
     // consommation globale par mois (index = mois - 1, 0 pour janvier)

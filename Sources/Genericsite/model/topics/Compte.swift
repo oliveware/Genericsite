@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Comptejson : Codable {
+public struct Comptejson : Codable {
     var solde: Soldejson
     var ecritures: [Ecriturejson]
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Theme: Codable {
+public struct Theme: Codable {
     
     static var intro = Theme("intro", nil)
     
@@ -25,7 +25,7 @@ struct Theme: Codable {
     //var edition: String? //= "S0F0"
     var d:Int = 1
     
-    var items: [Rubric] = []
+    public var items: [Rubric] = []
     
     init(_ t:String, _ l:String?) {
         titre = t

@@ -14,7 +14,7 @@ enum KindofTopic : String, Codable {
     case solde
 }
 
-struct Topic: Codable {
+public struct Topic: Codable {
     // Catalink
     var catalog = ""
         
@@ -34,7 +34,7 @@ struct Topic: Codable {
     var d:Int = 1
     
     // compte bancaire
-    var releve: Comptejson?
+    public var releve: Comptejson?
     
     // historique des paiements
   //  var paiement: [Paiement] = []
