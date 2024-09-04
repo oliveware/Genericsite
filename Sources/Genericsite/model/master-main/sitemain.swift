@@ -26,7 +26,7 @@ public struct Sitemain : Codable {
         Guide.Desc("lecture",2,3,"lecture linéaire"))
     public var intro : Theme
     
-    init() {
+    public init() {
         intro = Theme.intro
     }
     
