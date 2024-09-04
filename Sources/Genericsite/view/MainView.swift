@@ -7,15 +7,19 @@
 
 import SwiftUI
 
-struct MainView: View {
+public struct MainView: View {
     @Binding var sitemain: Sitemain
     
-    var body: some View {
+    public init(_ main:Binding<Sitemain>) {
+        _sitemain = main
+    }
+    
+    public var body: some View {
         Text(sitemain.intro.name)
         Text(sitemain.intro.titre)
     }
 }
 
 #Preview {
-    MainView(sitemain:.constant(Sitemain()))
+    MainView(.constant(Sitemain()))
 }
