@@ -15,9 +15,11 @@ extension UTType {
 }
 
 public struct MainDocument: FileDocument {
-    public var sitemain = Sitemain()
+    public var sitemain : Sitemain
     
-    public init() {}
+    public init(_ site:Sitemain) {
+        sitemain = site
+    }
 
   public  static var readableContentTypes: [UTType] { [.jsonText] }
 

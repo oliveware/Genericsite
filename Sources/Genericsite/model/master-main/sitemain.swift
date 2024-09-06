@@ -10,29 +10,33 @@ import Foundation
 
 // produit le fichier main json
 public struct Sitemain : Codable {
-    var footexerg = "Comprendre - Respecter - Utiliser - Expliquer"
-    var enter = "retour ..."
-    var titre = MainTitle( "Data", " ", "Opera")
+    var footexerg : String
+    var enter : String
+    var titre : MainTitle
 
-    var welcome = Welcome(
-        "Préambule", "accueil.txt",
-        "La meilleure façon de prévoir le futur, c'est de l'inventer. Alan Kay",
-        "A la découverte de Data Opera")
+    var welcome : Welcome
     var advice = "conseil.txt"
     var mainav = Mainav()
 
-    var guide = Guide(
-        Guide.Desc("synopsis",2,3,"synopsis"),
-        Guide.Desc("lecture",2,3,"lecture linéaire"))
+    var guide = Guide()
+       
     public var intro : Theme
     
-    public init() {
+    public init(
+        exergue : String,
+        go : String,
+        titrage: [String],
+        maxime:String,
+        accueil:String
+    ) {
+        footexerg = exergue
+        enter = go
+        titre = MainTitle(titrage)
+        welcome = Welcome(maxime, accueil)
+        
         intro = Theme.intro
     }
-    
-    init(_ theme:Theme) {
-        intro = theme
-    }
+
 }
 
 struct MainTitle : Codable {
@@ -40,6 +44,11 @@ struct MainTitle : Codable {
     var middle: String
     var right: String
     
+    init (_ parts:[String]) {
+        left = parts[0]
+        middle = parts[1]
+        right = parts[2]
+    }
     init (_ l:String, _ m:String, _ r:String) {
         left = l
         middle = m
@@ -47,11 +56,15 @@ struct MainTitle : Codable {
     }
 }
 struct Welcome : Codable {
-    var titre: String
-    var texte: String
+    var titre = "Préambule"
+    var texte = "accueil.txt"
     var exergue: String
     var enter: String
     
+    init (_ maxime:String, _ intro:String) {
+        exergue = maxime
+        enter = intro
+    }
     init (_ ti:String, _ tx:String, _ ex:String, _ e:String) {
         titre = ti
         texte = tx
@@ -85,15 +98,13 @@ struct Guide : Codable {
             caption = c
         }
     }
-    var tisyn = "Utilisation du synopsis"
-    var guidesyn : Desc
-    var tilin = "une à une"
-    var guidelin : Desc
     
-    init (_ syn:Desc, _ lin:Desc) {
-        guidesyn = syn
-        guidelin = lin
-    }
+    var tisyn = "Utilisation du synopsis"
+    var guidesyn = Desc("synopsis",2,3,"synopsis")
+    
+    var tilin = "une à une"
+    var guidelin = Desc("lecture",2,3,"lecture linéaire")
+    
 }
 
 
