@@ -9,6 +9,7 @@ import Foundation
 
 
 public struct Comptejson : Codable {
+    //var data: BankingData
     var solde: Soldejson
     var ecritures: [Ecriturejson]
 }
@@ -18,7 +19,7 @@ struct Soldejson: Codable {
     let reel:String
 }
 
-struct Ecriturejson: Codable {
+public struct Ecriturejson: Codable {
     let date:String
     let libellé:String
     let envoi:String?
