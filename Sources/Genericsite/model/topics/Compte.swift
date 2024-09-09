@@ -20,6 +20,7 @@ struct Soldejson: Codable {
 }
 
 public struct Ecriturejson: Codable {
+    public let id:Int?
     public let date:String
     public let libellé:String
     public let envoi:String?
