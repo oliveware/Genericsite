@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum KindofTopic : String, Codable {
+public enum KindofTopic : String, Codable {
     case compte
     case conso
     case paiement
@@ -39,7 +39,7 @@ public struct Topic: Codable {
     // historique des paiements
   //  var paiement: [Paiement] = []
     
-    init(_ k:KindofTopic) {
+    public init(_ k:KindofTopic) {
         switch k {
         case .conso:
             name = "consommation"
