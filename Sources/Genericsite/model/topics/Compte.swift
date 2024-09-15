@@ -9,14 +9,24 @@ import Foundation
 
 
 public struct Comptejson : Codable {
-    //var data: BankingData
-    var solde: Soldejson
-    var ecritures: [Ecriturejson]
+    public var data: BankingData
+    public var solde: Soldejson
+    public var ecritures: [Ecriturejson]
+    
+    public init(_ solde:(banque:String, reel:String), _ ecritures:[Ecriturejson]) {
+        self.solde = Soldejson(solde)
+        self.ecritures = ecritures
+    }
 }
 
 struct Soldejson: Codable {
     let banque:String
     let reel:String
+    
+    init(_ solde:(banque:String, reel:String)) {
+        banque = solde.banque
+        reel = solde.reel
+    }
 }
 
 public struct Ecriturejson: Codable {
