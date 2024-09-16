@@ -38,11 +38,11 @@ public struct Ecriturejson: Codable {
     public let envoi:String?
     public let montant:String
     
-   public init(id:Int,date:String, libellé:String, envoi:String, montant:String) {
-        self.id = id
-        self.date = date
-        self.libellé = libellé
-        self.envoi = envoi
-        self.montant = montant
+    public init(ecriture:(id:Int,date:String, libellé:String, envoi:String, montant:String)) {
+        self.id = ecriture.id
+        self.date = ecriture.date
+        self.libellé = ecriture.libellé
+        self.envoi = ecriture.envoi
+        self.montant = ecriture.montant
     }
 }
