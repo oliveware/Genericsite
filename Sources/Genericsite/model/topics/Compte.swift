@@ -37,4 +37,12 @@ public struct Ecriturejson: Codable {
     public let libellé:String
     public let envoi:String?
     public let montant:String
+    
+    init(id:Int,date:String, libellé:String, envoi:String, montant:String) {
+        self.id = id
+        self.date = date
+        self.libellé = libellé
+        self.envoi = envoi
+        self.montant = montant
+    }
 }
