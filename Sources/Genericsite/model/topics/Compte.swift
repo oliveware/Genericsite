@@ -6,18 +6,27 @@
 //
 
 import Foundation
+import Semantex
+import Oware
 
+extension Topic {
+    init (_ courant:CompteCourant) {
+        self.init(.compte)
+        releve = Comptejson(courant)
+    }
+}
 
 public struct Comptejson : Codable {
-    public var data: String
+    public var data: BankingData
     var solde: Soldejson
     public var soldebanque:String { solde.banque }
     public var ecritures: [Ecriturejson]
     
-    public init(_ data:String, _ solde:(banque:String, reel:String), _ ecritures:[Ecriturejson]) {
-        self.data = data
-        self.solde = Soldejson(solde)
-        self.ecritures = ecritures
+    public init(_ courant: CompteCourant) {
+        let comptejson = courant.compte.json
+        data = comptejson.data
+        solde = Soldejson(comptejson.solde)
+        ecritures = comptejson.ecritures.json
     }
 }
 
@@ -44,5 +53,30 @@ public struct Ecriturejson: Codable {
         self.libellé = ecriture.libellé
         self.envoi = ecriture.envoi
         self.montant = ecriture.montant
+    }
+}
+
+extension Ecritures {
+    init(_ ecritures:[Ecriturejson]) {
+       // devisekind = .EUR
+        var banque: [Ecriture] = []
+        var avenir: [Ecriture] = []
+        for json in ecritures {
+            let ecriture = Ecriture(json.id,json.envoi,json.date,json.libellé,json.montant)
+            if json.date == "" {
+                banque.append(ecriture)
+            } else {
+                avenir.append(ecriture)
+            }
+        }
+        self.init(banque,avenir)
+    }
+    
+    var json:[Ecriturejson] {
+        var ecritures: [Ecriturejson] = []
+        for ecriture in all {
+            ecritures.append(Ecriturejson(ecriture.json))
+        }
+        return ecritures
     }
 }
