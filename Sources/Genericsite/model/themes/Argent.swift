@@ -10,7 +10,7 @@ import Attribex
 import Semantex
 
 extension Sitemain {
-    init(_ argent:Argent) {
+   public init(_ argent:Argent) {
         var rubrics: [Rubric] = []
         var courantopics : [Topic] = []
         for compte in argent.courant {
