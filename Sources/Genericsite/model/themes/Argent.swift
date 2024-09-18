@@ -27,7 +27,7 @@ struct Argentjson:Codable {
 }
 
 extension Argent {
-    init(_ sitemain:Sitemain) {
+    public init(_ sitemain:Sitemain) {
         let rubrics = sitemain.intro.items
         var ccourant: [CompteCourant] = []
         var cepargne: [CompteEpargne] = []
