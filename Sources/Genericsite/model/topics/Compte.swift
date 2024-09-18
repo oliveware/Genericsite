@@ -10,8 +10,13 @@ import Semantex
 import Oware
 
 extension Topic {
-    init (_ courant:CompteCourant) {
-        self.init(.compte)
+    init(_ courant:CompteCourant) {
+        let compte = courant.compte.json.data
+        name = compte.label
+        label = compte.label
+        titre = compte.domiciliation
+        exergue = "compte courant " + compte.numéro
+        slide = ""
         releve = Comptejson(courant)
     }
 }

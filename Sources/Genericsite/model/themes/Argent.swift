@@ -9,21 +9,30 @@ import Oware
 import Attribex
 import Semantex
 
-struct Argentjson:Codable {
-    var comptes:[Topic] = []
-    var epargne:[Topic] = []
-    var bourse:[Topic] = []
-    
-  /*  public init(_ filename:String = "moi") {
-        let file = Fichierjson("argent", filename)
-        if let data = file.read(self) {
-            self = data
-        } else {
-            print("error")
+extension Sitemain {
+    init(_ argent:Argent) {
+        var rubrics: [Rubric] = []
+        var courantopics : [Topic] = []
+        for compte in argent.courant {
+            courantopics.append(Topic(compte))
         }
+        rubrics.append(
+            Rubric("comptes", "Comptes courants", "Comptes courants", "", "navigationcourant",courantopics)
+        )
+        let theme = Theme(
+            "Affaires à suivre","intro","parents",
+            "dernière mise à jour le 15 septembre 2024 à 14h27",
+            "tabord", rubrics)
+        self.init(
+            exergue :
+                "exergue de bas de page",
+            go: "retour ...",
+            titrage : ["Grand", " ", "titre"],
+            maxime: "exergue d'accueil",
+            accueil: "invitation à la suite",
+            intro: theme
+        )
     }
-    */
-
 }
 
 extension Argent {

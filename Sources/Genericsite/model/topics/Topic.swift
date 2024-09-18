@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Oware
 
 public enum KindofTopic : String, Codable {
     case compte
@@ -47,6 +48,8 @@ public struct Topic: Codable {
         slide = sl
         releve = compte
     }
+    
+   
     
     public init(_ k:KindofTopic) {
         switch k {
