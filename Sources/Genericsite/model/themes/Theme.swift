@@ -18,9 +18,9 @@ public struct Theme: Codable {
     var exergue: String = ""
     
     var slide: String = "TIchart"
-    var type = "pdfimg"
-    var first: Int = 1
-    var last: Int = 2
+    var type :String? = "pdfimg"
+    var first: Int? = 1
+    var last: Int? = 2
     
     //var edition: String? //= "S0F0"
     var d:Int = 1
