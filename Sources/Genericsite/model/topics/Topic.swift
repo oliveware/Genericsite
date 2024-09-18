@@ -39,6 +39,15 @@ public struct Topic: Codable {
     // historique des paiements
   //  var paiement: [Paiement] = []
     
+    init(_ n:String, _ t:String, _ l:String?, _ ex:String, _ sl: String, _ compte:Comptejson?) {
+        name = n
+        titre = t
+        label = l ?? t
+        exergue = ex
+        slide = sl
+        releve = compte
+    }
+    
     public init(_ k:KindofTopic) {
         switch k {
         case .conso:

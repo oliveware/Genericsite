@@ -17,11 +17,4 @@ let DO = Sitemain(
     accueil: "A la découverte de Data Opera"
 )
 
-let argent = Sitemain(
-    exergue :
-        "exergue de bas de page",
-    go: "retour ...",
-    titrage : ["Grand", " ", "titre"],
-    maxime: "exergue d'accueil",
-    accueil: "invitation à la suite"
-)
+

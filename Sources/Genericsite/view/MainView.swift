@@ -21,5 +21,5 @@ public struct MainView: View {
 }
 
 #Preview {
-    MainView(.constant(argent))
+    MainView(.constant(siteargent))
 }

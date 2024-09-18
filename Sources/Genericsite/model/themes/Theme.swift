@@ -9,7 +9,7 @@ import Foundation
 
 public struct Theme: Codable {
     
-    static var intro = Theme("intro", nil)
+    static var intro = Theme("intro", nil, nil)
     
     var name: String = "intro"
     var label: String?
@@ -27,9 +27,19 @@ public struct Theme: Codable {
     
     public var items: [Rubric] = []
     
-    init(_ t:String, _ l:String?) {
+    init(_ t:String, _ n:String?, _ l:String?) {
+        name = n ?? "intro"
         titre = t
         label = l
+    }
+    
+    init(_ t:String, _ n:String?, _ l:String?, _ ex:String, _ sl: String, _ rubrics:[Rubric]) {
+        name = n ?? "intro"
+        titre = t
+        label = l
+        exergue = ex
+        slide = sl
+        items = rubrics
     }
     
     mutating func update(_ ex:String, _ sl: String, _ rubrics:[Rubric]) {

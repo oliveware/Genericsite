@@ -28,6 +28,11 @@ public struct Comptejson : Codable {
         solde = Soldejson(comptejson.solde)
         ecritures = comptejson.ecritures.json
     }
+    
+    init(_ json:String) {
+        let jsonData = json.data(using: .utf8)!
+        self = try! JSONDecoder().decode(Comptejson.self, from: jsonData)
+    }
 }
 
 public struct Soldejson: Codable {

@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  Rubric.swift
+//
 //
 //  Created by Herve Crespel on 28/01/2024.
 //
@@ -25,16 +25,26 @@ public struct Rubric: Codable {
     
     public var items: [Topic]
     
+    init(_ n:String, _ t:String, _ l:String?, _ ex:String, _ sl: String, _ topics:[Topic]) {
+        name = n
+        titre = t
+        label = l ?? t
+        exergue = ex
+        slide = sl
+        items = topics
+    }
+    
+    
     
     // consommation globale par mois (index = mois - 1, 0 pour janvier)
     var type = "conso"
     var firstmonth: Int = 1
     var conso: [Consomois] = []
     
-    init(_ topics:[Topic], _ t:String) {
+    init(_ t:String, _ n:String?, _ l:String?, _ ex:String, _ sl: String, _ topics:[Topic], _ type:String) {
         items = topics
-        type = t
-        if t == "conso" {
+        self.type = type
+        if type == "conso" {
             for m in 0...11 {
                 conso.append(Consomois(mois: JMA.moisfr[m], moyenne: Conso.zero, cumul: [], total: Conso.zero))
             }
