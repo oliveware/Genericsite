@@ -29,7 +29,7 @@ public struct Comptejson : Codable {
         ecritures = comptejson.ecritures.json
     }
     
-    init(_ json:String) {
+    public init(_ json:String) {
         let jsonData = json.data(using: .utf8)!
         self = try! JSONDecoder().decode(Comptejson.self, from: jsonData)
     }
