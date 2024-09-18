@@ -37,9 +37,9 @@ public struct Rubric: Codable {
     
     
     // consommation globale par mois (index = mois - 1, 0 pour janvier)
-    var type = "conso"
-    var firstmonth: Int = 1
-    var conso: [Consomois] = []
+  /*  var type = "conso"
+    var firstmonth: Int? = 1
+    var conso: [Consomois]? = []
     
     init(_ t:String, _ n:String?, _ l:String?, _ ex:String, _ sl: String, _ topics:[Topic], _ type:String) {
         items = topics
@@ -50,7 +50,7 @@ public struct Rubric: Codable {
             }
         }
     }
-    
+   
     init(_ début:JMA) { //}, _ apartlabel:String, _ bail:Bail) {
         let an = String(début.année)
         firstmonth = début.mois
@@ -72,7 +72,7 @@ public struct Rubric: Codable {
             print ("erreur - topic inconnu")
         }*/
     }
-    
+    */
 
     
     // Index relatif le plus proche d'une date
