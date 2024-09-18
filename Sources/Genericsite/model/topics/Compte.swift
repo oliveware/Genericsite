@@ -17,7 +17,7 @@ extension Topic {
 }
 
 public struct Comptejson : Codable {
-    public var data: BankingData
+    public var data: BankingData?
     var solde: Soldejson
     public var soldebanque:String { solde.banque }
     public var ecritures: [Ecriturejson]
