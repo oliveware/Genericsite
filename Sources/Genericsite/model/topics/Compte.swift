@@ -17,12 +17,14 @@ extension Topic {
 }
 
 public struct Comptejson : Codable {
+    var id: String?
     public var data: BankingData?
     var solde: Soldejson
     public var soldebanque:String { solde.banque }
     public var ecritures: [Ecriturejson]
     
     public init(_ courant: CompteCourant) {
+        id = courant.id
         let comptejson = courant.compte.json
         data = comptejson.data
         solde = Soldejson(comptejson.solde)
