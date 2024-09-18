@@ -14,7 +14,8 @@ let DO = Sitemain(
     go: "retour ...",
     titrage : ["Data", " ", "Opera"],
     maxime: "La meilleure façon de prévoir le futur, c'est de l'inventer. Alan Kay",
-    accueil: "A la découverte de Data Opera"
+    accueil: "A la découverte de Data Opera",
+    intro:nil
 )
 
 

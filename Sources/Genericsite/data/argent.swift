@@ -12,7 +12,8 @@ let siteargent = Sitemain(
     go: "retour ...",
     titrage : ["Grand", " ", "titre"],
     maxime: "exergue d'accueil",
-    accueil: "invitation à la suite"
+    accueil: "invitation à la suite",
+    intro: intro
 )
 let intro = Theme(
     "Affaires à suivre","intro","parents",

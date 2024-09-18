@@ -27,14 +27,15 @@ public struct Sitemain : Codable {
         go : String,
         titrage: [String],
         maxime:String,
-        accueil:String
+        accueil:String,
+        intro:Theme?
     ) {
         footexerg = exergue
         enter = go
         titre = MainTitle(titrage)
         welcome = Welcome(maxime, accueil)
         
-        intro = Theme.intro
+        self.intro = intro ?? Theme.intro
     }
 
 }
