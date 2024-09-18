@@ -39,7 +39,7 @@ public struct Topic: Codable {
     // historique des paiements
   //  var paiement: [Paiement] = []
     
-    init(_ n:String, _ t:String, _ l:String?, _ ex:String, _ sl: String, _ compte:Comptejson?) {
+    public init(_ n:String, _ t:String, _ l:String?, _ ex:String, _ sl: String, _ compte:Comptejson?) {
         name = n
         titre = t
         label = l ?? t

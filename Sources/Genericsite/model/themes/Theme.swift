@@ -33,7 +33,7 @@ public struct Theme: Codable {
         label = l
     }
     
-    init(_ t:String, _ n:String?, _ l:String?, _ ex:String, _ sl: String, _ rubrics:[Rubric]) {
+    public init(_ t:String, _ n:String?, _ l:String?, _ ex:String, _ sl: String, _ rubrics:[Rubric]) {
         name = n ?? "intro"
         titre = t
         label = l

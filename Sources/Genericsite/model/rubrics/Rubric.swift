@@ -25,7 +25,7 @@ public struct Rubric: Codable {
     
     public var items: [Topic]
     
-    init(_ n:String, _ t:String, _ l:String?, _ ex:String, _ sl: String, _ topics:[Topic]) {
+    public init(_ n:String, _ t:String, _ l:String?, _ ex:String, _ sl: String, _ topics:[Topic]) {
         name = n
         titre = t
         label = l ?? t
