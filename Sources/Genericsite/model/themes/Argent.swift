@@ -12,18 +12,21 @@ import Semantex
 extension Sitemain {
    public init(_ argent:Argent) {
         var rubrics: [Rubric] = []
-        var courantopics : [Topic] = []
+        
+       var courantopics : [Topic] = []
         for compte in argent.courant {
             courantopics.append(Topic(compte))
         }
         rubrics.append(
             Rubric("comptes", "Comptes courants", "Comptes courants", "", "navigationcourant",courantopics)
         )
-        let theme = Theme(
+        
+       let theme = Theme(
             "Affaires à suivre","intro","parents",
             "dernière mise à jour le 15 septembre 2024 à 14h27",
             "tabord", rubrics)
-        self.init(
+        
+       self.init(
             exergue :
                 "exergue de bas de page",
             go: "retour ...",
@@ -49,13 +52,13 @@ extension Argent {
             if rubrics.count > 1 {
                 let epargnetopics = rubrics[1].items
                 for topic in epargnetopics {
-                   // ccourant.append(CompteEpargne(topic.releve!))
+                   cepargne.append(CompteEpargne(topic.releve!))
                 }
             }
             if rubrics.count > 2 {
                 let boursetopics = rubrics[2].items
                 for topic in boursetopics {
-                   // ccourant.append(CompteTitre(topic.releve!))
+                   cbourse.append(CompteTitre(topic.releve!))
                 }
             }
         }
@@ -68,6 +71,17 @@ extension CompteCourant {
     init(_ comptejson:Comptejson) {
         let compte = Compte(comptejson.data ?? BankingData(), comptejson.soldebanque, Ecritures(comptejson.ecritures))
         self.init(compte, comptejson.id)
-        
+    }
+}
+extension CompteEpargne {
+    init(_ comptejson:Comptejson) {
+        let compte = Compte(comptejson.data ?? BankingData(), comptejson.soldebanque, Ecritures(comptejson.ecritures))
+        self.init(compte, comptejson.id)
+    }
+}
+extension CompteTitre {
+    init(_ comptejson:Comptejson) {
+        let compte = Compte(comptejson.data ?? BankingData(), comptejson.soldebanque, Ecritures(comptejson.ecritures))
+        self.init(compte, comptejson.id)
     }
 }

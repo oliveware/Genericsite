@@ -15,9 +15,27 @@ extension Topic {
         name = compte.label
         label = compte.label
         titre = compte.domiciliation
-        exergue = "compte courant " + compte.numéro
+        exergue = CompteCourant.selectorPrompt + " " + compte.numéro
         slide = ""
         releve = Comptejson(courant)
+    }
+    init(_ epargne:CompteEpargne) {
+        let compte = epargne.compte.json.data
+        name = compte.label
+        label = compte.label
+        titre = compte.domiciliation
+        exergue = CompteEpargne.selectorPrompt + " " + compte.numéro
+        slide = ""
+        releve = Comptejson(epargne)
+    }
+    init(_ bourse:CompteTitre) {
+        let compte = bourse.compte.json.data
+        name = compte.label
+        label = compte.label
+        titre = compte.domiciliation
+        exergue = CompteTitre.selectorPrompt + " " + compte.numéro
+        slide = ""
+        releve = Comptejson(bourse)
     }
 }
 
@@ -31,6 +49,20 @@ public struct Comptejson : Codable {
     public init(_ courant: CompteCourant) {
         id = courant.id
         let comptejson = courant.compte.json
+        data = comptejson.data
+        solde = Soldejson(comptejson.solde)
+        ecritures = comptejson.ecritures.json
+    }
+    public init(_ epargne: CompteEpargne) {
+        id = epargne.id
+        let comptejson = epargne.compte.json
+        data = comptejson.data
+        solde = Soldejson(comptejson.solde)
+        ecritures = comptejson.ecritures.json
+    }
+    public init(_ bourse: CompteTitre) {
+        id = bourse.id
+        let comptejson = bourse.compte.json
         data = comptejson.data
         solde = Soldejson(comptejson.solde)
         ecritures = comptejson.ecritures.json
@@ -76,9 +108,9 @@ extension Ecritures {
         for json in ecritures {
             let ecriture = Ecriture(json.id,json.envoi,json.date,json.libellé,json.montant)
             if json.date == "" {
-                banque.append(ecriture)
-            } else {
                 avenir.append(ecriture)
+            } else {
+                banque.append(ecriture)
             }
         }
         self.init(banque,avenir)
