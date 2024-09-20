@@ -23,7 +23,7 @@ extension Sitemain {
         
        let theme = Theme(
             "Affaires à suivre","intro","parents",
-            "dernière mise à jour le 15 septembre 2024 à 14h27",
+            "",
             "tabord", rubrics)
         
        self.init(
