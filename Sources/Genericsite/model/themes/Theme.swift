@@ -37,15 +37,21 @@ public struct Theme: Codable {
         name = n ?? "intro"
         titre = t
         label = l
-        exergue = ex
         slide = sl
         items = rubrics
+        if ex == "" { exergue = Theme.lastmaj } else { exergue = ex }
     }
     
     mutating func update(_ ex:String, _ sl: String, _ rubrics:[Rubric]) {
         exergue = ex
         slide = sl
         items = rubrics
+    }
+    
+    static var lastmaj:String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "d MMMM yyyy' à 'HH'h'mm"
+        return "dernière mise à jour : " + formatter.string(from:Date.now)
     }
 }
 

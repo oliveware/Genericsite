@@ -18,7 +18,7 @@ extension Sitemain {
             courantopics.append(Topic(compte))
         }
         rubrics.append(
-            Rubric("comptes", "Comptes courants", "Comptes courants", "", "navigationcourant",courantopics)
+            Rubric("comptes", "Comptes courants", "Comptes courants", "", "navigationcourant", courantopics)
         )
         
        let theme = Theme(
