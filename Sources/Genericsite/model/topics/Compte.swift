@@ -37,6 +37,14 @@ extension Topic {
         slide = ""
         releve = Comptejson(bourse)
     }
+    public init(_ n: String, _ l:String, _ compte:Comptejson) {
+        name = n
+        label = l
+        titre = l
+        exergue = "compte " + (compte.data?.numéro ?? "")
+        slide = ""
+        releve = compte
+    }
 }
 
 public struct Comptejson : Codable {

@@ -36,17 +36,15 @@ public struct Topic: Codable {
     
     // compte bancaire
     public var releve: Comptejson?
+
     
-    // historique des paiements
-  //  var paiement: [Paiement] = []
-    
-    public init(_ n:String, _ t:String, _ l:String?, _ ex:String, _ sl: String, _ compte:Comptejson?) {
+    public init(_ n:String, _ t:String, _ l:String?, _ ex:String, _ sl: String) {
         name = n
         titre = t
         label = l ?? t
         exergue = ex
         slide = sl
-        releve = compte
+
     }
     
    

@@ -22,7 +22,7 @@ let intro = Theme(
     [
         Rubric("comptes", "Comptes courants", "Comptes courants", "", "navigationcourant",
                [
-                Topic("bp", "Banque postale", "Banque postale", "compte courant 1115372", "", Comptejson(BP))
+                Topic("bp", "Banque postale", Comptejson(BP))
                ]
               ),
         Rubric("epargne", "Epargne", "Epargne", "", "navigationepargne",
