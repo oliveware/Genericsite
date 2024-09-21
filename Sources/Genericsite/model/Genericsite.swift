@@ -5,7 +5,7 @@ public struct Genericsite: Codable {
     var siteroot : String
     var localroot : String
 
-    var colors : [String]
+    public var colors : [String]
     
     var name : String
     var initials : String
