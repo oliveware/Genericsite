@@ -25,23 +25,20 @@ let intro = Theme(
     "tabord",
     argentsite.colors[0],
     [
-        Rubric("comptes", "Comptes courants", "Comptes courants", "", "navigationcourant",
-               argentsite.colors[2],
+        Rubric("comptes", "Comptes courants", "Comptes courants", argentsite.colors[2], "", "navigationcourant",
                [
                 Topic("bp", "Banque postale", Comptejson(BP), argentsite.colors[2])
                ]
               ),
-        Rubric("epargne", "Epargne", "Epargne", "", "navigationepargne",
-               argentsite.colors[3],
+        Rubric("epargne", "Epargne", "Epargne", argentsite.colors[3], "", "navigationepargne",
                []
               ),
-        Rubric("bourse", "Bourse", "Bourse", "", "navigationbourse",
-               argentsite.colors[4],
+        Rubric("bourse", "Bourse", "Bourse", argentsite.colors[4], "", "navigationbourse",
                []
               )
     ]
-    
 )
+
 let BP = """
 { "solde":{"banque":"37 456,44 €", "reel": "37 456,44 €"},
     "ecritures":[

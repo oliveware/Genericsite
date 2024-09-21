@@ -18,13 +18,13 @@ extension Sitemain {
             courantopics.append(Topic(compte))
         }
         rubrics.append(
-            Rubric("comptes", "Comptes courants", "Comptes courants", "", "navigationcourant", "C", courantopics)
+            Rubric("comptes", "Comptes courants", "Comptes courants", argentsite.colors[2], "", "navigationcourant", courantopics)
         )
         
        let theme = Theme(
-            "Affaires à suivre","intro","parents",
+            "Affaires à suivre","intro","parents", argentsite.colors[0],
             "",
-            "tabord", "darker", rubrics)
+            "tabord",  rubrics)
         
        self.init(
             exergue :
