@@ -52,7 +52,8 @@ public struct Theme: Codable {
     
     static var lastmaj:String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "d MMMM yyyy' à 'HH'h'mm"
+        formatter.locale = Locale(identifier: "fr_FR")
+        formatter.dateFormat = "d mmmm yyyy' à 'HH'h'mm"
         return "dernière mise à jour : " + formatter.string(from:Date.now)
     }
 }
