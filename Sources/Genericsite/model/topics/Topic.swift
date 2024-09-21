@@ -9,7 +9,9 @@ import Foundation
 import Oware
 
 public enum KindofTopic : String, Codable {
-    case compte
+    case courant
+    case epargne
+    case bourse
     case conso
     case paiement
     case solde
@@ -22,7 +24,7 @@ public struct Topic: Codable {
     // topic
     var name: String = ""
     var label: String = ""
-    var color: String = colors[2]
+    var color: String 
     var titre: String = ""
     var exergue: String = ""
     
@@ -38,10 +40,11 @@ public struct Topic: Codable {
     public var releve: Comptejson?
 
     
-    public init(_ n:String, _ t:String, _ l:String?, _ ex:String, _ sl: String) {
+    public init(_ n:String, _ t:String, _ l:String?, _ c:String, _ ex:String, _ sl: String) {
         name = n
         titre = t
         label = l ?? t
+        color = c
         exergue = ex
         slide = sl
 
@@ -49,14 +52,25 @@ public struct Topic: Codable {
     
    
     
-    public init(_ k:KindofTopic) {
+    public init(_ k:KindofTopic, _ c:String) {
+        color = c
         switch k {
         case .conso:
             name = "consommation"
             label = "consommation"
             titre = "Suivi de consommation"
             exergue = "et moyenne journalière"
-        case .compte:
+        case .bourse:
+            name = "compte"
+            label = "compte"
+            titre = "Compte"
+            exergue = ""
+        case .courant:
+            name = "compte"
+            label = "compte"
+            titre = "Compte"
+            exergue = ""
+        case .epargne:
             name = "compte"
             label = "compte"
             titre = "Compte"
@@ -75,7 +89,7 @@ public struct Topic: Codable {
     }
 
     init() {
-        
+        color = "dark"
       /*  paiement = []
         for mois in 1...12 {
             paiement.append(Paiement(bail,mois,an))

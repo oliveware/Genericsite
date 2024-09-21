@@ -5,8 +5,11 @@
 //  Created by Herve Crespel on 18/09/2024.
 //
 
+let argentsite = Genericsite(siteroot: "locations/", localroot: "locations/site/",
+                         colors: ["dark", "darker", "colorA", "colorB", "colorC"],
+                         name: "nom", initials: "dd")
 
-let siteargent = Sitemain(
+let argentmain = Sitemain(
     exergue :
         "exergue de bas de page",
     go: "retour ...",
@@ -15,20 +18,25 @@ let siteargent = Sitemain(
     accueil: "invitation à la suite",
     intro: intro
 )
+
 let intro = Theme(
     "Affaires à suivre","intro","parents",
-    "dernière mise à jour le 15 septembre 2024 à 14h27",
+    "",
     "tabord",
+    argentsite.colors[0],
     [
         Rubric("comptes", "Comptes courants", "Comptes courants", "", "navigationcourant",
+               argentsite.colors[2],
                [
-                Topic("bp", "Banque postale", Comptejson(BP))
+                Topic("bp", "Banque postale", Comptejson(BP), argentsite.colors[2])
                ]
               ),
         Rubric("epargne", "Epargne", "Epargne", "", "navigationepargne",
+               argentsite.colors[3],
                []
               ),
         Rubric("bourse", "Bourse", "Bourse", "", "navigationbourse",
+               argentsite.colors[4],
                []
               )
     ]

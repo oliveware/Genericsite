@@ -24,8 +24,7 @@ struct Sitemaster : Codable {
         ]
 }
 
-// Constantes
-let colors = ["darker", "colorA", "colorB"]
+
 
 struct Flag : Codable {
     var flag = "fr.jpg"

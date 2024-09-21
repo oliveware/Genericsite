@@ -2,17 +2,30 @@
 // https://docs.swift.org/swift-book
 
 public struct Genericsite: Codable {
-    static var siteroot = "locations/"
-    static var localroot = "locations/site/"
+    var siteroot : String
+    var localroot : String
+
+    var colors : [String]
     
-    var name : String = ""
-    var initials : String = ""
+    var name : String
+    var initials : String
 
     
     var isNaN : Bool {
-        name == ""
+        name == "" || colors == []
     }
     
+    public init(siteroot: String , localroot: String ,
+                colors: [String] = ["dark", "darker", "colorA", "colorB"],
+                name: String, initials: String) {
+        self.siteroot = siteroot
+        self.localroot = localroot
+        self.colors = colors
+        self.name = name
+        self.initials = initials
+    }
 
 }
+
+
 

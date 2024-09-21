@@ -17,6 +17,7 @@ extension Topic {
         titre = compte.domiciliation
         exergue = CompteCourant.selectorPrompt + " " + compte.numéro
         slide = ""
+        color = argentsite.colors[2]
         releve = Comptejson(courant)
     }
     init(_ epargne:CompteEpargne) {
@@ -26,6 +27,7 @@ extension Topic {
         titre = compte.domiciliation
         exergue = CompteEpargne.selectorPrompt + " " + compte.numéro
         slide = ""
+        color = argentsite.colors[3]
         releve = Comptejson(epargne)
     }
     init(_ bourse:CompteTitre) {
@@ -35,14 +37,16 @@ extension Topic {
         titre = compte.domiciliation
         exergue = CompteTitre.selectorPrompt + " " + compte.numéro
         slide = ""
+        color = argentsite.colors[4]
         releve = Comptejson(bourse)
     }
-    public init(_ n: String, _ l:String, _ compte:Comptejson) {
+    public init(_ n: String, _ l:String, _ compte:Comptejson, _ c:String) {
         name = n
         label = l
         titre = l
         exergue = "compte " + (compte.data?.numéro ?? "")
         slide = ""
+        color = c
         releve = compte
     }
 }

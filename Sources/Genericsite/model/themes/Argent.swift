@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  Argent.swift
+//
 //
 //  Created by Herve Crespel on 10/08/2024.
 //
@@ -18,13 +18,13 @@ extension Sitemain {
             courantopics.append(Topic(compte))
         }
         rubrics.append(
-            Rubric("comptes", "Comptes courants", "Comptes courants", "", "navigationcourant", courantopics)
+            Rubric("comptes", "Comptes courants", "Comptes courants", "", "navigationcourant", "C", courantopics)
         )
         
        let theme = Theme(
             "Affaires à suivre","intro","parents",
             "",
-            "tabord", rubrics)
+            "tabord", "darker", rubrics)
         
        self.init(
             exergue :

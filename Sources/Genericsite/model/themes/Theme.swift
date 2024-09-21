@@ -9,11 +9,11 @@ import Foundation
 
 public struct Theme: Codable {
     
-    static var intro = Theme("intro", nil, nil)
+    static var intro = Theme("intro", nil, nil, "dark")
     
     var name: String = "intro"
     var label: String?
-    var color: String = colors[0]
+    var color: String 
     var titre: String
     var exergue: String = ""
     
@@ -27,16 +27,18 @@ public struct Theme: Codable {
     
     public var items: [Rubric] = []
     
-    init(_ t:String, _ n:String?, _ l:String?) {
+    init(_ t:String, _ n:String?, _ l:String?, _ c:String) {
         name = n ?? "intro"
         titre = t
         label = l
+        color = c
     }
     
-    public init(_ t:String, _ n:String?, _ l:String?, _ ex:String, _ sl: String, _ rubrics:[Rubric]) {
+    public init(_ t:String, _ n:String?, _ l:String?, _ c:String, _ ex:String, _ sl: String, _ rubrics:[Rubric]) {
         name = n ?? "intro"
         titre = t
         label = l
+        color = c
         slide = sl
         items = rubrics
         if ex == "" { exergue = Theme.lastmaj } else { exergue = ex }

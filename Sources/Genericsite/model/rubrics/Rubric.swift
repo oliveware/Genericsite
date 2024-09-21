@@ -11,7 +11,7 @@ import Putex
 public struct Rubric: Codable {
     var name: String = ""       //= String(Immeuble.begining.année)
     var label: String = ""       //= String(Immeuble.begining.année)
-    var color: String = colors[1]
+    var color: String 
     var titre: String = ""       //= "année \(Immeuble.begining.année)"
     var exergue: String = ""
     
@@ -25,10 +25,11 @@ public struct Rubric: Codable {
     
     public var items: [Topic]
     
-    public init(_ n:String, _ t:String, _ l:String?, _ ex:String, _ sl: String, _ topics:[Topic]) {
+    public init(_ n:String, _ t:String, _ l:String?, _ c:String, _ ex:String, _ sl: String, _ topics:[Topic]) {
         name = n
         titre = t
         label = l ?? t
+        color = c
         exergue = ex
         slide = sl
         items = topics
