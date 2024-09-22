@@ -7,7 +7,7 @@
       "location" : "http://github.com/oliveware/Attribex",
       "state" : {
         "branch" : "main",
-        "revision" : "b45ea794732dbd98bba1620c3ac24b2afd0d6687"
+        "revision" : "b101d4f4ee1216f9b1894a941a85b9435612eff0"
       }
     },
     {
@@ -34,7 +34,7 @@
       "location" : "http://github.com/oliveware/Semantex",
       "state" : {
         "branch" : "main",
-        "revision" : "17d08cf9c84a6f8864336ece36df0309d9944c6b"
+        "revision" : "4f4de6a0f1ef1d7432df36e25a76dbaa3596158d"
       }
     }
   ],

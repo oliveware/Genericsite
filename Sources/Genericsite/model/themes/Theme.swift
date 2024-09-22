@@ -17,10 +17,10 @@ public struct Theme: Codable {
     var titre: String
     var exergue: String = ""
     
-    var slide: String = "TIchart"
-    var type :String? = "pdfimg"
-    var first: Int? = 1
-    var last: Int? = 2
+    var slide: String?      //= "TIchart"
+    var type :String?       //= "pdfimg"
+    var first: Int?
+    var last: Int?
     
     //var edition: String? //= "S0F0"
     var d:Int = 1
