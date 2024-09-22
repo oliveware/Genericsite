@@ -13,8 +13,8 @@ extension Topic {
     init(_ courant:CompteCourant) {
         let compte = courant.compte.json.data
         name = compte.numéro
-        label = compte.label
-        titre = compte.label
+        label = compte.nombanque
+        titre = compte.nombanque
         exergue = CompteCourant.selectorPrompt + " " + compte.numéro
         slide = ""
         color = argentsite.colors[2]
@@ -23,8 +23,8 @@ extension Topic {
     init(_ epargne:CompteEpargne) {
         let compte = epargne.compte.json.data
         name = compte.numéro
-        label = compte.label
-        titre = compte.label
+        label = compte.nombanque
+        titre = compte.nombanque
         exergue = CompteEpargne.selectorPrompt + " " + compte.numéro
         slide = ""
         color = argentsite.colors[3]
@@ -33,8 +33,8 @@ extension Topic {
     init(_ bourse:CompteTitre) {
         let compte = bourse.compte.json.data
         name = compte.numéro
-        label = compte.label
-        titre = compte.label
+        label = compte.nombanque
+        titre = compte.nombanque
         exergue = CompteTitre.selectorPrompt + " " + compte.numéro
         slide = ""
         color = argentsite.colors[4]
