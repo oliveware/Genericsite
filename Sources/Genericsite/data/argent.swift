@@ -5,9 +5,11 @@
 //  Created by Herve Crespel on 18/09/2024.
 //
 
-let argentsite = Genericsite(siteroot: "locations/", localroot: "locations/site/",
-                         colors: ["dark", "darker", "colorA", "colorB", "colorC"],
-                         name: "nom", initials: "dd")
+let argentsite = Genericsite(
+        siteroot: "argent/", localroot: "argent/site/",
+        colors: ["dark", "darker", "colorA", "colorB", "colorC"],
+        name: "nom", initials: "dd"
+    )
 
 let argentmain = Sitemain(
     exergue :

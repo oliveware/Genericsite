@@ -12,9 +12,9 @@ import Oware
 extension Topic {
     init(_ courant:CompteCourant) {
         let compte = courant.compte.json.data
-        name = compte.label
+        name = compte.numéro
         label = compte.label
-        titre = compte.domiciliation
+        titre = compte.label
         exergue = CompteCourant.selectorPrompt + " " + compte.numéro
         slide = ""
         color = argentsite.colors[2]
@@ -22,9 +22,9 @@ extension Topic {
     }
     init(_ epargne:CompteEpargne) {
         let compte = epargne.compte.json.data
-        name = compte.label
+        name = compte.numéro
         label = compte.label
-        titre = compte.domiciliation
+        titre = compte.label
         exergue = CompteEpargne.selectorPrompt + " " + compte.numéro
         slide = ""
         color = argentsite.colors[3]
@@ -32,9 +32,9 @@ extension Topic {
     }
     init(_ bourse:CompteTitre) {
         let compte = bourse.compte.json.data
-        name = compte.label
+        name = compte.numéro
         label = compte.label
-        titre = compte.domiciliation
+        titre = compte.label
         exergue = CompteTitre.selectorPrompt + " " + compte.numéro
         slide = ""
         color = argentsite.colors[4]
