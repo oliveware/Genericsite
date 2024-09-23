@@ -76,7 +76,7 @@ extension CompteCourant {
 extension CompteEpargne {
     init(_ comptejson:Comptejson) {
         let compte = Compte(comptejson.data ?? BankingData(), comptejson.soldebanque, Ecritures(comptejson.ecritures))
-        self.init(compte, comptejson.id)
+        self.init(comptejson.data ?? BankingData(), compte, comptejson.id)
     }
 }
 extension CompteTitre {
