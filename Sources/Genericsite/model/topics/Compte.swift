@@ -21,11 +21,11 @@ extension Topic {
         releve = Comptejson(courant)
     }
     init(_ epargne:CompteEpargne) {
-        let compte = epargne.compte.json.data
-        name = compte.numéro
-        label = compte.nombanque
-        titre = compte.nombanque
-        exergue = CompteEpargne.selectorPrompt + " " + compte.numéro
+        let data = epargne.json.data
+        name = data.numéro
+        label = data.nombanque
+        titre = data.nombanque
+        exergue = CompteEpargne.selectorPrompt + " " + data.numéro
         slide = ""
         color = argentsite.colors[3]
         releve = Comptejson(epargne)
@@ -67,7 +67,7 @@ public struct Comptejson : Codable {
     }
     public init(_ epargne: CompteEpargne) {
         id = epargne.id
-        let comptejson = epargne.compte.json
+        let comptejson = epargne.json
         data = comptejson.data
         solde = Soldejson(comptejson.solde)
         ecritures = comptejson.ecritures.json

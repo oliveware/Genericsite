@@ -16,7 +16,7 @@
       "location" : "http://github.com/oliveware/Oware",
       "state" : {
         "branch" : "main",
-        "revision" : "971b4c4209c984df8e64cd7d5115b9d50f7d136f"
+        "revision" : "43916d66db793765dc2c111f4f4057b8523a9a35"
       }
     },
     {
@@ -34,7 +34,7 @@
       "location" : "http://github.com/oliveware/Semantex",
       "state" : {
         "branch" : "main",
-        "revision" : "4f4de6a0f1ef1d7432df36e25a76dbaa3596158d"
+        "revision" : "d6812798711db817b15661e0be666ceca5bdd0b7"
       }
     }
   ],
