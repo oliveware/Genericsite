@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  Compte.swift
+//
 //
 //  Created by Herve Crespel on 10/08/2024.
 //
@@ -44,7 +44,7 @@ extension Topic {
         name = n
         label = l
         titre = l
-        exergue = "compte " + (compte.data?.numéro ?? "")
+        exergue = "compte " //+ (compte.data?.numéro ?? "")
         slide = ""
         color = c
         releve = compte
@@ -53,7 +53,8 @@ extension Topic {
 
 public struct Comptejson : Codable {
     var id: String?
-    public var data: BankingData?
+    public var cdata: BankingData?
+    public var sdata: SparingData?
     var solde: Soldejson
     public var soldebanque:String { solde.banque }
     public var ecritures: [Ecriturejson]
@@ -61,21 +62,21 @@ public struct Comptejson : Codable {
     public init(_ courant: CompteCourant) {
         id = courant.id
         let comptejson = courant.compte.json
-        data = comptejson.data
+        cdata = comptejson.data
         solde = Soldejson(comptejson.solde)
         ecritures = comptejson.ecritures.json
     }
     public init(_ epargne: CompteEpargne) {
         id = epargne.id
         let comptejson = epargne.json
-        data = comptejson.data
+        sdata = comptejson.data
         solde = Soldejson(comptejson.solde)
         ecritures = comptejson.ecritures.json
     }
     public init(_ bourse: CompteTitre) {
         id = bourse.id
         let comptejson = bourse.compte.json
-        data = comptejson.data
+        cdata = comptejson.data
         solde = Soldejson(comptejson.solde)
         ecritures = comptejson.ecritures.json
     }
