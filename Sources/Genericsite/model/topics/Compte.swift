@@ -7,6 +7,7 @@
 
 import Foundation
 import Semantex
+import Attribex
 import Oware
 
 extension Topic {
@@ -31,11 +32,11 @@ extension Topic {
         releve = Comptejson(epargne)
     }
     init(_ bourse:CompteTitre) {
-        let compte = bourse.compte.json.data
-        name = compte.numéro
-        label = compte.nombanque
-        titre = compte.nombanque
-        exergue = CompteTitre.selectorPrompt + " " + compte.numéro
+        let data = bourse.json.data
+        name = data.numéro
+        label = data.nombanque
+        titre = data.nombanque
+        exergue = CompteTitre.selectorPrompt + " " + data.numéro
         slide = ""
         color = argentsite.colors[4]
         releve = Comptejson(bourse)
@@ -58,27 +59,29 @@ public struct Comptejson : Codable {
     var solde: Soldejson
     public var soldebanque:String { solde.banque }
     public var ecritures: [Ecriturejson]
+    public var titres:Portefeuille?
     
     public init(_ courant: CompteCourant) {
         id = courant.id
-        let comptejson = courant.compte.json
-        cdata = comptejson.data
-        solde = Soldejson(comptejson.solde)
-        ecritures = comptejson.ecritures.json
+        let courantjson = courant.compte.json
+        cdata = courantjson.data
+        solde = Soldejson(courantjson.solde)
+        ecritures = courantjson.ecritures.json
     }
     public init(_ epargne: CompteEpargne) {
         id = epargne.id
-        let comptejson = epargne.json
-        sdata = comptejson.data
-        solde = Soldejson(comptejson.solde)
-        ecritures = comptejson.ecritures.json
+        let epargnejson = epargne.json
+        sdata = epargnejson.data
+        solde = Soldejson(epargnejson.solde)
+        ecritures = epargnejson.ecritures.json
     }
     public init(_ bourse: CompteTitre) {
         id = bourse.id
-        let comptejson = bourse.compte.json
-        cdata = comptejson.data
-        solde = Soldejson(comptejson.solde)
-        ecritures = comptejson.ecritures.json
+        let boursejson = bourse.json
+        sdata = boursejson.data
+        solde = Soldejson(boursejson.solde)
+        ecritures = boursejson.ecritures.json
+        titres = boursejson.titres
     }
     
     public init(_ json:String) {
