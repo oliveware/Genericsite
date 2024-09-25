@@ -28,6 +28,14 @@ extension Sitemain {
        rubrics.append(
            Rubric("epargne", "Epargne", "Epargne", argentsite.colors[3], "", "navigationcourant", epargnetopics)
        )
+       
+       var boursetopics : [Topic] = []
+       for compte in argent.bourse {
+           boursetopics.append(Topic(compte))
+       }
+       rubrics.append(
+           Rubric("bourse", "Bourse", "Bourse", argentsite.colors[4], "", "navigationcourant", boursetopics)
+       )
         
        let theme = Theme(
             "Affaires à suivre","intro","parents", argentsite.colors[0],
