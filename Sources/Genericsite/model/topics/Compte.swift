@@ -59,7 +59,7 @@ public struct Comptejson : Codable {
     var solde: Soldejson
     public var soldebanque:String { solde.banque }
     public var ecritures: [Ecriturejson]
-    public var titres:Portefeuille?
+    public var folio:Foliojson?
     
     public init(_ courant: CompteCourant) {
         id = courant.id
@@ -81,7 +81,7 @@ public struct Comptejson : Codable {
         sdata = boursejson.data
         solde = Soldejson(boursejson.solde)
         ecritures = boursejson.ecritures.json
-        titres = boursejson.titres
+        folio = boursejson.folio
     }
     
     public init(_ json:String) {
@@ -139,4 +139,10 @@ extension Ecritures {
         }
         return ecritures
     }
+}
+
+public struct Foliojson : Codable {
+    var date:String
+    var estimation:String
+    var titres:Titrepargnes
 }
