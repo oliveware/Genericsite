@@ -59,7 +59,7 @@ public struct Comptejson : Codable {
     var solde: Soldejson
     public var soldebanque:String { solde.banque }
     public var ecritures: [Ecriturejson]
-    public var folio:Foliojson?
+    public var folio:Portefeuille?
     
     public init(_ courant: CompteCourant) {
         id = courant.id
@@ -141,8 +141,4 @@ extension Ecritures {
     }
 }
 
-public struct Foliojson : Codable {
-    var date:String
-    var estimation:String
-    var titres:Titrepargnes
-}
+

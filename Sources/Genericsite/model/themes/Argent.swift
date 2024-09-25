@@ -90,6 +90,6 @@ extension CompteEpargne {
 extension CompteTitre {
     init(_ comptejson:Comptejson) {
         let compte = Compte(comptejson.cdata ?? BankingData(), comptejson.soldebanque, Ecritures(comptejson.ecritures))
-        self.init(comptejson.sdata ?? SparingData(), compte, comptejson.titres ?? Portefeuille(), comptejson.id)
+        self.init(comptejson.sdata ?? SparingData(), compte, comptejson.folio ?? Portefeuille(), comptejson.id)
     }
 }
