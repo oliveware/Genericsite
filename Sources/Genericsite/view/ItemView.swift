@@ -64,10 +64,10 @@ struct OptionalEdit:View{
         if let stringBinding: Binding<String> = Binding($string) {
             HStack {
                 TextField(prompt ,text:stringBinding)
-                Button("rem") { string = nil }
+                Button("remove") { string = nil }
             }
         } else {
-            Button("add") { string = "" }
+            Button("add a \(prompt)") { string = "" }
         }
     }
 }
@@ -139,8 +139,6 @@ struct ItemEdit<T:Item> : View {
                             if item.slide != nil {
                                 TextField("first" ,value:$item.first, format: .number).frame(width:70,alignment: .center)
                                 TextField("last" ,value:$item.last, format: .number).frame(width:70,alignment: .center)
-                            } else {
-                                Button("add") { item.slide = "" }
                             }
                         }
                     }.frame(width:350)
