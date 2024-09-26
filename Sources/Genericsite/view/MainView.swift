@@ -15,9 +15,10 @@ public struct MainView: View {
     }
     
     public var body: some View {
-        Text(sitemain.intro.name)
-        Text(sitemain.intro.titre)
+        
+        ThemeView($sitemain.intro)
     }
+
 }
 
 #Preview {

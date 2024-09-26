@@ -17,7 +17,8 @@ public enum KindofTopic : String, Codable {
     case solde
 }
 
-public struct Topic: Codable {
+public struct Topic: Codable,Identifiable, Item {
+    public var id:String {name}
     // Catalink
     var catalog = ""
         
@@ -28,7 +29,7 @@ public struct Topic: Codable {
     var titre: String = ""
     var exergue: String = ""
     
-    var slide: String?
+    var slide: String = ""
     
     var first: Int?
     var last: Int?

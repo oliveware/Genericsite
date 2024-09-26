@@ -8,7 +8,8 @@
 import Foundation
 import Putex
 
-public struct Rubric: Codable {
+public struct Rubric: Codable, Identifiable, Item {
+    public var id:String {name}
     var name: String = ""       //= String(Immeuble.begining.année)
     var label: String = ""       //= String(Immeuble.begining.année)
     var color: String 

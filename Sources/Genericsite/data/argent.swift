@@ -23,9 +23,9 @@ let argentmain = Sitemain(
 
 let intro = Theme(
     "Affaires à suivre","intro","parents",
-    "",
-    "tabord",
     argentsite.colors[0],
+    "lastmaj",
+    "tabord",
     [
         Rubric("comptes", "Comptes courants", "Comptes courants", argentsite.colors[2], "", "navigationcourant",
                [
@@ -64,6 +64,5 @@ let BP = """
         {"date": "05/12/2023","libellé": "FRAIS DE GESTION DE VOTRE AUTORISATION DE DECOUVERT  ","montant": "-6,00"},
         {"date": "09/11/2023","libellé": "VIREMENT DE CAISSE D ASSURANCE R AITE ET SANTE AU TRAVAIL 01913786      VIRIQUE      1023 ASSURANCE RETRAITE","montant": "627,75"}
         ]
-    }
 }
 """

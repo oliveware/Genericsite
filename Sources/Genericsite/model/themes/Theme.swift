@@ -7,17 +7,19 @@
 
 import Foundation
 
-public struct Theme: Codable {
+public struct Theme: Codable, Identifiable, Item {
     
     static var intro = Theme("intro", nil, nil, "dark")
     
+    public var id:String {name}
+    
     var name: String = "intro"
-    var label: String?
+    var label: String
     var color: String 
     var titre: String
     var exergue: String = ""
     
-    var slide: String?      //= "TIchart"
+    var slide: String = ""      //= "TIchart"
     var type :String?       //= "pdfimg"
     var first: Int?
     var last: Int?
@@ -30,18 +32,18 @@ public struct Theme: Codable {
     init(_ t:String, _ n:String?, _ l:String?, _ c:String) {
         name = n ?? "intro"
         titre = t
-        label = l
+        label = l ?? ""
         color = c
     }
     
     public init(_ t:String, _ n:String?, _ l:String?, _ c:String, _ ex:String, _ sl: String, _ rubrics:[Rubric]) {
         name = n ?? "intro"
         titre = t
-        label = l
+        label = l ?? ""
         color = c
         slide = sl
         items = rubrics
-        if ex == "" { exergue = Theme.lastmaj } else { exergue = ex }
+        if ex == "lastmaj" { exergue = Theme.lastmaj } else { exergue = ex }
     }
     
     mutating func update(_ ex:String, _ sl: String, _ rubrics:[Rubric]) {
