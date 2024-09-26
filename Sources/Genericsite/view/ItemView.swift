@@ -54,20 +54,22 @@ struct FieldShow<T> : View {
 struct OptionalEdit:View{
     var prompt:String
     @Binding var string:String?
+    var remove:()->Void
     
-    init(_ p:String, _ optional:Binding<String?>) {
+    init(_ p:String, _ optional:Binding<String?>, _ rem:@escaping ()->Void ) {
         prompt = p
         _string = optional
+        remove = rem
     }
     
     var body: some View {
         if let stringBinding: Binding<String> = Binding($string) {
             HStack {
                 TextField(prompt ,text:stringBinding)
-                Button("remove") { string = nil }
+                Button("retirer", action : remove )
             }
         } else {
-            Button("add a \(prompt)") { string = "" }
+            Button("ajouter \(prompt)") { string = "" }
         }
     }
 }
@@ -134,7 +136,8 @@ struct ItemEdit<T:Item> : View {
                             } else {
                                 Button("add") { item.slide = "" }
                             }*/
-                            OptionalEdit("slide", $item.slide)
+                            OptionalEdit("slide", $item.slide,
+                                         {item.slide = nil ; item.first = nil ; item.last = nil})
                                 .frame(width:200,alignment: .center)
                             if item.slide != nil {
                                 TextField("first" ,value:$item.first, format: .number).frame(width:70,alignment: .center)
