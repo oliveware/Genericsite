@@ -11,9 +11,9 @@ import Putex
 public struct Rubric: Codable, Identifiable, Item {
     public var id:String {name}
     var name: String = ""       //= String(Immeuble.begining.année)
-    var label: String = ""       //= String(Immeuble.begining.année)
-    var color: String 
-    var titre: String = ""       //= "année \(Immeuble.begining.année)"
+    var label: String?        //= String(Immeuble.begining.année)
+    var color: String?
+    var titre: String?        //= "année \(Immeuble.begining.année)"
     var exergue: String = ""
     
     var slide: String?     //= "second\(Immeuble.begining.année)"

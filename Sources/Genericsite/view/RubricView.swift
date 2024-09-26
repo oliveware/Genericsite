@@ -9,7 +9,6 @@ import SwiftUI
 
 public struct RubricView: View {
     @Binding var rubric: Rubric
-    @State var edition = false
     
     public init(_ rubric:Binding<Rubric>) {
         _rubric = rubric

@@ -14,9 +14,9 @@ public struct Theme: Codable, Identifiable, Item {
     public var id:String {name}
     
     var name: String = "intro"
-    var label: String
-    var color: String 
-    var titre: String
+    var label: String?
+    var color: String?
+    var titre: String?
     var exergue: String = ""
     
     var slide: String?      //= "TIchart"

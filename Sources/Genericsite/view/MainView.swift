@@ -16,11 +16,18 @@ public struct MainView: View {
     
     public var body: some View {
         
-        ThemeView($sitemain.intro)
+        ThemeView($sitemain.intro).frame(minWidth:820)
     }
 
 }
 
+struct Premain: View {
+    @State var site = argentmain
+    var body: some View {
+        MainView($site)
+    }
+}
+
 #Preview {
-    MainView(.constant(argentmain))
+    Premain()
 }

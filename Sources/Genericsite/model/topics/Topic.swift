@@ -24,9 +24,9 @@ public struct Topic: Codable,Identifiable, Item {
         
     // topic
     var name: String = ""
-    var label: String = ""
-    var color: String 
-    var titre: String = ""
+    var label: String?
+    var color: String?
+    var titre: String?
     var exergue: String = ""
     
     var slide: String?

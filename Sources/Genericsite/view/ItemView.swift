@@ -10,9 +10,9 @@ import SwiftUI
 
 protocol Item {
     var name: String {get set}
-    var label: String {get set}
-    var color: String {get set}
-    var titre: String {get set}
+    var label: String? {get set}
+    var color: String? {get set}
+    var titre: String? {get set}
     var exergue: String {get set}
     
     var slide: String? {get set}
@@ -63,13 +63,15 @@ struct OptionalEdit:View{
     }
     
     var body: some View {
-        if let stringBinding: Binding<String> = Binding($string) {
-            HStack {
-                TextField(prompt ,text:stringBinding)
+        HStack {
+            Text(prompt)
+            if let stringBinding: Binding<String> = Binding($string) {
+                TextField("" ,text:stringBinding)
                 Button("retirer", action : remove )
+                
+            } else {
+                Button("ajouter") { string = "" }
             }
-        } else {
-            Button("ajouter \(prompt)") { string = "" }
         }
     }
 }
@@ -119,39 +121,29 @@ struct ItemEdit<T:Item> : View {
                         
                     }.frame(width:300)
                     GroupBox("optionnel") {
+                        OptionalEdit("label", $item.label, {item.label = nil})
+                            .frame(width:350,alignment: .leading)
+                        OptionalEdit("color", $item.color, {item.color = nil})
+                            .frame(width:350,alignment: .leading)
+                        OptionalEdit("titre", $item.titre, {item.titre = nil})
+                            .frame(width:350,alignment: .leading)
                         HStack {
-                            TextField("label" ,text:$item.label)
-                                .frame(width:200,alignment: .center)
-                            TextField("color" ,text:$item.color)
-                                .frame(width:100,alignment: .center)
-                        }
-                        TextField("titre", text:$item.titre)
-                            .frame(width:300,alignment: .leading)
-                        HStack {
-                          /*  if let slide: Binding<String> = Binding($item.slide) {
-                                HStack {
-                                    TextField("slide" ,text:slide)
-                                    Button("rem") { item.slide = nil }
-                                }
-                            } else {
-                                Button("add") { item.slide = "" }
-                            }*/
                             OptionalEdit("slide", $item.slide,
                                          {item.slide = nil ; item.first = nil ; item.last = nil})
-                                .frame(width:200,alignment: .center)
+                                .frame(width:210,alignment: .leading)
                             if item.slide != nil {
-                                TextField("first" ,value:$item.first, format: .number).frame(width:70,alignment: .center)
-                                TextField("last" ,value:$item.last, format: .number).frame(width:70,alignment: .center)
+                                TextField("first" ,value:$item.first, format: .number).frame(width:60,alignment: .center)
+                                TextField("last" ,value:$item.last, format: .number).frame(width:60,alignment: .center)
                             }
-                        }
-                    }.frame(width:350)
+                        }.frame(width:350, alignment:.leading)
+                    }.frame(width:350, alignment:.leading)
                 }
             }
             Spacer()
             Button(action:{edition = false}){
                 Image(systemName: "checkmark")
             }.frame(width:50)
-        }.frame(minWidth:750, alignment:.center)
+        }.frame(minWidth:800, alignment:.center)
     }
 }
 
@@ -175,7 +167,7 @@ struct ItemView<T:Item>: View {
             }
             //.sheet(isPresented: $edition, content: {})
             
-        }.frame(minWidth:700)
+        }.frame(minWidth:800)
     }
 }
 
