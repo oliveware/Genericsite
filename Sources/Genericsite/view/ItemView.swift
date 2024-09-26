@@ -15,7 +15,7 @@ protocol Item {
     var titre: String {get set}
     var exergue: String {get set}
     
-    var slide: String {get set}
+    var slide: String? {get set}
     
     var first: Int? {get set}
     var last: Int? {get set}
@@ -51,6 +51,26 @@ struct FieldShow<T> : View {
         }
     }
 }
+struct OptionalEdit:View{
+    var prompt:String
+    @Binding var string:String?
+    
+    init(_ p:String, _ optional:Binding<String?>) {
+        prompt = p
+        _string = optional
+    }
+    
+    var body: some View {
+        if let stringBinding: Binding<String> = Binding($string) {
+            HStack {
+                TextField(prompt ,text:stringBinding)
+                Button("rem") { string = nil }
+            }
+        } else {
+            Button("add") { string = "" }
+        }
+    }
+}
 
 struct ItemShow<T:Item> : View {
     var item:T
@@ -83,41 +103,88 @@ struct ItemShow<T:Item> : View {
     }
 }
 
-/*
-public struct ItemView<T:Item>: View {
+struct ItemEdit<T:Item> : View {
     @Binding var item: T
-    
-    public init(_ topic:Binding<T>) {
-        _item = item as! Binding<T>
-    }
-    
+    @Binding var edition: Bool
     public var body: some View {
-        Form{
-            GroupBox("indispensable") {
-                TextField("name" ,text:$item.name)
-                TextField("exergue" ,text:$item.exergue)
-                    .frame(width:300,alignment: .leading)
-                TextField("color" ,text:$item.color)
-            }.frame(width:300,alignment: .leading)
-            GroupBox("optionnel") {
-                TextField("label" ,text:$item.label)
-                    .frame(width:120,alignment: .center)
-                TextField("titre" ,text:$item.exergue)
-                    .frame(width:300,alignment: .leading)
-            }
-            GroupBox("images") {
+        
+        HStack {
+            Form{
                 HStack {
-                    TextField("slide" ,text:$item.slide)
-                        .frame(width:200,alignment: .center)
-                    TextField("first" ,value:$item.first, format: .number).frame(width:70,alignment: .center)
-                    TextField("last" ,value:$item.last, format: .number).frame(width:70,alignment: .center)
+                    GroupBox("indispensable") {
+                        TextField("name" ,text:$item.name)
+                        TextField("exergue" ,text:$item.exergue)
+                        
+                    }.frame(width:300)
+                    GroupBox("optionnel") {
+                        HStack {
+                            TextField("label" ,text:$item.label)
+                                .frame(width:200,alignment: .center)
+                            TextField("color" ,text:$item.color)
+                                .frame(width:100,alignment: .center)
+                        }
+                        TextField("titre", text:$item.titre)
+                            .frame(width:300,alignment: .leading)
+                        HStack {
+                          /*  if let slide: Binding<String> = Binding($item.slide) {
+                                HStack {
+                                    TextField("slide" ,text:slide)
+                                    Button("rem") { item.slide = nil }
+                                }
+                            } else {
+                                Button("add") { item.slide = "" }
+                            }*/
+                            OptionalEdit("slide", $item.slide)
+                                .frame(width:200,alignment: .center)
+                            if item.slide != nil {
+                                TextField("first" ,value:$item.first, format: .number).frame(width:70,alignment: .center)
+                                TextField("last" ,value:$item.last, format: .number).frame(width:70,alignment: .center)
+                            } else {
+                                Button("add") { item.slide = "" }
+                            }
+                        }
+                    }.frame(width:350)
                 }
             }
-        }//.frame(minHeight:500)
+            Spacer()
+            Button(action:{edition = false}){
+                Image(systemName: "checkmark")
+            }.frame(width:50)
+        }.frame(minWidth:750, alignment:.center)
     }
 }
 
-#Preview {
-    ItemView<Topic>(.constant(argentmain.intro.items[0].items[0]))
+struct ItemView<T:Item>: View {
+    @Binding var item: T
+    @State var edition = false
+    
+    init(_ item:Binding<T>) {
+        _item = item
+    }
+    
+    var body: some View {
+        VStack {
+            
+            if edition {
+                ItemEdit(item :$item, edition:$edition)
+            } else {
+                Button(action:{edition = true}){
+                    ItemShow(item: item)
+                }
+            }
+            //.sheet(isPresented: $edition, content: {})
+            
+        }.frame(minWidth:700)
+    }
 }
-*/
+
+struct ItemPreview: View {
+    @State var theme = argentmain.intro
+    var body: some View {
+        ItemView($theme)
+    }
+}
+
+#Preview("theme") {
+    ItemPreview()
+}

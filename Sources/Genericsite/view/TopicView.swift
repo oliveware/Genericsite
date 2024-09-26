@@ -7,73 +7,38 @@
 
 
 import SwiftUI
-
-struct TopicEdit : View {
-    @Binding var item: Topic
-    @Binding var edition: Bool
-    
-    public var body: some View {
-        HStack {
-            Form{
-                HStack {
-                    GroupBox("indispensable") {
-                        TextField("name" ,text:$item.name)
-                        TextField("exergue" ,text:$item.exergue)
-                        
-                    }.frame(width:300)
-                    GroupBox("optionnel") {
-                        HStack {
-                            TextField("label" ,text:$item.label)
-                                .frame(width:200,alignment: .center)
-                            TextField("color" ,text:$item.color)
-                                .frame(width:100,alignment: .center)
-                        }
-                        TextField("titre" ,text:$item.exergue)
-                            .frame(width:300,alignment: .leading)
-                        HStack {
-                            TextField("slide" ,text:$item.slide)
-                                  .frame(width:200,alignment: .center)
-                            TextField("first" ,value:$item.first, format: .number).frame(width:50,alignment: .center)
-                            TextField("last" ,value:$item.last, format: .number).frame(width:50,alignment: .center)
-                        }
-                    }.frame(width:350)
-                }
-            }
-            Button(action:{edition = false}){
-                Image(systemName: "checkmark")
-            }.frame(width:50)
-        }.frame(minWidth:750, alignment:.center)
-    }
-}
+import Oware
 
 public struct TopicView: View {
     @Binding var topic: Topic
     @State var edition = false
+    @State var show = false
     
     public init(_ topic:Binding<Topic>) {
         _topic = topic
     }
     
     public var body: some View {
-        VStack {
-            
-            if edition {
-                TopicEdit(item :$topic, edition:$edition)
-            } else {
-                Button(action:{edition = true}){
-                    ItemShow(item: topic)
-                }
-            }
-            //.sheet(isPresented: $edition, content: {})
-            
-        }.frame(minWidth:700)
+        ItemView($topic)
+        if let comptejson = topic.releve {
+            Button("voir le compte (\(comptejson.soldebanque))"){show = true }
+                .sheet(isPresented: $show,
+                       content: {Text(comptejson.soldebanque)})
+        }
+    }
+}
+
+struct TopicPreview: View {
+    @State var topic = argentmain.intro.items[0].items[0]
+    var body: some View {
+        ItemView($topic)
     }
 }
 
 #Preview("view") {
-    TopicView(.constant(argentmain.intro.items[0].items[0]))
+    TopicPreview()
 }
 #Preview("edit") {
-    TopicEdit(item:.constant(argentmain.intro.items[0].items[0]),
+    ItemEdit(item:.constant(argentmain.intro.items[0].items[0]),
               edition:.constant(true))
 }

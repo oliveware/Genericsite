@@ -19,7 +19,7 @@ public struct Theme: Codable, Identifiable, Item {
     var titre: String
     var exergue: String = ""
     
-    var slide: String = ""      //= "TIchart"
+    var slide: String?      //= "TIchart"
     var type :String?       //= "pdfimg"
     var first: Int?
     var last: Int?

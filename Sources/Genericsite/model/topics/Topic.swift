@@ -29,7 +29,7 @@ public struct Topic: Codable,Identifiable, Item {
     var titre: String = ""
     var exergue: String = ""
     
-    var slide: String = ""
+    var slide: String?
     
     var first: Int?
     var last: Int?
@@ -41,7 +41,7 @@ public struct Topic: Codable,Identifiable, Item {
     public var releve: Comptejson?
 
     
-    public init(_ n:String, _ t:String, _ l:String?, _ c:String, _ ex:String, _ sl: String) {
+    public init(_ n:String, _ t:String, _ l:String?, _ c:String, _ ex:String, _ sl: String? = nil) {
         name = n
         titre = t
         label = l ?? t

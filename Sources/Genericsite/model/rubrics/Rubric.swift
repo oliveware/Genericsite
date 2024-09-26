@@ -16,7 +16,7 @@ public struct Rubric: Codable, Identifiable, Item {
     var titre: String = ""       //= "année \(Immeuble.begining.année)"
     var exergue: String = ""
     
-    var slide: String  = ""     //= "second\(Immeuble.begining.année)"
+    var slide: String?     //= "second\(Immeuble.begining.année)"
     
     var first: Int?
     var last: Int?
