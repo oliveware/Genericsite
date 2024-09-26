@@ -85,19 +85,19 @@ extension Argent {
 
 extension CompteCourant {
     init(_ comptejson:Comptejson) {
-        let compte = Compte(comptejson.cdata ?? BankingData(), comptejson.soldebanque, Ecritures(comptejson.ecritures))
-        self.init(compte, comptejson.id)
+        let compte = Compte(comptejson.soldebanque, Ecritures(comptejson.ecritures))
+        self.init(comptejson.cdata ?? BankingData(), compte, comptejson.id)
     }
 }
 extension CompteEpargne {
     init(_ comptejson:Comptejson) {
-        let compte = Compte(comptejson.cdata ?? BankingData(), comptejson.soldebanque, Ecritures(comptejson.ecritures))
+        let compte = Compte(comptejson.soldebanque, Ecritures(comptejson.ecritures))
         self.init(comptejson.sdata ?? SparingData(), compte, comptejson.id)
     }
 }
 extension CompteTitre {
     init(_ comptejson:Comptejson) {
-        let compte = Compte(comptejson.cdata ?? BankingData(), comptejson.soldebanque, Ecritures(comptejson.ecritures))
+        let compte = Compte(comptejson.soldebanque, Ecritures(comptejson.ecritures))
         let portefeuille = comptejson.folio == nil ? Portefeuille() : Portefeuille(comptejson.folio!)
         self.init(comptejson.sdata ?? SparingData(), compte, portefeuille, comptejson.id)
     }

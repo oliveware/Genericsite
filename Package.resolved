@@ -7,7 +7,7 @@
       "location" : "http://github.com/oliveware/Attribex",
       "state" : {
         "branch" : "main",
-        "revision" : "ca34433a4a237e0fc4ce6a2d8f3a495d6f471fb7"
+        "revision" : "ce1c05f3866dd4c76af3b47b9bf5f92b38d36d61"
       }
     },
     {
@@ -16,7 +16,7 @@
       "location" : "http://github.com/oliveware/Oware",
       "state" : {
         "branch" : "main",
-        "revision" : "b1164a4e1b4db45f954e459bb884c448472a4e7e"
+        "revision" : "cbd29d7cc12233d937fef705210056163ebd1b73"
       }
     },
     {

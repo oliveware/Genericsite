@@ -12,11 +12,11 @@ import Oware
 
 extension Topic {
     init(_ courant:CompteCourant) {
-        let compte = courant.compte.json.data
-        name = compte.numéro
-        label = compte.nombanque
-        titre = compte.nombanque
-        exergue = CompteCourant.selectorPrompt + " " + compte.numéro
+        let data = courant.json.data
+        name = data.numéro
+        label = data.nombanque
+        titre = data.nombanque
+        exergue = CompteCourant.selectorPrompt + " " + data.numéro
         slide = ""
         color = argentsite.colors[2]
         releve = Comptejson(courant)
@@ -63,7 +63,7 @@ public struct Comptejson : Codable {
     
     public init(_ courant: CompteCourant) {
         id = courant.id
-        let courantjson = courant.compte.json
+        let courantjson = courant.json
         cdata = courantjson.data
         solde = Soldejson(courantjson.solde)
         ecritures = courantjson.ecritures.json
