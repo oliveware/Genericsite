@@ -40,6 +40,51 @@ public struct Sitemain : Codable {
 
 }
 
+extension Sitemain {
+   public init(_ argent:Argent) {
+        var rubrics: [Rubric] = []
+        
+        var courantopics : [Topic] = []
+        for compte in argent.courant {
+            courantopics.append(Topic(compte))
+        }
+        rubrics.append(
+            Rubric("comptes", "Comptes courants", "Comptes courants", argentsite.colors[2], "", "navigationcourant", courantopics)
+        )
+       
+       var epargnetopics : [Topic] = []
+       for compte in argent.epargne {
+           epargnetopics.append(Topic(compte))
+       }
+       rubrics.append(
+           Rubric("epargne", "Epargne", "Epargne", argentsite.colors[3], "", "navigationcourant", epargnetopics)
+       )
+       
+       var boursetopics : [Topic] = []
+       for compte in argent.bourse {
+           boursetopics.append(Topic(compte))
+       }
+       rubrics.append(
+           Rubric("bourse", "Bourse", "Bourse", argentsite.colors[4], "", "navigationcourant", boursetopics)
+       )
+        
+       let theme = Theme(
+            "Affaires à suivre","intro","parents", argentsite.colors[0],
+            "",
+            "tabord",  rubrics)
+        
+       self.init(
+            exergue :
+                "exergue de bas de page",
+            go: "retour ...",
+            titrage : ["Grand", " ", "titre"],
+            maxime: "exergue d'accueil",
+            accueil: "invitation à la suite",
+            intro: theme
+        )
+    }
+}
+
 struct MainTitle : Codable {
     var left: String
     var middle: String

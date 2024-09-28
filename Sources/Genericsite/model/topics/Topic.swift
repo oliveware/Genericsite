@@ -8,13 +8,33 @@
 import Foundation
 import Oware
 
-public enum KindofTopic : String, Codable {
-    case courant
-    case epargne
-    case bourse
-    case conso
-    case paiement
-    case solde
+struct Navigation: Codable,Identifiable,Item {
+    var id:String {name}
+    
+    var name: String
+    var exergue: String
+    var label: String?
+    var color: String?
+    var titre: String?
+    var slide: String?
+    var first: Int?
+    var last: Int?
+    
+    init (_ item:Topic) {
+        name = item.name
+        exergue = item.exergue
+        label = item.label
+        titre = item.titre
+        color = item.color
+        slide = item.slide
+        first = item.first
+        last = item.last
+    }
+    
+    init(_ n:String, _ x:String) {
+        name = n
+        exergue = x
+    }
 }
 
 public struct Topic: Codable,Identifiable, Item {
@@ -23,35 +43,52 @@ public struct Topic: Codable,Identifiable, Item {
     var catalog = ""
         
     // topic
-    var name: String = ""
+    var name: String
+    var exergue: String
+    
     var label: String?
-    var color: String?
     var titre: String?
-    var exergue: String = ""
+    var color: String?
     
     var slide: String?
-    
     var first: Int?
     var last: Int?
     
-    var edition: String? //= "S0F0"
-    var d:Int = 1
+    var edition: String?  //= "S0F0"
+    var d:Int?            //=1
     
     // compte bancaire
     public var releve: Comptejson?
 
-    
-    public init(_ n:String, _ t:String, _ l:String?, _ c:String, _ ex:String, _ sl: String? = nil) {
+    init (_ comtopic:Comtopic) {
+        let item = comtopic.nav
+        name = item.name
+        label = item.label
+        titre = item.titre
+        exergue = item.exergue
+        slide = item.slide
+        first = item.first
+        last = item.last
+        color = item.color
+        releve = Comptejson(comtopic.compte)
+    }
+    public init(_ n:String, _ t:String?, _ cj:Comptejson, _ cl:String) {
         name = n
         titre = t
-        label = l ?? t
-        color = c
-        exergue = ex
-        slide = sl
-
+        label = t ?? n
+        color = cl
+        exergue = ""
+        releve = cj
     }
     
-   
+    public enum KindofTopic : String, Codable {
+        case courant
+        case epargne
+        case bourse
+        case conso
+        case paiement
+        case solde
+    }
     
     public init(_ k:KindofTopic, _ c:String) {
         color = c
@@ -90,6 +127,8 @@ public struct Topic: Codable,Identifiable, Item {
     }
 
     init() {
+        name = ""
+        exergue = ""
         color = "dark"
       /*  paiement = []
         for mois in 1...12 {

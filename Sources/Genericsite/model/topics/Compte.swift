@@ -10,75 +10,29 @@ import Semantex
 import Attribex
 import Oware
 
-extension Topic {
-    init(_ courant:CompteCourant) {
-        let data = courant.json.data
-        name = data.numéro
-        label = data.nombanque
-        titre = data.nombanque
-        exergue = CompteCourant.selectorPrompt + " " + data.numéro
-        slide = ""
-        color = argentsite.colors[2]
-        releve = Comptejson(courant)
-    }
-    init(_ epargne:CompteEpargne) {
-        let data = epargne.json.data
-        name = data.numéro
-        label = data.nombanque
-        titre = data.nombanque
-        exergue = CompteEpargne.selectorPrompt + " " + data.numéro
-        slide = ""
-        color = argentsite.colors[3]
-        releve = Comptejson(epargne)
-    }
-    init(_ bourse:CompteTitre) {
-        let data = bourse.json.data
-        name = data.numéro
-        label = data.nombanque
-        titre = data.nombanque
-        exergue = CompteTitre.selectorPrompt + " " + data.numéro
-        slide = ""
-        color = argentsite.colors[4]
-        releve = Comptejson(bourse)
-    }
-    public init(_ n: String, _ l:String, _ compte:Comptejson, _ c:String) {
-        name = n
-        label = l
-        titre = l
-        exergue = "compte " //+ (compte.data?.numéro ?? "")
-        slide = ""
-        color = c
-        releve = compte
+extension CompteBancaire {
+    init(_ comptejson:Comptejson) {
+        let compte = Compte(comptejson.soldebanque, Ecritures(comptejson.ecritures))
+        if let data = comptejson.data {
+            self.init(data, compte, comptejson.id, comptejson.folio)
+        } else {
+            self.init(BankingData(), compte, comptejson.id, nil)
+        }
     }
 }
 
 public struct Comptejson : Codable {
     var id: String?
-    public var cdata: BankingData?
-    public var sdata: SparingData?
+    public var data: BankingData?
     var solde: Soldejson
     public var soldebanque:String { solde.banque }
     public var ecritures: [Ecriturejson]
     public var folio:Foliojson?
     
-    public init(_ courant: CompteCourant) {
-        id = courant.id
-        let courantjson = courant.json
-        cdata = courantjson.data
-        solde = Soldejson(courantjson.solde)
-        ecritures = courantjson.ecritures.json
-    }
-    public init(_ epargne: CompteEpargne) {
-        id = epargne.id
-        let epargnejson = epargne.json
-        sdata = epargnejson.data
-        solde = Soldejson(epargnejson.solde)
-        ecritures = epargnejson.ecritures.json
-    }
-    public init(_ bourse: CompteTitre) {
+    public init(_ bourse: CompteBancaire) {
         id = bourse.id
         let boursejson = bourse.json
-        sdata = boursejson.data
+        data = boursejson.data
         solde = Soldejson(boursejson.solde)
         ecritures = boursejson.ecritures.json
         folio = boursejson.folio
