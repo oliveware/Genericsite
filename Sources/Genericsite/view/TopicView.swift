@@ -22,8 +22,8 @@ public struct TopicView: View {
         ItemView($topic)
         if let comptejson = topic.releve {
             Button("voir le compte (\(comptejson.soldebanque))"){show = true }
-                .sheet(isPresented: $show,
-                       content: {Text(comptejson.soldebanque)})
+               // .sheet(isPresented: $show,
+               //        content: {CompteBancaireView(CompteBancaire(comptejson))})
         }
     }
 }

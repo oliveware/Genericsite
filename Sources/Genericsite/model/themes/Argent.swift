@@ -9,15 +9,20 @@ import Oware
 import Attribex
 import Semantex
 
-public struct Comtopic: Codable {
+public struct Comtopic: Codable, Identifiable {
+    public var id:String {compte.id}
     var compte: CompteBancaire
     var nav: Navigation
+    var solde:Solde {
+        compte.compte.solde()
+    }
     
     init(_ c:CompteBancaire, _ n:Navigation) {
         compte = c
         nav = n
     }
-    init(_ c:CompteBancaire) {
+    init() {
+        let c = CompteBancaire()
         compte = c
         nav = Navigation("c.id","")
     }
@@ -40,7 +45,7 @@ public struct Argent: Codable {
         return domain + String(nextid)
     }
     
-    public var courant: [Comtopic] = [Comtopic(CompteBancaire())]
+    public var courant: [Comtopic] = [Comtopic()]
     public var epargne: [Comtopic] = []
     public var bourse: [Comtopic] = []
     
