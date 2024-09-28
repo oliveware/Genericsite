@@ -53,10 +53,13 @@ struct ComtopicEditor: View {
                 
             
             TabView(selection:$selected) {
+                
                 BankingDataEdit($comtopic.compte.contractuel)
                     .tabItem {Text("contractuel")}.tag(1)
                 EcritureList($comtopic.compte.compte.ecritures)
                     .tabItem {Text("ecritures")}.tag(2)
+                ItemView($comtopic.nav)
+                    .tabItem {Text("navigation")}.tag(3)
                 
             }.padding(5)
         }.padding(5)
