@@ -24,6 +24,8 @@ public struct ComtopicView: View {
                 .font(.title2)
             Text(comtopic.solde.affiche("prévu"))
                 .font(.title)
+            Text(comtopic.compte.contractuel.titulaire)
+                
             Spacer()
             Button(action: {edition = true},
                    label: {Text("détail")})
