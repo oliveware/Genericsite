@@ -11,12 +11,12 @@ import Attribex
 import Oware
 
 extension CompteBancaire {
-    init(_ comptejson:Comptejson) {
+    init(_ comptejson:Comptejson,_ catégorie:Bool?) {
         let compte = Compte(comptejson.soldebanque, Ecritures(comptejson.ecritures))
         if let data = comptejson.data {
             self.init(data, compte, comptejson.id, comptejson.folio)
         } else {
-            self.init(BankingData(), compte, comptejson.id, nil)
+            self.init(BankingData(catégorie), compte, comptejson.id, comptejson.folio)
         }
     }
 }

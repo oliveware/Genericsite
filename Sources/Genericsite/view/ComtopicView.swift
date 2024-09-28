@@ -69,7 +69,7 @@ struct ComtopicEditor: View {
 }
 
 public struct ComtopicPreview: View {
-    @State var compte = Comtopic()
+    @State var compte = Comtopic(nil)
     
     public var body: some View {
         ComtopicView($compte)

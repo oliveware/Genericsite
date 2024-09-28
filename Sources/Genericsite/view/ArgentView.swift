@@ -69,13 +69,13 @@ public struct ArgentView: View {
             if ajoutmode {
                 HStack {
                     Text ("ajouter un compte")
-                    Button("compte courant", action: { argent.courant.append(Comtopic())
+                    Button("compte courant", action: { argent.courant.append(Comtopic(nil))
                         ajoutmode = false
                     } ).padding(20)
-                    Button("compte épargne", action: { argent.epargne.append(Comtopic())
+                    Button("compte épargne", action: { argent.epargne.append(Comtopic(false))
                         ajoutmode = false
                     } ).padding(20)
-                    Button("compte titre", action: { argent.bourse.append(Comtopic())
+                    Button("compte titre", action: { argent.bourse.append(Comtopic(true))
                         ajoutmode = false
                     } ).padding(20)
                 }
@@ -99,7 +99,7 @@ public struct ArgentView: View {
 }
 
 struct ArgentPreview: View {
-    @State var argent = Argent(Comtopic())
+    @State var argent = Argent(Comtopic(nil))
     var body: some View {
         ArgentView( $argent )
     }

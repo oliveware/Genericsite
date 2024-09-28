@@ -10,7 +10,7 @@ import Attribex
 import Semantex
 
 public struct Comtopic: Codable, Identifiable {
-    public var id:String {compte.id}
+    public var id:String {nav.name}
     var compte: CompteBancaire
     var nav: Navigation
     var solde:Solde {
@@ -21,18 +21,18 @@ public struct Comtopic: Codable, Identifiable {
         compte = c
         nav = n
     }
-    init() {
-        let c = CompteBancaire()
+    init(_ catégorie:Bool?) {
+        let c = CompteBancaire(catégorie)
         compte = c
-        nav = Navigation("c.id","")
+        nav = Navigation(c.id,"")
     }
     
-    init(_ topic:Topic) {
+    init(_ topic:Topic, _ catégorie:Bool?) {
         nav = Navigation(topic)
         if let comptejson = topic.releve {
-            compte = CompteBancaire(comptejson)
+            compte = CompteBancaire(comptejson, catégorie)
         } else {
-            compte = CompteBancaire()
+            compte = CompteBancaire(catégorie)
         }
     }
 }
@@ -45,7 +45,7 @@ public struct Argent: Codable {
         return domain + String(nextid)
     }
     
-    public var courant: [Comtopic] = [Comtopic()]
+    public var courant: [Comtopic] = [Comtopic(nil)]
     public var epargne: [Comtopic] = []
     public var bourse: [Comtopic] = []
     
@@ -72,17 +72,17 @@ public struct Argent: Codable {
         if rubrics.count > 0 {
             let courantopics = rubrics[0].items
             for topic in courantopics {
-                courant.append(Comtopic(topic))
+                courant.append(Comtopic(topic,nil))
             }
             if rubrics.count > 1 {
                 let epargnetopics = rubrics[1].items
                 for topic in epargnetopics {
-                    epargne.append(Comtopic(topic))
+                    epargne.append(Comtopic(topic,false))
                 }
                 if rubrics.count > 2 {
                     let boursetopics = rubrics[2].items
                     for topic in boursetopics {
-                        bourse.append(Comtopic(topic))
+                        bourse.append(Comtopic(topic,true))
                     }
                 }
             }
