@@ -70,7 +70,7 @@ extension Sitemain {
         
        let theme = Theme(
             "Affaires à suivre","intro","parents", argentsite.colors[0],
-            "",
+            "lastmaj",
             "tabord",  rubrics)
         
        self.init(
