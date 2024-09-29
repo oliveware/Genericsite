@@ -58,10 +58,14 @@ struct ComtopicEditor: View {
                 
                 BankingDataEdit($comtopic.compte.contractuel)
                     .tabItem {Text("contractuel")}.tag(1)
+                if let portefeuille = comtopic.compte.portefeuille {
+                    PortefeuilleShow(portefeuille)
+                        .tabItem {Text("portefeuille")}.tag(2)
+                }
                 EcritureList($comtopic.compte.compte.ecritures)
-                    .tabItem {Text("ecritures")}.tag(2)
+                    .tabItem {Text("ecritures")}.tag(3)
                 ItemView($comtopic.nav)
-                    .tabItem {Text("navigation")}.tag(3)
+                    .tabItem {Text("navigation")}.tag(4)
                 
             }.padding(5)
         }.padding(5)
