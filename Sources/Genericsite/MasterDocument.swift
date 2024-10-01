@@ -8,11 +8,6 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-extension UTType {
-    static var jsonText: UTType {
-        UTType(importedAs: "public.json")
-    }
-}
 
 public struct MasterDocument: FileDocument {
     public var sitemaster : Sitemaster
