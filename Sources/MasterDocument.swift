@@ -14,7 +14,7 @@ extension UTType {
     }
 }
 
-public struct MainDocument: FileDocument {
+public struct MasterDocument: FileDocument {
     public var sitemaster : Sitemaster
     
     public init(_ site:Sitemaster) {

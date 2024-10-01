@@ -8,7 +8,7 @@
 import Foundation
 
 // produit le fichier master json
-struct Sitemaster : Codable {
+public struct Sitemaster : Codable {
     var bodycolor = "dark"
     var favicon = "favico.png"
     var logo2 = ""
