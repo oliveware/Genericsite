@@ -19,6 +19,8 @@ public struct Sitemain : Codable {
     var mainav = Mainav()
 
     var guide = Guide()
+    
+    public var contexte : Contexte?
        
     public var intro : Theme
     
@@ -28,7 +30,8 @@ public struct Sitemain : Codable {
         titrage: [String],
         maxime:String,
         accueil:String,
-        intro:Theme?
+        intro:Theme?,
+        contexte:Contexte? = nil
     ) {
         footexerg = exergue
         enter = go
@@ -36,16 +39,21 @@ public struct Sitemain : Codable {
         welcome = Welcome(maxime, accueil)
         
         self.intro = intro ?? Theme.intro
+        self.contexte = contexte
     }
 
 }
 
 extension Sitemain {
    public init(_ argent:Argent) {
+       
+       let contexte = Contexte(argent.tables)
+       
+       let avoir = argent.avoir
         var rubrics: [Rubric] = []
         
         var courantopics : [Topic] = []
-        for compte in argent.courant {
+        for compte in avoir.courant {
             courantopics.append(Topic(compte))
         }
         rubrics.append(
@@ -53,7 +61,7 @@ extension Sitemain {
         )
        
        var epargnetopics : [Topic] = []
-       for compte in argent.epargne {
+       for compte in avoir.epargne {
            epargnetopics.append(Topic(compte))
        }
        rubrics.append(
@@ -61,7 +69,7 @@ extension Sitemain {
        )
        
        var boursetopics : [Topic] = []
-       for compte in argent.bourse {
+       for compte in avoir.bourse {
            boursetopics.append(Topic(compte))
        }
        rubrics.append(
@@ -80,7 +88,8 @@ extension Sitemain {
             titrage : ["Grand", " ", "titre"],
             maxime: "exergue d'accueil",
             accueil: "invitation à la suite",
-            intro: theme
+            intro: theme,
+            contexte:contexte
         )
     }
 }
@@ -151,6 +160,15 @@ struct Guide : Codable {
     var tilin = "une à une"
     var guidelin = Desc("lecture",2,3,"lecture linéaire")
     
+}
+
+import Putex
+public struct Contexte:Codable {
+    var tables : [String:Table] = [:]
+    
+    init( _ tables : [String:Table]) {
+        self.tables = tables
+    }
 }
 
 

@@ -137,34 +137,3 @@ public struct Topic: Codable,Identifiable, Item {
     }
 
 }
-
-extension Consomois {
-    
-    
-    /*mutating func setconsomois(_ courant:IndexRelatif, _ bail:Bail) {
-     
-     intro.items[indexan].conso[indexmois] = Consomois(courant, histoconso)
-     // maj définitive du consomois précédent
-     fixconsomois(indexmois, indexan, courant.date.année)
-     }
-     
-     mutating func updateconsomois(_ courant:IndexRelatif) {
-     histoconso.update(courant)
-     let indexan = courant.date.année - (Int(intro.items[0].name) ?? 0)
-     let indexmois = courant.date.mois - 1
-     intro.items[indexan].conso[indexmois].update(courant, histoconso)
-     }
-     
-     mutating func fixconsomois(_ indexmois:Int, _ indexan:Int, _ année:Int) {
-     if indexmois == 0 {
-     if indexan > 0 {
-     intro.items[indexan-1].conso[11].update(12, année-1, histoconso)
-     } else {
-     Erreur("indexan négatif impossible","Siteweb", "fixconsomois").show()
-     }
-     } else {
-     intro.items[indexan].conso[indexmois].update(indexmois+1, année, histoconso)
-     }
-     }
-     */
-}

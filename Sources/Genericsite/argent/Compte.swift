@@ -10,6 +10,34 @@ import Semantex
 import Attribex
 import Oware
 
+public struct Comtopic: Codable, Identifiable {
+    public var id:String {nav.name}
+    var compte: CompteBancaire
+    var nav: Navigation
+    var solde:Solde {
+        compte.compte.solde()
+    }
+    
+    init(_ c:CompteBancaire, _ n:Navigation) {
+        compte = c
+        nav = n
+    }
+    init(_ catégorie:Bool?) {
+        let c = CompteBancaire(catégorie)
+        compte = c
+        nav = Navigation(c.id,"")
+    }
+    
+    init(_ topic:Topic, _ catégorie:Bool?) {
+        nav = Navigation(topic)
+        if let comptejson = topic.releve {
+            compte = CompteBancaire(comptejson, catégorie)
+        } else {
+            compte = CompteBancaire(catégorie)
+        }
+    }
+}
+
 extension CompteBancaire {
     init(_ comptejson:Comptejson,_ catégorie:Bool?) {
         let compte = Compte(comptejson.soldebanque, Ecritures(comptejson.ecritures))
@@ -95,4 +123,33 @@ extension Ecritures {
     }
 }
 
-
+extension Consomois {
+    
+    
+    /*mutating func setconsomois(_ courant:IndexRelatif, _ bail:Bail) {
+     
+     intro.items[indexan].conso[indexmois] = Consomois(courant, histoconso)
+     // maj définitive du consomois précédent
+     fixconsomois(indexmois, indexan, courant.date.année)
+     }
+     
+     mutating func updateconsomois(_ courant:IndexRelatif) {
+     histoconso.update(courant)
+     let indexan = courant.date.année - (Int(intro.items[0].name) ?? 0)
+     let indexmois = courant.date.mois - 1
+     intro.items[indexan].conso[indexmois].update(courant, histoconso)
+     }
+     
+     mutating func fixconsomois(_ indexmois:Int, _ indexan:Int, _ année:Int) {
+     if indexmois == 0 {
+     if indexan > 0 {
+     intro.items[indexan-1].conso[11].update(12, année-1, histoconso)
+     } else {
+     Erreur("indexan négatif impossible","Siteweb", "fixconsomois").show()
+     }
+     } else {
+     intro.items[indexan].conso[indexmois].update(indexmois+1, année, histoconso)
+     }
+     }
+     */
+}

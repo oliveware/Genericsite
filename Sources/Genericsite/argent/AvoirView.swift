@@ -1,5 +1,12 @@
 //
-//  ArgentView.swift
+//  AvoirView.swift
+//  Genericsite
+//
+//  Created by Herve Crespel on 02/10/2024.
+//
+
+//
+//  AvoirView.swift
 //
 //
 //  Created by Herve Crespel on 07/07/2024.
@@ -9,29 +16,29 @@ import SwiftUI
 import Attribex
 import Semantex
 
-public struct ArgentView: View {
-    @Binding var argent:Argent
+public struct AvoirView: View {
+    @Binding var avoir:Avoir
     
     @State var ajoutmode = false
     
-    public init(_ argent:Binding<Argent>) {
-        _argent = argent
+    public init(_ avoir:Binding<Avoir>) {
+        _avoir = avoir
     }
     
     var avoirtotal: Solde {
-        var avoir = argent.courant[0].solde
-        if argent.courant.count > 1 {
-            for i in 1..<argent.courant.count {
-                avoir = avoir + argent.courant[i].solde
+        var total = avoir.courant[0].solde
+        if avoir.courant.count > 1 {
+            for i in 1..<avoir.courant.count {
+                total = total + avoir.courant[i].solde
             }
         }
-        for compte in argent.epargne {
-            avoir = avoir + compte.solde
+        for compte in avoir.epargne {
+            total = total + compte.solde
         }
-        for compte in argent.bourse {
-            avoir = avoir + compte.solde
+        for compte in avoir.bourse {
+            total = total + compte.solde
         }
-        return avoir
+        return total
     }
     
     public var body: some View {
@@ -40,24 +47,24 @@ public struct ArgentView: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     GroupBox("Compte courant"){
-                        ForEach ($argent.courant) {
+                        ForEach ($avoir.courant) {
                             compte in
                             ComtopicView(compte)
                         }.frame(width:800,alignment:.leading)
                     }
                     
-                    if argent.epargne.count > 0  {
+                    if avoir.epargne.count > 0  {
                         GroupBox("Epargne"){
-                            ForEach ($argent.epargne) {
+                            ForEach ($avoir.epargne) {
                                 compte in
                                 ComtopicView(compte)
                             }.frame(width:800,alignment:.leading)
                         }
                     }
                     
-                    if argent.bourse.count > 0  {
+                    if avoir.bourse.count > 0  {
                         GroupBox("Bourse"){
-                            ForEach ($argent.bourse) {
+                            ForEach ($avoir.bourse) {
                                 compte in
                                 ComtopicView(compte)
                             }.frame(width:800,alignment:.leading)
@@ -69,13 +76,13 @@ public struct ArgentView: View {
             if ajoutmode {
                 HStack {
                     Text ("ajouter un compte")
-                    Button("compte courant", action: { argent.courant.append(Comtopic(nil))
+                    Button("compte courant", action: { avoir.courant.append(Comtopic(nil))
                         ajoutmode = false
                     } ).padding(20)
-                    Button("compte épargne", action: { argent.epargne.append(Comtopic(false))
+                    Button("compte épargne", action: { avoir.epargne.append(Comtopic(false))
                         ajoutmode = false
                     } ).padding(20)
-                    Button("compte titre", action: { argent.bourse.append(Comtopic(true))
+                    Button("compte titre", action: { avoir.bourse.append(Comtopic(true))
                         ajoutmode = false
                     } ).padding(20)
                 }
@@ -83,28 +90,24 @@ public struct ArgentView: View {
                 Button("ajouter un compte", action:{ajoutmode = true})
                     .padding(20)
             }
-            
         }.frame(width:840)
             .padding(.bottom,10)
             .padding(.top,10)
-        
-
     }
-    
 
     func delete(_ id:Int) {
-      //  argent.delete(id)
+      //  avoir.delete(id)
     }
    
 }
 
-struct ArgentPreview: View {
-    @State var argent = Argent(Comtopic(nil))
+struct AvoirPreview: View {
+    @State var avoir = Avoir(Comtopic(nil))
     var body: some View {
-        ArgentView( $argent )
+        AvoirView( $avoir )
     }
 }
 
 #Preview {
-    ArgentPreview()
+    AvoirPreview()
 }

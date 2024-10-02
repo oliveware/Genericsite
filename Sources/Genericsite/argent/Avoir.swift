@@ -1,43 +1,16 @@
 //
-//  Argent.swift
+//  Avoir.swift
+//  Genericsite
 //
+//  Created by Herve Crespel on 02/10/2024.
 //
-//  Created by Herve Crespel on 10/08/2024.
-//
+
 
 import Oware
 import Attribex
 import Semantex
 
-public struct Comtopic: Codable, Identifiable {
-    public var id:String {nav.name}
-    var compte: CompteBancaire
-    var nav: Navigation
-    var solde:Solde {
-        compte.compte.solde()
-    }
-    
-    init(_ c:CompteBancaire, _ n:Navigation) {
-        compte = c
-        nav = n
-    }
-    init(_ catégorie:Bool?) {
-        let c = CompteBancaire(catégorie)
-        compte = c
-        nav = Navigation(c.id,"")
-    }
-    
-    init(_ topic:Topic, _ catégorie:Bool?) {
-        nav = Navigation(topic)
-        if let comptejson = topic.releve {
-            compte = CompteBancaire(comptejson, catégorie)
-        } else {
-            compte = CompteBancaire(catégorie)
-        }
-    }
-}
-
-public struct Argent: Codable {
+public struct Avoir: Codable {
         
     static var nextid = 0
     static func newid(_ domain:String) -> String {
