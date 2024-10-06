@@ -172,6 +172,10 @@ public struct Contexte:Codable {
         self.tables = tables
         banques = Banque.all
     }
+    
+    init (_ banques:[Banque]) {
+        self.banques = banques
+    }
 }
 
 
