@@ -168,12 +168,12 @@ public struct Contexte:Codable {
     var tables : [String:Table] = [:]
     var banques : [Banque]
     
-    init( _ tables : [String:Table]) {
+    public init( _ tables : [String:Table]) {
         self.tables = tables
         banques = Banque.all
     }
     
-    init (_ banques:[Banque]) {
+    public init (_ banques:[Banque]) {
         self.banques = banques
     }
 }
