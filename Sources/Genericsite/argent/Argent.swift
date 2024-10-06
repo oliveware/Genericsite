@@ -33,5 +33,6 @@ public struct Argent: Codable {
 
     public init(_ sitemain:Sitemain) {
         avoir = Avoir(sitemain)
+        Banque.all = sitemain.contexte?.banques ?? []
     }
 }

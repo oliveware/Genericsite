@@ -163,11 +163,14 @@ struct Guide : Codable {
 }
 
 import Putex
+import Semantex
 public struct Contexte:Codable {
     var tables : [String:Table] = [:]
+    var banques : [Banque]
     
     init( _ tables : [String:Table]) {
         self.tables = tables
+        banques = Banque.all
     }
 }
 
