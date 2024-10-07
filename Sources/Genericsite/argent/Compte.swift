@@ -57,13 +57,13 @@ public struct Comptejson : Codable {
     public var ecritures: [Ecriturejson]
     public var folio:Foliojson?
     
-    public init(_ bourse: CompteBancaire) {
-        id = bourse.id
-        let boursejson = bourse.json
-        data = boursejson.data
-        solde = Soldejson(boursejson.solde)
-        ecritures = boursejson.ecritures.json
-        folio = boursejson.folio
+    public init(_ compte: CompteBancaire) {
+        id = compte.id
+        let json = compte.json
+        data = json.data
+        solde = Soldejson(json.solde)
+        ecritures = json.ecritures.json
+        folio = json.folio
     }
     
     public init(_ json:String) {

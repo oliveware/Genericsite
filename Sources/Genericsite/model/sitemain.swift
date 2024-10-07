@@ -47,7 +47,7 @@ public struct Sitemain : Codable {
 extension Sitemain {
    public init(_ argent:Argent) {
        
-       let contexte = Contexte(argent.tables)
+       let contexte = Contexte()
        
        let avoir = argent.avoir
         var rubrics: [Rubric] = []
@@ -162,21 +162,7 @@ struct Guide : Codable {
     
 }
 
-import Putex
-import Semantex
-public struct Contexte:Codable {
-    var tables : [String:Table] = [:]
-    var banques : [Banque]
-    
-    public init( _ tables : [String:Table]) {
-        self.tables = tables
-        banques = Banque.all
-    }
-    
-    public init (_ banques:[Banque]) {
-        self.banques = banques
-    }
-}
+
 
 
 

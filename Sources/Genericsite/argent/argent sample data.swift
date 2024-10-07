@@ -18,7 +18,8 @@ let argentmain = Sitemain(
     titrage : ["Grand", " ", "titre"],
     maxime: "exergue d'accueil",
     accueil: "invitation à la suite",
-    intro: intro
+    intro: intro,
+    contexte: Contexte(banques)
 )
 
 let intro = Theme(
@@ -41,8 +42,19 @@ let intro = Theme(
     ]
 )
 
+
+let banques = """
+[{"id":"bp", "codebanque":"20041","BIC":"PSSTFRPPLIL",
+    "domiciliation":"LA BANQUE POSTALE\\nLILLE CENTRE FINANCIER", "codeguichet":"01005", "nom":"Banque Postale"}]
+"""
+
 let BP = """
-{ "solde":{"banque":"37 456,44 €", "reel": "37 456,44 €"},
+{ 
+"data": { "banquid":"bp",
+    "iban":{"one":"FR35","two":"2004","three":"1010","four":"0511","five":"1537","six":"2F02", "seven":"669"},
+    "titulaire":"MME CRESPEL JACQUELINE\\n4 AVENUE HIPPOLYTE PESLIN\\n59130 LAMBERSART", "numéro":"1115372F026", "clé":"69"
+    },
+"solde":{"banque":"37 456,44 €", "reel": "37 456,44 €"},
     "ecritures":[
         {"date": "09/09/2024","libellé": "VIREMENT DE CAISSE D ASSURANCE R AITE ET SANTE AU TRAVAIL 01913786 VIRIQUE 0824 ASSURANCE RETRAITE","montant": "609,72"},
         {"date": "09/08/2024","libellé": "VIREMENT DE CAISSE D ASSURANCE R AITE ET SANTE AU TRAVAIL 01913786 VIRIQUE 0724 ASSURANCE RETRAITE","montant": "609,72"},
