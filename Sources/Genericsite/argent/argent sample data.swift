@@ -44,8 +44,9 @@ let intro = Theme(
 
 
 let banques = """
-[{"id":"bp", "codebanque":"20041","BIC":"PSSTFRPPLIL",
+{"banques":[{"id":"bp", "codebanque":"20041","BIC":"PSSTFRPPLIL",
     "domiciliation":"LA BANQUE POSTALE\\nLILLE CENTRE FINANCIER", "codeguichet":"01005", "nom":"Banque Postale"}]
+}
 """
 
 let BP = """

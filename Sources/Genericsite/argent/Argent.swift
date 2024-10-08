@@ -15,7 +15,7 @@ import Putex
 public struct Argent: Codable {
     
     public var avoir: Avoir
-    public var tables : [String:Table] = [:]
+    public var tables : [String:Tableref] = [:]
   //  public var comptes:
     
     public init(_ compte:Comtopic) {
