@@ -19,19 +19,26 @@ public struct ComtopicView: View {
     
     public var body: some View {
         HStack {
-            //CompteLabel($compte.compte)
-            BankingDataShow($comtopic.compte.contractuel)
-                .font(.title2)
-            Text(comtopic.solde.affiche("prévu"))
-                .font(.title)
-            Text(comtopic.compte.contractuel.titulaire)
-                .padding(.leading,20)
-            Spacer()
-            Button(action: {edition = true},
-                   label: {Text("détail")})
-            .sheet(isPresented: $edition, content: {
-                ComtopicEditor($comtopic)
-            })
+            if comtopic.compte.contractuel.banquid == nil {
+                Button(action: {edition = true},
+                       label: {Text("Nouveau compte à compléter").font(.title)})
+                .sheet(isPresented: $edition, content: {
+                    ComtopicEditor($comtopic)})
+            } else {
+                //CompteLabel($compte.compte)
+                BankingDataShow($comtopic.compte.contractuel)
+                    .font(.title2)
+                Text(comtopic.solde.affiche("prévu"))
+                    .font(.title)
+                Text(comtopic.compte.contractuel.titulaire)
+                    .padding(.leading,20)
+                Spacer()
+                Button(action: {edition = true},
+                       label: {Text("détail")})
+                .sheet(isPresented: $edition, content: {
+                    ComtopicEditor($comtopic)
+                })
+            }
         }.frame(minWidth:500, minHeight: 100)
         .padding(5)
     }
