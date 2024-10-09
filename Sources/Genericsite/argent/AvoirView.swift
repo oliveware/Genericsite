@@ -84,7 +84,7 @@ public struct AvoirView: View {
                         ajoutmode = false
                         ajoutcourant = true
                     } ).padding(20)
-                        .sheet(isPresented: $ajoutmode, content: {ComtopicView($new)})
+                        .sheet(isPresented: $ajoutcourant, content: {ComtopicView($new)})
                     Button("compte épargne", action: { avoir.epargne.append(Comtopic(false))
                         ajoutmode = false
                     } ).padding(20)
