@@ -69,7 +69,7 @@ struct ComtopicEditor: View {
                     PortefeuilleShow(portefeuille)
                         .tabItem {Text("portefeuille")}.tag(2)
                 }
-                EcritureList($comtopic.compte.compte.ecritures)
+                CompteView($comtopic.compte.compte)
                     .tabItem {Text("ecritures")}.tag(3)
                 ItemView($comtopic.nav)
                     .tabItem {Text("navigation")}.tag(4)
