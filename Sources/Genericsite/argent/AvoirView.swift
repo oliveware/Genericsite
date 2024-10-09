@@ -20,6 +20,7 @@ public struct AvoirView: View {
     @Binding var avoir:Avoir
     
     @State var ajoutmode = false
+    @State private var new = Comtopic(nil)
     
     public init(_ avoir:Binding<Avoir>) {
         _avoir = avoir
@@ -76,9 +77,12 @@ public struct AvoirView: View {
             if ajoutmode {
                 HStack {
                     Text ("ajouter un compte")
-                    Button("compte courant", action: { avoir.courant.append(Comtopic(nil))
-                        ajoutmode = false
+                    Button("compte courant", action: {
+                        new = Comtopic(nil)
+                        avoir.courant.append(new)
+                        //ajoutmode = false
                     } ).padding(20)
+                        .sheet(isPresented: $ajoutmode, content: {ComtopicView($new)})
                     Button("compte épargne", action: { avoir.epargne.append(Comtopic(false))
                         ajoutmode = false
                     } ).padding(20)
