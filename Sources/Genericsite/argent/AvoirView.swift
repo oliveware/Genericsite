@@ -19,7 +19,8 @@ import Semantex
 public struct AvoirView: View {
     @Binding var avoir:Avoir
     
-    @State var ajoutmode = false
+    @State private var ajoutmode = false
+    @State private var ajoutcourant = false
     @State private var new = Comtopic(nil)
     
     public init(_ avoir:Binding<Avoir>) {
@@ -80,7 +81,8 @@ public struct AvoirView: View {
                     Button("compte courant", action: {
                         new = Comtopic(nil)
                         avoir.courant.append(new)
-                        //ajoutmode = false
+                        ajoutmode = false
+                        ajoutcourant = true
                     } ).padding(20)
                         .sheet(isPresented: $ajoutmode, content: {ComtopicView($new)})
                     Button("compte épargne", action: { avoir.epargne.append(Comtopic(false))
