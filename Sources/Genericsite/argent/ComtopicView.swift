@@ -21,7 +21,7 @@ public struct ComtopicView: View {
         HStack {
             if comtopic.compte.contractuel.banquid == nil {
                 Button(action: {edition = true},
-                       label: {Text("Nouveau compte à compléter").font(.title)})
+                       label: {Text("Nouveau compte -> à renseigner").font(.title)})
                 .sheet(isPresented: $edition, content: {
                     ComtopicEditor($comtopic)})
             } else {

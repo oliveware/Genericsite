@@ -18,14 +18,14 @@ public struct Comtopic: Codable, Identifiable {
         compte.compte.solde()
     }
     
-    init(_ c:CompteBancaire, _ n:Navigation) {
+    init(_ c:CompteBancaire) {
         compte = c
-        nav = n
+        nav = Navigation(c)
     }
     init(_ catégorie:Bool?) {
-        let c = CompteBancaire(catégorie)
-        compte = c
-        nav = Navigation(c.id,"")
+        let cb = CompteBancaire(catégorie)
+        compte = cb
+        nav = Navigation(cb)
     }
     
     init(_ topic:Topic, _ catégorie:Bool?) {
