@@ -23,7 +23,8 @@ public struct ArgentView: View {
         {
             AvoirView($argent.avoir)
                 .tabItem{Text("tous les comptes")}.tag(1)
-           Text("inscrire une transaction")
+           //Text("inscrire une transaction")
+            VersementView()
                 .tabItem{Text("inscrire")}.tag(2)
             //}.frame(minHeight:500)
   
