@@ -25,7 +25,7 @@
       "location" : "http://github.com/oliveware/Putex",
       "state" : {
         "branch" : "main",
-        "revision" : "520d1c7641f1f26947a0624098d5ff0c74955d1b"
+        "revision" : "262d78e2038aff08fdcef8b47fe3bec2e8bc6827"
       }
     },
     {
@@ -34,7 +34,7 @@
       "location" : "http://github.com/oliveware/Semantex",
       "state" : {
         "branch" : "main",
-        "revision" : "0b27b54c03fb0e6a3ae1d704b641d2d0040ff2d3"
+        "revision" : "572147d165d69c32fcff8b2a0b467b69188aaa14"
       }
     }
   ],

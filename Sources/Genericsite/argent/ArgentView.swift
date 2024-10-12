@@ -11,7 +11,7 @@ import Semantex
 
 public struct ArgentView: View {
     @Binding var argent:Argent
-    
+    @State var versement = Versement()
     @State var selectag = 1
     
     public init(_ argent:Binding<Argent>) {
@@ -24,7 +24,7 @@ public struct ArgentView: View {
             AvoirView($argent.avoir)
                 .tabItem{Text("tous les comptes")}.tag(1)
            //Text("inscrire une transaction")
-            VersementView()
+            VersementView($versement)
                 .tabItem{Text("inscrire")}.tag(2)
             //}.frame(minHeight:500)
   
