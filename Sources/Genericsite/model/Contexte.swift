@@ -7,9 +7,10 @@
 import SwiftUI
 import Putex
 import Semantex
+import Putex
 
 public struct Contexte:Codable {
-  //  var tables : [String:Table] = [:]
+    var tables : [String:Coderef] = [:]
     var banques : [Banque] = []
     
   /*  public init( _ tables : [String:Table]) {
@@ -17,8 +18,9 @@ public struct Contexte:Codable {
         banques = Banque.all
     }*/
     
-    public init (_ banques:[Banque]=[]) {
-        self.banques = banques
+    public init () {
+        self.banques = Banque.all
+        self.tables = Coderef.all
     }
     
     public init(_ json:String) {

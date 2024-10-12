@@ -16,7 +16,6 @@ public struct Argent: Codable {
     
     public var avoir: Avoir
     public var tables : [String:Coderef] = [:]
-  //  public var comptes:
     
     public init(_ compte:Comtopic) {
         avoir = Avoir(compte)
@@ -32,7 +31,9 @@ public struct Argent: Codable {
     }*/
 
     public init(_ sitemain:Sitemain) {
-        avoir = Avoir(sitemain)
+        let avoir = Avoir(sitemain)
         Banque.all = sitemain.contexte?.banques ?? []
+        self.avoir = avoir
+        Coderef.all = sitemain.contexte?.tables ?? [:]
     }
 }

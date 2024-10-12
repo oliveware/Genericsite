@@ -9,6 +9,7 @@
 import Oware
 import Attribex
 import Semantex
+import Putex
 
 public struct Avoir: Codable {
         
@@ -60,5 +61,9 @@ public struct Avoir: Codable {
                 }
             }
         }
+      /*  for comtopic in courant {
+            CompteBancaire.courant.append(comtopic.compte)
+        }
+        let codecourant = Codref(Mot("comptes courants","compte courant"), compteBancaire.courant)*/
     }
 }
