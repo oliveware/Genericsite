@@ -32,11 +32,14 @@ public struct AvoirView: View {
                 total = total + avoir.courant[i].solde
             }
         }
-        for compte in avoir.epargne {
-            total = total + compte.solde
+        for comtopic in avoir.epargne {
+            total = total + comtopic.solde
         }
-        for compte in avoir.bourse {
-            total = total + compte.solde
+        for comtopic in avoir.bourse {
+            total = total + comtopic.solde
+            if let portefeuille = comtopic.compte.portefeuille {
+                total = total + portefeuille.valeur
+            }
         }
         return total
     }
