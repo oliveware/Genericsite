@@ -37,9 +37,7 @@ public struct AvoirView: View {
         }
         for comtopic in avoir.bourse {
             total = total + comtopic.solde
-            if let portefeuille = comtopic.compte.portefeuille {
-                total = total + portefeuille.valeur
-            }
+           
         }
         return total
     }

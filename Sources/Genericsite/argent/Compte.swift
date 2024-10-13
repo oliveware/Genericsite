@@ -15,7 +15,11 @@ public struct Comtopic: Codable, Identifiable {
     var compte: CompteBancaire
     var nav: Navigation
     var solde:Solde {
-        compte.compte.solde()
+        var avoir = compte.compte.solde()
+        if let portefeuille = compte.portefeuille {
+            avoir = avoir + portefeuille.valeur
+        }
+        return avoir
     }
     
     init(_ c:CompteBancaire) {
