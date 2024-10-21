@@ -12,7 +12,8 @@ import Semantex
 
 public struct ComtopicView: View {
     @Binding var comtopic: Comtopic
-    @State var edition = false
+    @State var comptedit = false
+    @State var topicedit =  false
     
     public init(_ compte:Binding<Comtopic>) {
         self._comtopic = compte
@@ -20,11 +21,11 @@ public struct ComtopicView: View {
     
     public var body: some View {
         HStack {
-            if comtopic.compte.contractuel.banquid == nil {
-                Button(action: {edition = true},
+            if comtopic.compte.contractuel.banquid == "" {
+                Button(action: {comptedit = true},
                        label: {Text("Nouveau compte -> à renseigner").font(.title)})
-                .sheet(isPresented: $edition, content: {
-                    ComtopicEditor($comtopic)})
+                .sheet(isPresented: $comptedit, content: {
+                    CompteBancaireView($comtopic.compte)})
             } else {
                 //CompteLabel($compte.compte)
                 BankingDataShow($comtopic.compte.contractuel)
@@ -34,17 +35,26 @@ public struct ComtopicView: View {
                 Text(comtopic.compte.contractuel.titulaire)
                     .padding(.leading,20)
                 Spacer()
-                Button(action: {edition = true},
-                       label: {Text("détail")})
-                .sheet(isPresented: $edition, content: {
-                    ComtopicEditor($comtopic)
-                })
+                VStack(spacing:10) {
+                    Button(action: {comptedit = true},
+                           label: {Text("détail")})
+                    .sheet(isPresented: $comptedit, content: {
+                        CompteBancaireView($comtopic.compte)
+                    })
+                    
+                    if comtopic.compte.contractuel.banque != nil {
+                        Button(action:{topicedit = true})
+                        {Text("navigation")}
+                        .sheet(isPresented: $topicedit)
+                        { ItemView($comtopic.nav) }
+                    }
+                }
             }
         }.frame(minWidth:500, minHeight: 100)
         .padding(5)
     }
 }
-
+/*
 struct ComtopicEditor: View {
     @Binding var comtopic: Comtopic
     @State var topicedit =  false
@@ -58,16 +68,10 @@ struct ComtopicEditor: View {
         VStack(alignment: .trailing) {
             CompteBancaireView($comtopic.compte)
             
-            if comtopic.compte.contractuel.banque != nil {
-                Button(action:{topicedit = true})
-                {Text("navigation")}
-                    .offset(CGSize(width: 0, height: -40))
-                    .sheet(isPresented: $topicedit)
-                { ItemView($comtopic.nav) }
-            }
+            
         }
     }
-}
+}*/
 
 public struct ComtopicPreview: View {
     @State var compte = Comtopic(nil)
@@ -76,19 +80,9 @@ public struct ComtopicPreview: View {
         ComtopicView($compte)
     }
 }
-public struct ComtopicEditPreview: View {
-    @State var compte = Comtopic(nil)
-    
-    public var body: some View {
-        ComtopicEditor($compte)
-            .frame(width:600)
-    }
-}
+
 
 #Preview ("view") {
     ComtopicPreview()
 }
 
-#Preview ("edit") {
-    ComtopicEditPreview()
-}
