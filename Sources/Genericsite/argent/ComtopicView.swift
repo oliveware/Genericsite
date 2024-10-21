@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Oware
 import Attribex
 import Semantex
 
@@ -53,29 +54,20 @@ struct ComtopicEditor: View {
     }
     
     public var body: some View {
-        VStack {
-            HStack {
-                BankingDataShow($comtopic.compte.contractuel).font(.title)
-                Spacer()
-                SoldeView(comtopic.solde, nil, nil, nil)
-            }.padding(10)
+
                 
             
             TabView(selection:$selected) {
                 
-                BankingDataEdit($comtopic.compte.contractuel)
-                    .tabItem {Text("contractuel")}.tag(1)
-                if let portefeuille = comtopic.compte.portefeuille {
-                    PortefeuilleShow(portefeuille)
-                        .tabItem {Text("portefeuille")}.tag(2)
-                }
-                CompteView($comtopic.compte.compte)
-                    .tabItem {Text("ecritures")}.tag(3)
+                
+                CompteBancaireView($comtopic.compte)
+                    .tabItem {Text("compte")}.tag(3)
+               
                 ItemView($comtopic.nav)
-                    .tabItem {Text("navigation")}.tag(4)
+                    .tabItem {Text("navigation")}.tag(6)
                 
             }.padding(5)
-        }.padding(5)
+       
     }
 }
 
@@ -86,19 +78,18 @@ public struct ComtopicPreview: View {
         ComtopicView($compte)
     }
 }
-
-/*public struct BancairePredit: View {
-    @State var compte = CompteBancaire()
+public struct ComtopicEditPreview: View {
+    @State var compte = Comtopic(nil)
     
     public var body: some View {
-        CompteBancaireEditor($compte)
+        ComtopicEditor($compte)
     }
-}*/
+}
 
 #Preview ("view") {
     ComtopicPreview()
 }
-/*
+
 #Preview ("edit") {
-    BancairePredit()
-}*/
+    ComtopicEditPreview()
+}
