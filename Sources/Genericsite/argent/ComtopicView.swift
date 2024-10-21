@@ -47,7 +47,7 @@ public struct ComtopicView: View {
 
 struct ComtopicEditor: View {
     @Binding var comtopic: Comtopic
-    @State var selected = 2
+    @State var topicedit =  false
     
     public init(_ compte:Binding<Comtopic>) {
         self._comtopic = compte
@@ -55,19 +55,17 @@ struct ComtopicEditor: View {
     
     public var body: some View {
 
-                
+        VStack(alignment: .trailing) {
+            CompteBancaireView($comtopic.compte)
             
-            TabView(selection:$selected) {
-                
-                
-                CompteBancaireView($comtopic.compte)
-                    .tabItem {Text("compte")}.tag(3)
-               
-                ItemView($comtopic.nav)
-                    .tabItem {Text("navigation")}.tag(6)
-                
-            }.padding(5)
-       
+            if comtopic.compte.contractuel.banque != nil {
+                Button(action:{topicedit = true})
+                {Text("navigation")}
+                    .offset(CGSize(width: 0, height: -40))
+                    .sheet(isPresented: $topicedit)
+                { ItemView($comtopic.nav) }
+            }
+        }
     }
 }
 
@@ -83,6 +81,7 @@ public struct ComtopicEditPreview: View {
     
     public var body: some View {
         ComtopicEditor($compte)
+            .frame(width:600)
     }
 }
 
