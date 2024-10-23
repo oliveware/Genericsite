@@ -46,9 +46,9 @@ extension CompteBancaire {
     init(_ comptejson:Comptejson,_ catégorie:Bool?) {
         let compte = Compte(comptejson.soldebanque, Ecritures(comptejson.ecritures))
         if let data = comptejson.data {
-            self.init(data, compte, comptejson.id, comptejson.folio)
+            self.init(data, compte, comptejson.id, comptejson.cartes, comptejson.chequiers, comptejson.folio)
         } else {
-            self.init(BankingData(catégorie), compte, comptejson.id, comptejson.folio)
+            self.init(BankingData(catégorie), compte, comptejson.id, comptejson.cartes, comptejson.chequiers, comptejson.folio)
         }
     }
 }
@@ -59,6 +59,8 @@ public struct Comptejson : Codable {
     var solde: Soldejson
     public var soldebanque:String { solde.banque }
     public var ecritures: [Ecriturejson]
+    var cartes: CartesBancaires?
+    var chequiers: Chequiers?
     public var folio:Foliojson?
     
     public init(_ compte: CompteBancaire) {
@@ -67,6 +69,8 @@ public struct Comptejson : Codable {
         data = json.data
         solde = Soldejson(json.solde)
         ecritures = json.ecritures.json
+        cartes = json.cartes
+        chequiers = json.chequiers
         folio = json.folio
     }
     

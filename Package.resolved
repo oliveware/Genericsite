@@ -16,7 +16,7 @@
       "location" : "http://github.com/oliveware/Oware",
       "state" : {
         "branch" : "main",
-        "revision" : "99d22654df70b267b06a1d7f2de78a239ee5bddb"
+        "revision" : "da2bef5c6dfeee3a503a13ab2792f6fda08a88cc"
       }
     },
     {
@@ -25,7 +25,7 @@
       "location" : "http://github.com/oliveware/Putex",
       "state" : {
         "branch" : "main",
-        "revision" : "5dfaf494ffbc66e29444c609df753ec1ad4f3033"
+        "revision" : "b62b2a5a2494ee20224001dae0110fa0b1762d0e"
       }
     },
     {
@@ -34,7 +34,7 @@
       "location" : "http://github.com/oliveware/Semantex",
       "state" : {
         "branch" : "main",
-        "revision" : "4ea529e2bbfa56efab955201fed597ff4acbd362"
+        "revision" : "8edb050f3e019eb6eeb2288ad76c294eccece0cc"
       }
     }
   ],
