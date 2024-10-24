@@ -156,16 +156,13 @@ struct ItemView<T:Item>: View {
     }
     
     var body: some View {
-        VStack {
-            
+        VStack(spacing:10) {
+            Button(action:{edition = true}){
+                ItemShow(item: item)
+            }
             if edition {
                 ItemEdit(item :$item, edition:$edition)
-            } else {
-                Button(action:{edition = true}){
-                    ItemShow(item: item)
-                }
             }
-            //.sheet(isPresented: $edition, content: {})
             
         }.frame(minWidth:800)
     }
