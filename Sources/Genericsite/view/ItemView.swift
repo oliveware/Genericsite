@@ -112,37 +112,45 @@ struct ItemEdit<T:Item> : View {
     @Binding var edition: Bool
     public var body: some View {
         
-        HStack {
+        VStack() {
             Form{
-                HStack {
-                    GroupBox("indispensable") {
-                        TextField("name" ,text:$item.name)
+                
+                GroupBox("indispensable") {
+                    HStack {
                         TextField("exergue" ,text:$item.exergue)
-                        
-                    }.frame(width:300)
-                    GroupBox("optionnel") {
+                            .frame(width:400)
+                        TextField("name" ,text:$item.name)
+                            .frame(width:100)
+                    }
+                }
+                GroupBox("optionnel") {
+                    HStack {
                         OptionalEdit("label", $item.label, {item.label = nil})
-                            .frame(width:350,alignment: .leading)
-                        OptionalEdit("color", $item.color, {item.color = nil})
-                            .frame(width:350,alignment: .leading)
+                            .frame(width:150,alignment: .leading)
                         OptionalEdit("titre", $item.titre, {item.titre = nil})
                             .frame(width:350,alignment: .leading)
-                        HStack {
-                            OptionalEdit("slide", $item.slide,
-                                         {item.slide = nil ; item.first = nil ; item.last = nil})
-                                .frame(width:210,alignment: .leading)
-                            if item.slide != nil {
-                                TextField("first" ,value:$item.first, format: .number).frame(width:60,alignment: .center)
-                                TextField("last" ,value:$item.last, format: .number).frame(width:60,alignment: .center)
-                            }
-                        }.frame(width:350, alignment:.leading)
-                    }.frame(width:350, alignment:.leading)
+                        OptionalEdit("color", $item.color, {item.color = nil})
+                            .frame(width:100,alignment: .leading)
+                        
+                    }.frame(width:780, alignment:.leading)
+                    HStack {
+                        OptionalEdit("slide", $item.slide,
+                                     {item.slide = nil ; item.first = nil ; item.last = nil})
+                            .frame(width:210,alignment: .leading)
+                        if item.slide != nil {
+                            TextField("first" ,value:$item.first, format: .number).frame(width:60,alignment: .center)
+                            TextField("last" ,value:$item.last, format: .number).frame(width:60,alignment: .center)
+                        }
+                    }.frame(width:400, alignment:.leading)
                 }
+                
             }
-            Spacer()
-            Button(action:{edition = false}){
-                Image(systemName: "checkmark")
-            }.frame(width:50)
+            HStack {
+                Spacer()
+                Button(action:{edition = false}){
+                    Image(systemName: "chevron.up")
+                }.frame(width:50)
+            }
         }.frame(minWidth:800, alignment:.center)
     }
 }
