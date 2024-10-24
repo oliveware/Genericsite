@@ -40,6 +40,7 @@ public struct ComtopicView: View {
                            label: {Text("détail")})
                     .sheet(isPresented: $comptedit, content: {
                         CompteBancaireView($comtopic.compte)
+                            .frame(minWidth:900, minHeight:200)
                     })
                     
                     if comtopic.compte.contractuel.banque != nil {
