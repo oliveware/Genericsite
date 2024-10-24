@@ -117,20 +117,21 @@ struct ItemEdit<T:Item> : View {
                 
                 GroupBox("indispensable") {
                     HStack {
+                        Spacer()
                         TextField("exergue" ,text:$item.exergue)
                             .frame(width:400)
                         TextField("name" ,text:$item.name)
                             .frame(width:100)
-                    }
+                    }.frame(width:780, alignment:.leading)
                 }
                 GroupBox("optionnel") {
                     HStack {
                         OptionalEdit("label", $item.label, {item.label = nil})
-                            .frame(width:150,alignment: .leading)
+                            .frame(width:200,alignment: .leading)
                         OptionalEdit("titre", $item.titre, {item.titre = nil})
-                            .frame(width:350,alignment: .leading)
+                            .frame(width:380,alignment: .leading)
                         OptionalEdit("color", $item.color, {item.color = nil})
-                            .frame(width:100,alignment: .leading)
+                            .frame(width:200,alignment: .leading)
                         
                     }.frame(width:780, alignment:.leading)
                     HStack {
