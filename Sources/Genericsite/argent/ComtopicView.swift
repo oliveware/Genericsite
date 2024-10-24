@@ -51,7 +51,7 @@ public struct ComtopicView: View {
                     }
                 }
             }
-        }.frame(minWidth:500, minHeight: 100)
+        }.frame(minWidth:400, minHeight: 100)
         .padding(5)
     }
 }
