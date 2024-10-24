@@ -81,26 +81,34 @@ struct ItemShow<T:Item> : View {
     
     var body: some View {
         HStack(alignment:.center) {
-            FieldShow("label", item.label, item.name).font(.title2)
-                .padding(5)
-                .border(Color.gray)
+            VStack {
+                FieldShow("label", item.label, item.name).font(.title2)
+                    .padding(5)
+                    .border(Color.gray)
+                FieldShow("color", item.color)
+            }
             Spacer()
             VStack {
                 FieldShow("titre", item.titre, item.label).font(.title)
                 FieldShow("exergue", item.exergue).font(.title3)
-                
+                HStack {
+                    FieldShow("slide", item.slide, item.name)
+                    if item.first != nil && item.last != nil {
+                        FieldShow("first", item.first)
+                        if item.last! > item.first! {
+                            Text("à ")
+                            FieldShow("last", item.last)
+                        }
+                    }
+                }.padding(.top,15)
+               
             }.padding(20)
             Spacer()
             VStack {
                 Text(item.name)
                     .padding(2)
                 
-                HStack {
-                    FieldShow("slide", item.slide, item.name)
-                    FieldShow("first", item.first)
-                    FieldShow("last", item.last)
-                }
-                FieldShow("color", item.color)
+                
                 
             }
         }.padding(5)
@@ -112,47 +120,52 @@ struct ItemEdit<T:Item> : View {
     @Binding var edition: Bool
     public var body: some View {
         
-        VStack() {
-            Form{
-                
-                GroupBox("indispensable") {
-                    HStack {
-                        Spacer()
-                        TextField("exergue" ,text:$item.exergue)
-                            .frame(width:400)
-                        TextField("name" ,text:$item.name)
-                            .frame(width:100)
-                    }.frame(width:780, alignment:.leading)
-                }
-                GroupBox("optionnel") {
-                    HStack {
+        VStack {
+            GroupBox("indispensable") {
+                HStack {
+                    Spacer()
+                    Text("exergue")
+                    TextField("" ,text:$item.exergue)
+                        .frame(width:400)
+                        .padding(.trailing,10)
+                    Text("name")
+                    TextField("" ,text:$item.name)
+                        .frame(width:100)
+                }.frame(width:780, alignment:.leading)
+            }
+            GroupBox("optionnel") {
+                HStack {
+                    VStack {
                         OptionalEdit("label", $item.label, {item.label = nil})
-                            .frame(width:200,alignment: .leading)
-                        OptionalEdit("titre", $item.titre, {item.titre = nil})
-                            .frame(width:380,alignment: .leading)
+                            .frame(width:180,alignment: .leading)
                         OptionalEdit("color", $item.color, {item.color = nil})
-                            .frame(width:200,alignment: .leading)
-                        
-                    }.frame(width:780, alignment:.leading)
-                    HStack {
-                        OptionalEdit("slide", $item.slide,
-                                     {item.slide = nil ; item.first = nil ; item.last = nil})
-                            .frame(width:210,alignment: .leading)
-                        if item.slide != nil {
-                            TextField("first" ,value:$item.first, format: .number).frame(width:60,alignment: .center)
-                            TextField("last" ,value:$item.last, format: .number).frame(width:60,alignment: .center)
-                        }
-                    }.frame(width:400, alignment:.leading)
-                }
-                
+                            .frame(width:180,alignment: .leading)
+                    }
+                    VStack {
+                        OptionalEdit("titre", $item.titre, {item.titre = nil})
+                            .frame(width:450,alignment: .leading)
+                            .padding(.leading,30)
+                        HStack {
+                            OptionalEdit("slide", $item.slide,
+                                         {item.slide = nil ; item.first = nil ; item.last = nil})
+                                .frame(width:210,alignment: .leading)
+                            if item.slide != nil {
+                                TextField("first" ,value:$item.first, format: .number).frame(width:30,alignment: .center)
+                                TextField("last" ,value:$item.last, format: .number).frame(width:30,alignment: .center)
+                            }
+                        }.frame(width:350, alignment:.leading)
+                    }
+                }.frame(width:780, alignment:.leading)
             }
             HStack {
                 Spacer()
                 Button(action:{edition = false}){
                     Image(systemName: "chevron.up")
                 }.frame(width:50)
-            }
-        }.frame(minWidth:800, alignment:.center)
+                Spacer()
+            }.padding(.top,20)
+        }.frame(minWidth:850, alignment:.center)
+            .padding(5)
     }
 }
 
@@ -168,12 +181,12 @@ struct ItemView<T:Item>: View {
         VStack(spacing:10) {
             Button(action:{edition = true}){
                 ItemShow(item: item)
-            }
+            }.padding(10)
             if edition {
                 ItemEdit(item :$item, edition:$edition)
             }
             
-        }.frame(minWidth:800)
+        }.frame(minWidth:820)
     }
 }
 
@@ -181,6 +194,7 @@ struct ItemPreview: View {
     @State var theme = argentmain.intro
     var body: some View {
         ItemView($theme)
+            .frame(minHeight:400)
     }
 }
 

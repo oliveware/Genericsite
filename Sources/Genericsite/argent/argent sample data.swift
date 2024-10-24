@@ -44,8 +44,42 @@ let intro = Theme(
 
 
 let banques = """
-{"banques":[{"id":"bp", "codebanque":"20041","BIC":"PSSTFRPPLIL",
-    "domiciliation":"LA BANQUE POSTALE\\nLILLE CENTRE FINANCIER", "codeguichet":"01005", "nom":"Banque Postale"}]
+{
+"banques" : [
+    {"id":"bp", "codebanque":"20041","BIC":"PSSTFRPPLIL", "domiciliation":"LA BANQUE POSTALE\\nLILLE CENTRE FINANCIER", "codeguichet":"01005", "nom":"Banque Postale"},
+    {"id":"sg","BIC":"SOGEFRPP","nom":"Société Générale", "codebanque":"30003", "codeguichet":"01288", "domiciliation":"LAMBERSART CANTELEU\\n336/340 Av De Dunkerque \\n59130 Lambersart"},
+    {"id":"cm", "BIC":"", "nom":"Crédit Mutuel", "domiciliation":"", "codebanque":"10278", "codeguichet":"02717"}
+],
+"tables": {
+    "comptes courants": {
+        "name":{"singulier":"compte courant", "pluriel":"comptes courants", "genre":"masculin"}, 
+"selector":"",
+        "items":[
+            {"code":"sg", "label":"Société Générale"},
+            {"code":"cm", "label":"Crédit Mutuel"},
+            {"code":"bp", "label":"Banque Postale"}
+        ]
+    },
+    "épargne": {
+        "name":{"singulier":"compte épargne", "pluriel":"comptes épargne", "genre":"masculin"}, 
+"selector":"",
+        "items":[
+            {"code":"sgldd1", "label":"SG LDD Jacques"},
+            {"code":"sgldd2", "label":"SG LDD Jacqueline"},
+            {"code":"cmlb1", "label":"CM LB Jacques"},
+            {"code":"cmlb2", "label":"CM LB Jacqueline"},
+            {"code":"cmldd", "label":"CM LDD Jacqueline"}
+        ]
+    },
+    "bourse": {
+        "name":{"singulier":"compte titres", "pluriel":"comptes titres", "genre":"masculin"}, 
+        "selector":"",
+        "items":[
+            {"code":"pea1", "label":"PEA Jacques"},
+            {"code":"pea2", "label":"PEA Jacqueline"}
+        ]
+    }
+}
 }
 """
 
