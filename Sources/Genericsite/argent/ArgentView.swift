@@ -29,7 +29,7 @@ public struct ArgentView: View {
             //}.frame(minHeight:500)
   
            
-        }.frame(width:840)
+        }//.frame(width:840)
             .padding(.bottom,10)
             .padding(.top,10)
     }

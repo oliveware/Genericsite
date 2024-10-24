@@ -51,7 +51,7 @@ public struct AvoirView: View {
                         ForEach ($avoir.courant) {
                             compte in
                             ComtopicView(compte)
-                        }.frame(width:800,alignment:.leading)
+                        }.frame(minWidth:900,alignment:.leading)
                     }
                     
                     if avoir.epargne.count > 0  {
@@ -59,7 +59,7 @@ public struct AvoirView: View {
                             ForEach ($avoir.epargne) {
                                 compte in
                                 ComtopicView(compte)
-                            }.frame(width:800,alignment:.leading)
+                            }.frame(minWidth:900,alignment:.leading)
                         }
                     }
                     
@@ -68,11 +68,11 @@ public struct AvoirView: View {
                             ForEach ($avoir.bourse) {
                                 compte in
                                 ComtopicView(compte)
-                            }.frame(width:800,alignment:.leading)
+                            }.frame(minWidth:900,alignment:.leading)
                         }
                     }
                 }
-            }.frame(minHeight:500)
+            }.frame(minWidth:1000,minHeight:500)
   
             if ajoutmode {
                 HStack {
@@ -92,9 +92,9 @@ public struct AvoirView: View {
                 Button("ajouter un compte", action:{ajoutmode = true})
                     .padding(20)
             }
-        }.frame(width:840)
-            .padding(.bottom,10)
-            .padding(.top,10)
+        }
+        .padding(.bottom,10)
+        .padding(.top,10)
     }
 
     func delete(_ id:Int) {
@@ -107,6 +107,7 @@ struct AvoirPreview: View {
     @State var avoir = Avoir(Comtopic(nil))
     var body: some View {
         AvoirView( $avoir )
+
     }
 }
 
