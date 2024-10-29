@@ -24,9 +24,12 @@ public struct Contexte:Codable {
     }
     
     public init(_ json:String) {
-        let contexte = "{" + common + "," + json + "}"
-        let jsonData = contexte.data(using: .utf8)!
-        self = try! JSONDecoder().decode(Contexte.self, from: jsonData)
+        let contextejson = "{" + common + "," + json + "}"
+        let jsonData = contextejson.data(using: .utf8)!
+        let contexte = try! JSONDecoder().decode(Contexte.self, from: jsonData)
+        self = contexte
+        Banque.all = contexte.banques
+        Coderef.all = contexte.tables
     }
 }
 

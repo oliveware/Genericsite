@@ -47,6 +47,10 @@ struct ArgentPreview: View {
     }
 }
 
-#Preview {
-    ArgentPreview()
+#Preview("nil") {
+    ArgentPreview(argent:Argent(Comtopic(nil)))
+}
+
+#Preview("sample") {
+    ArgentPreview(argent:Argent(argentmain))
 }
