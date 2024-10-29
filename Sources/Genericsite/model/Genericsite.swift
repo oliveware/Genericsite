@@ -9,8 +9,9 @@ public struct Genericsite: Codable {
     
     public var main:Sitemain
     public var master:Sitemaster
-
-    public var colors : [String]
+    public var colors:[String] {
+        main.intro.colors
+    }
     
     var name : String
     var initials : String
@@ -20,15 +21,13 @@ public struct Genericsite: Codable {
         name == "" || colors == []
     }
     
-    public init(siteroot: String , localroot: String ,
-                colors: [String] = ["dark", "darker", "colorA", "colorB"],
+    public init(siteroot: String , localroot: String,
                 name: String, initials: String,
                 intro: Theme,
                 tables:String
     ) {
         self.siteroot = siteroot
         self.localroot = localroot
-        self.colors = colors
         self.name = name
         self.initials = initials
         

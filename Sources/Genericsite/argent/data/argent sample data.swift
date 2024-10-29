@@ -7,7 +7,6 @@
 
 let argentsite = Genericsite(
     siteroot: "argent/", localroot: "argent/site/",
-    colors: ["dark", "darker", "colorA", "colorB", "colorC"],
     name: "nom", initials: "dd",
     intro:intro,
     tables:tables

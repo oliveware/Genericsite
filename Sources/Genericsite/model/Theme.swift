@@ -28,6 +28,13 @@ public struct Theme: Codable, Identifiable, Item {
     var d:Int = 1
     
     public var items: [Rubric] = []
+    var colors:[String] {
+        var c :[String] = [color ?? "dark"]
+        for item in items {
+            c.append(item.color ?? "dark")
+        }
+        return c
+    }
     
     init(_ t:String, _ n:String?, _ l:String?, _ c:String) {
         name = n ?? "intro"
