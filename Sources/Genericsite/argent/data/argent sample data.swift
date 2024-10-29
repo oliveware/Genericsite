@@ -10,7 +10,7 @@ let argentsite = Genericsite(
     colors: ["dark", "darker", "colorA", "colorB", "colorC"],
     name: "nom", initials: "dd",
     intro:intro,
-    contexte:Contexte(banques)
+    tables:tables
 )
 
 let argentmain = argentsite.main
@@ -35,17 +35,22 @@ let intro = Theme(
     ]
 )
 
-let banques = """
+let common = """
 {
-"banques" : [
-    {"id":"bp", "codebanque":"20041","BIC":"PSSTFRPPLIL", "domiciliation":"LA BANQUE POSTALE\\nLILLE CENTRE FINANCIER", "codeguichet":"01005", "nom":"Banque Postale"},
-    {"id":"sg","BIC":"SOGEFRPP","nom":"Société Générale", "codebanque":"30003", "codeguichet":"01288", "domiciliation":"LAMBERSART CANTELEU\\n336/340 Av De Dunkerque \\n59130 Lambersart"},
-    {"id":"cm", "BIC":"", "nom":"Crédit Mutuel", "domiciliation":"", "codebanque":"10278", "codeguichet":"02717"}
-],
-"tables": {
+    "banques" : [
+        {"id":"bp", "codebanque":"20041","BIC":"PSSTFRPPLIL", "domiciliation":"LA BANQUE POSTALE\\nLILLE CENTRE FINANCIER", "codeguichet":"01005", "nom":"Banque Postale"},
+        {"id":"sg","BIC":"SOGEFRPP","nom":"Société Générale", "codebanque":"30003", "codeguichet":"01288", "domiciliation":"LAMBERSART CANTELEU\\n336/340 Av De Dunkerque \\n59130 Lambersart"},
+        {"id":"cm", "BIC":"", "nom":"Crédit Mutuel", "domiciliation":"", "codebanque":"10278", "codeguichet":"02717"}
+    ],
+
+"""
+
+let tables = """
+"tables" :
+{
     "comptes courants": {
         "name":{"singulier":"compte courant", "pluriel":"comptes courants", "genre":"masculin"}, 
-"selector":"",
+        "selector":"",
         "items":[
             {"code":"sg", "label":"Société Générale"},
             {"code":"cm", "label":"Crédit Mutuel"},
@@ -54,12 +59,12 @@ let banques = """
     },
     "épargne": {
         "name":{"singulier":"compte épargne", "pluriel":"comptes épargne", "genre":"masculin"}, 
-"selector":"",
+        "selector":"",
         "items":[
             {"code":"sgldd1", "label":"SG LDD Jacques"},
             {"code":"sgldd2", "label":"SG LDD Jacqueline"},
-            {"code":"cmlb1", "label":"CM LB Jacques"},
-            {"code":"cmlb2", "label":"CM LB Jacqueline"},
+            {"code":"cmlb2", "label":"CM LB Jacques"},
+            {"code":"cmlb1", "label":"CM LB Jacqueline"},
             {"code":"cmldd", "label":"CM LDD Jacqueline"}
         ]
     },
@@ -71,7 +76,6 @@ let banques = """
             {"code":"pea2", "label":"PEA Jacqueline"}
         ]
     }
-}
 }
 """
 

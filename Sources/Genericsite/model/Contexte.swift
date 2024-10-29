@@ -24,7 +24,9 @@ public struct Contexte:Codable {
     }
     
     public init(_ json:String) {
-        let jsonData = json.data(using: .utf8)!
+        let commonData = common.data(using: .utf8)!
+        let tableData = json.data(using: .utf8)!
+        let jsonData = commonData + tableData
         self = try! JSONDecoder().decode(Contexte.self, from: jsonData)
     }
 }

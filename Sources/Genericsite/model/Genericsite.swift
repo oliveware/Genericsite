@@ -24,7 +24,7 @@ public struct Genericsite: Codable {
                 colors: [String] = ["dark", "darker", "colorA", "colorB"],
                 name: String, initials: String,
                 intro: Theme,
-                contexte:Contexte
+                tables:String
     ) {
         self.siteroot = siteroot
         self.localroot = localroot
@@ -41,7 +41,7 @@ public struct Genericsite: Codable {
             accueil: "invitation à la suite",
             
             intro: intro,
-            contexte: contexte
+            contexte: Contexte(tables)
             )
         
         master = Sitemaster()
