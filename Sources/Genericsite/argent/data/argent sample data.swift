@@ -6,42 +6,34 @@
 //
 
 let argentsite = Genericsite(
-        siteroot: "argent/", localroot: "argent/site/",
-        colors: ["dark", "darker", "colorA", "colorB", "colorC"],
-        name: "nom", initials: "dd"
-    )
-
-let argentmain = Sitemain(
-    exergue :
-        "exergue de bas de page",
-    go: "retour ...",
-    titrage : ["Grand", " ", "titre"],
-    maxime: "exergue d'accueil",
-    accueil: "invitation à la suite",
-    intro: intro,
-    contexte: Contexte(banques)
+    siteroot: "argent/", localroot: "argent/site/",
+    colors: ["dark", "darker", "colorA", "colorB", "colorC"],
+    name: "nom", initials: "dd",
+    intro:intro,
+    contexte:Contexte(banques)
 )
 
+let argentmain = argentsite.main
+
 let intro = Theme(
-    "Affaires à suivre","intro","parents",
-    argentsite.colors[0],
+    "Affaires à suivre","intro","argent",
+    "dark",
     "lastmaj",
     "tabord",
     [
-        Rubric("comptes", "Comptes courants", "Comptes courants", argentsite.colors[2], "", "navigationcourant",
+        Rubric("comptes", "Comptes courants", "Comptes courants", "darker", "", "navigationcourant",
                [
-                Topic("bp", "Banque postale", Comptejson(BP), argentsite.colors[2])
+                Topic("bp", "Banque postale", Comptejson(BP), "colorA")
                ]
               ),
-        Rubric("epargne", "Epargne", "Epargne", argentsite.colors[3], "", "navigationepargne",
+        Rubric("epargne", "Epargne", "Epargne", "colorB", "", "navigationepargne",
                []
               ),
-        Rubric("bourse", "Bourse", "Bourse", argentsite.colors[4], "", "navigationbourse",
+        Rubric("bourse", "Bourse", "Bourse", "colorC", "", "navigationbourse",
                []
               )
     ]
 )
-
 
 let banques = """
 {

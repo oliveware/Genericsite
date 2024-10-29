@@ -17,7 +17,7 @@ public struct Sitemaster : Codable {
     var bottomnav = "m"
     var defaultlang = "fr"
     var altlang = ""
-    var flags = ["fr":Flag(),"en":Flag("en")]
+    var flags = ["fr":Flag("fr"),"en":Flag("en")]
     var com = [
         "default":  Comitem( color :"dark", button: "button border", shadow : "blackshadow"),
         "intro":    Comitem(color : "dark", button : "word", shadow: "")
