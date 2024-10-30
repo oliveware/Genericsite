@@ -41,10 +41,13 @@ public struct Sitemain : Codable {
         self.intro = intro ?? Theme.intro
         self.contexte = contexte
     }
-
 }
 
 extension Sitemain {
+    mutating func update(_ argent:Argent) {
+        
+    }
+    
    public init(_ argent:Argent) {
        
        let contexte = Contexte()

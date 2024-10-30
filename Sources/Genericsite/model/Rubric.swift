@@ -36,6 +36,14 @@ public struct Rubric: Codable, Identifiable, Item {
         items = topics
     }
     
+    mutating func update(_ comtopics:[Comtopic]) {
+        var new :[Topic] = []
+        for comtopic in comtopics {
+            new.append(Topic(comtopic))
+        }
+        items = new
+    }
+    
     
     
     // consommation globale par mois (index = mois - 1, 0 pour janvier)

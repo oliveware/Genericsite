@@ -53,10 +53,13 @@ public struct Theme: Codable, Identifiable, Item {
         if ex == "lastmaj" { exergue = Theme.lastmaj } else { exergue = ex }
     }
     
-    mutating func update(_ ex:String, _ sl: String, _ rubrics:[Rubric]) {
+   /* mutating func update(_ ex:String, _ sl: String, _ rubrics:[Rubric]) {
         exergue = ex
         slide = sl
         items = rubrics
+    }*/
+    mutating func update(_ avoir:Avoir) {
+        
     }
     
     static var lastmaj:String {
