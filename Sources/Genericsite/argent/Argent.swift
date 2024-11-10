@@ -55,7 +55,7 @@ extension Sitemain {
             courantopics.append(Topic(compte))
         }
         rubrics.append(
-            Rubric("comptes", "Comptes courants", "Comptes courants", argentsite.colors[2], "", "navigationcourant", courantopics)
+            Rubric("comptes", "Comptes courants", "Comptes courants", argentsite.colors[1], "", "navigationcourant", courantopics)
         )
        
        var epargnetopics : [Topic] = []
@@ -63,7 +63,7 @@ extension Sitemain {
            epargnetopics.append(Topic(compte))
        }
        rubrics.append(
-           Rubric("epargne", "Epargne", "Epargne", argentsite.colors[3], "", "navigationepargne", epargnetopics)
+           Rubric("epargne", "Epargne", "Epargne", argentsite.colors[2], "", "navigationepargne", epargnetopics)
        )
        
        var boursetopics : [Topic] = []
@@ -71,7 +71,7 @@ extension Sitemain {
            boursetopics.append(Topic(compte))
        }
        rubrics.append(
-           Rubric("bourse", "Bourse", "Bourse", argentsite.colors[4], "", "navigationbourse", boursetopics)
+           Rubric("bourse", "Bourse", "Bourse", argentsite.colors[3], "", "navigationbourse", boursetopics)
        )
         
        let theme = Theme(
