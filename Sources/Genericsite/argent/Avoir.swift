@@ -67,3 +67,21 @@ public struct Avoir: Codable {
         let codecourant = Codref(Mot("comptes courants","compte courant"), compteBancaire.courant)*/
     }
 }
+
+extension Theme {
+    mutating func update(_ avoir:Avoir) {
+        items[0].update(avoir.courant)
+        items[1].update(avoir.epargne)
+        items[2].update(avoir.bourse)
+    }
+}
+
+extension Rubric {
+    mutating func update(_ comtopics:[Comtopic]) {
+        var new :[Topic] = []
+        for comtopic in comtopics {
+            new.append(Topic(comtopic))
+        }
+        items = new
+    }
+}

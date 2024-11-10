@@ -24,6 +24,8 @@ public struct Sitemain : Codable {
        
     public var intro : Theme
     
+    public var immobilier : Immobilier?
+    
     public init(
         exergue : String,
         go : String,
@@ -43,59 +45,7 @@ public struct Sitemain : Codable {
     }
 }
 
-extension Sitemain {
-    mutating func update(_ argent:Argent) {
-        
-    }
-    
-   public init(_ argent:Argent) {
-       
-       let contexte = Contexte()
-       
-       let avoir = argent.avoir
-        var rubrics: [Rubric] = []
-        
-        var courantopics : [Topic] = []
-        for compte in avoir.courant {
-            courantopics.append(Topic(compte))
-        }
-        rubrics.append(
-            Rubric("comptes", "Comptes courants", "Comptes courants", argentsite.colors[2], "", "navigationcourant", courantopics)
-        )
-       
-       var epargnetopics : [Topic] = []
-       for compte in avoir.epargne {
-           epargnetopics.append(Topic(compte))
-       }
-       rubrics.append(
-           Rubric("epargne", "Epargne", "Epargne", argentsite.colors[3], "", "navigationepargne", epargnetopics)
-       )
-       
-       var boursetopics : [Topic] = []
-       for compte in avoir.bourse {
-           boursetopics.append(Topic(compte))
-       }
-       rubrics.append(
-           Rubric("bourse", "Bourse", "Bourse", argentsite.colors[4], "", "navigationbourse", boursetopics)
-       )
-        
-       let theme = Theme(
-            "Affaires à suivre","intro","parents", argentsite.colors[0],
-            "lastmaj",
-            "tabord",  rubrics)
-        
-       self.init(
-            exergue :
-                "exergue de bas de page",
-            go: "retour ...",
-            titrage : ["Grand", " ", "titre"],
-            maxime: "exergue d'accueil",
-            accueil: "invitation à la suite",
-            intro: theme,
-            contexte:contexte
-        )
-    }
-}
+
 
 struct MainTitle : Codable {
     var left: String

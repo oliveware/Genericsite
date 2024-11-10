@@ -58,9 +58,6 @@ public struct Theme: Codable, Identifiable, Item {
         slide = sl
         items = rubrics
     }*/
-    mutating func update(_ avoir:Avoir) {
-        
-    }
     
     static var lastmaj:String {
         let formatter = DateFormatter()
@@ -68,22 +65,4 @@ public struct Theme: Codable, Identifiable, Item {
         formatter.dateFormat = "d MMMM yyyy' à 'HH'h'mm"
         return "dernière mise à jour : " + formatter.string(from:Date.now)
     }
-}
-
-extension Consomois {
-    /*mutating func setconsomois(_ courant:IndexRelatif, _ bail:Bail) {
-     histoconso.update(courant)
-     let indexan = courant.date.année - (Int(intro.items[0].name) ?? 0)
-     let indexmois = courant.date.mois - 1
-     if indexmois == 0 && intro.items.count < indexan + 1 {
-     intro.items.append(Rubric(courant.date, intro.label, bail))
-     catalogs.append(Catalog(site:name, initials:initials, kind:.quit, folder:"\(courant.date.année)"))
-     }
-     intro.items[indexan].conso[indexmois] = Consomois(courant, histoconso)
-     // maj définitive du consomois précédent
-     fixconsomois(indexmois, indexan, courant.date.année)
-     }
-     
-     
-     */
 }

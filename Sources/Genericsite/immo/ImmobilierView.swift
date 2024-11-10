@@ -10,27 +10,28 @@ import SwiftUI
 import Oware
 
 public struct ImmobilierView: View {
-    @Binding var immeubles:Immobilier
+    @Binding var immo:Immobilier
     
     public init(_ immo:Binding<Immobilier>) {
-        _immeubles = immo
+        _immo = immo
     }
     
     public var body:some View {
         ScrollView {
-            ForEach ($immeubles.immeubles) {
-                immeuble in
-                ImmeubleView(immeuble)
+            ForEach ($immo.fonciers) {
+                foncier in
+                FoncierView(foncier)
             }
         }
     }
 }
 
 struct ImmobilierPreview:View {
-    @State var immobilier  = Immobilier(immeubles: [seclin67])
+    @State var immo  = Immobilier(immosample)
     
     var body: some View {
-        ImmobilierView($immobilier)
+        ImmobilierView($immo)
+            .frame(width:200)
     }
 }
 
