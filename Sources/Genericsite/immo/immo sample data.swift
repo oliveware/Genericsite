@@ -7,21 +7,66 @@
 
 let immosample = """
 {
-"fonciers" : [
-    {
-    "label":"67 1407",
-    "parcelle":{"global":{"territoire":1,"region":1,"commune":31}, "local":{"quartier":1,"parcelle:":1}},
-    "immeubles":[], "garages":[],
-    "maisons":[
-        {   "lid":{"global":{"territoire":1}}, "label":"67 rue",
-            "principal":{"local":{"lid":{"global":{"territoire":1}},"label":"communs","nom":"", "emplacement":"", "description":"parties communes"}, "pieces":[]},
+    "fonciers" : [
+            {"id":"11",
+            "label":"67 1407",
+            "immeubles":[
+                {   
+                    "label":"seclin67", 
+                    "batiment":{"id":"122", "nom":"rue",   "parcelleprincipale":{"territoire":1 ,"region":7 ,"commune":704 ,"quartier":1 , "parcelle":148} ,"autresparcelles":[], "communs":[], "numvoie":{"voie":"","num":""}, "codepostal":""},
+                    "étages":[
+                        {"label":"second",
+                        "communs":[],
+                        "logements":[
+                            {"local":{"id":"1","label":"second","nom":"", "description":"appartement du second", 
+                            "surface":{"nombre":{"decimales":""},"quantité":"surface"}, "emplacement":""}, 
+                            "pieces":[]}
+                            ],
+                        "garages":[]
+                        },
+                        {"label":"premier",
+                        "communs":[],
+                        "logements":[
+                            {"local":{"id":"2","label":"premier","nom":"", "description":"appartement du premier", 
+                                "surface":{"nombre":{"decimales":""},"quantité":"surface"}, "emplacement":""}, 
+                            "pieces":[]}
+                            ],
+                        "garages":[]
+                        },
+                        {"label":"RdC",
+                        "communs":[],
+                        "logements":[
+                            {"local":{"id":"3","label":"droit","nom":"", "description":"studio de droite", 
+                            "surface":{"nombre":{"decimales":""},"quantité":"surface"}, "emplacement":""}, 
+                            "pieces":[]},
+                            {"local":{"id":"3","label":"gauche","nom":"", "description":"appartement de gauche", 
+                                "surface":{"nombre":{"decimales":""},"quantité":"surface"}, "emplacement":""}, 
+                            "pieces":[]}
+                            ],
+                        "garages":[]
+                        }
+                    ]
+                }
+            ],
+            "maisons":[],
+            "garages":[]
+        }
+    ]
+}
+"""
+/*
+
+        "principal":{"local":{"lid":{"global":{"territoire":1}},"label":"communs","nom":"", "emplacement":"", "description":"parties communes"}, "pieces":[]},
             "logements":[
-            {"local":{"lid":{"global":{"territoire":1}},"label":"second","nom":"", "emplacement":"", "description":"appartement du second"}, "pieces":[]},
+            
             {"local":{"lid":{"global":{"territoire":1}},"label":"premier","nom":"", "emplacement":"", "description":"appartement du premier étage"}, "pieces":[]},
             {"local":{"lid":{"global":{"territoire":1}},"label":"gauche","nom":"", "emplacement":"", "description":"rdc droit"}, "pieces":[]},
             {"local":{"lid":{"global":{"territoire":1}},"label":"droit","nom":"", "emplacement":"", "description":"rdc gauche"}, "pieces":[]}
             ]
         },
+], "garages":[],
+    "maisons":[
+        
         {   "lid":{"global":{"territoire":1,"region":1,"commune":31}, "local":{"quartier":1,"parcelle:":1}},"nom":"grange", "label":"67 fond",
             "principal":{"local":{"lid":{"global":{"territoire":1,"region":1,"commune":31}, "local":{"quartier":1,"parcelle:":1}}, "label":"communs","nom":"", "emplacement":"", "description":"parties communes"}, "pieces":[]},
             "logements":[]
@@ -79,4 +124,4 @@ let immosample = """
 ]
 }
 """
-
+*/

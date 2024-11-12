@@ -31,7 +31,7 @@ struct ImmobilierPreview:View {
     
     var body: some View {
         ImmobilierView($immo)
-            .frame(width:200)
+            .frame(width:600)
     }
 }
 
