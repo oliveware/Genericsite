@@ -179,7 +179,7 @@ struct ItemView<T:Item>: View {
     
     var body: some View {
         VStack(spacing:10) {
-            Button(action:{edition = true}){
+            Button(action:{edition.toggle()}){
                 ItemShow(item: item)
             }.padding(10)
             if edition {

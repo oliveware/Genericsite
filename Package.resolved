@@ -7,7 +7,7 @@
       "location" : "http://github.com/oliveware/Attribex",
       "state" : {
         "branch" : "main",
-        "revision" : "5845fcbae41ce14a94e004401cd364190c5d9c9c"
+        "revision" : "0253f6ba423b3ab05a138f05ab34252b3acc1250"
       }
     },
     {
@@ -16,7 +16,7 @@
       "location" : "http://github.com/oliveware/Oware",
       "state" : {
         "branch" : "main",
-        "revision" : "90d8ee151b82e6d63b551a702981c64dc0b546a5"
+        "revision" : "64da5a7c2b2dffe942221554e87d05d25591a2e0"
       }
     },
     {
@@ -25,7 +25,7 @@
       "location" : "http://github.com/oliveware/Putex",
       "state" : {
         "branch" : "main",
-        "revision" : "75855f056f3d2bd1601f08c61e23b05db9f4b331"
+        "revision" : "665b2a1770b430116bb3949a043ad76f0c24432c"
       }
     },
     {
@@ -34,7 +34,7 @@
       "location" : "http://github.com/oliveware/Semantex",
       "state" : {
         "branch" : "main",
-        "revision" : "d3454ff93b35960b9ea3d4024ebac02bae09074e"
+        "revision" : "7c0858f3c34c3c23d66388b6796a15ea176a82d0"
       }
     }
   ],

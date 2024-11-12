@@ -46,6 +46,7 @@ extension Sitemain {
    public init(_ argent:Argent) {
        
        let contexte = Contexte()
+       let immo = Immobilier()
        
        let avoir = argent.avoir
         var rubrics: [Rubric] = []
@@ -87,6 +88,7 @@ extension Sitemain {
             maxime: "exergue d'accueil",
             accueil: "invitation à la suite",
             intro: theme,
+            immobilier: immo,
             contexte:contexte
         )
     }

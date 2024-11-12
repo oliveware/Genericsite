@@ -24,6 +24,7 @@ public struct Genericsite: Codable {
     public init(siteroot: String , localroot: String,
                 name: String, initials: String,
                 intro: Theme,
+                immo: String,
                 tables:String
     ) {
         self.siteroot = siteroot
@@ -40,6 +41,7 @@ public struct Genericsite: Codable {
             accueil: "invitation à la suite",
             
             intro: intro,
+            immobilier:Immobilier(immo),
             contexte: Contexte(tables)
             )
         

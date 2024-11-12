@@ -24,7 +24,7 @@ public struct Sitemain : Codable {
        
     public var intro : Theme
     
-    public var immobilier : Immobilier?
+    public var immobilier : Immobilier
     
     public init(
         exergue : String,
@@ -33,6 +33,7 @@ public struct Sitemain : Codable {
         maxime:String,
         accueil:String,
         intro:Theme?,
+        immobilier:Immobilier?,
         contexte:Contexte? = nil
     ) {
         footexerg = exergue
@@ -41,6 +42,7 @@ public struct Sitemain : Codable {
         welcome = Welcome(maxime, accueil)
         
         self.intro = intro ?? Theme.intro
+        self.immobilier = immobilier ?? Immobilier()
         self.contexte = contexte
     }
 }
