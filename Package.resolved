@@ -16,7 +16,7 @@
       "location" : "http://github.com/oliveware/Oware",
       "state" : {
         "branch" : "main",
-        "revision" : "56827aa0c726104d3b2fa3a01b7aeb8b4e36fb9d"
+        "revision" : "f65c9a547972f7d76e6186af99f4126719d8c1c9"
       }
     },
     {
@@ -25,7 +25,7 @@
       "location" : "http://github.com/oliveware/Putex",
       "state" : {
         "branch" : "main",
-        "revision" : "d548659bd95d60aeeeac7e311b15cad98c57fc63"
+        "revision" : "7e7b4396f7c836447be5aaf9a442c74cab2384c1"
       }
     },
     {

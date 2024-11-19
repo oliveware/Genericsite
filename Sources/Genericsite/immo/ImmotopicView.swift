@@ -14,7 +14,7 @@ struct FonciertopicView: View {
     var body: some View {
         HStack(spacing:30) {
             Text (foncier.adresse)
-            Text (foncier.valeur)
+            Text (foncier.valeur.euro)
             Text ("aucun incident")
             Spacer()
             VStack(spacing:10) {

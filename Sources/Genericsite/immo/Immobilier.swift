@@ -17,6 +17,14 @@ public struct Immobilier : Codable {
         let jsonData = json.data(using: .utf8)!
         self = try! JSONDecoder().decode(Immobilier.self, from: jsonData)
     }
+    
+    var valeur: Montant {
+        var total = Montant(0)
+        for foncier in fonciers {
+            total = total + foncier.valeur
+        }
+        return total
+    }
 }
 
 /*public struct Immobilier : Codable {

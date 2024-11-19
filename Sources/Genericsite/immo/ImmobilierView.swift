@@ -17,10 +17,14 @@ public struct ImmobilierView: View {
     }
     
     public var body:some View {
-        ScrollView {
-            ForEach ($immo.fonciers) {
-                foncier in
-                FonciertopicView(foncier:foncier)
+        VStack {
+            Text ("valeur totale estimée : \(immo.valeur.euro)")
+            ScrollView {
+                ForEach ($immo.fonciers) {
+                    foncier in
+                    FonciertopicView(foncier:foncier).padding(10)
+                        .border(Color.gray).padding(10)
+                }
             }
         }
     }
