@@ -20,7 +20,7 @@ public struct ImmobilierView: View {
         ScrollView {
             ForEach ($immo.fonciers) {
                 foncier in
-                FoncierView(foncier)
+                FonciertopicView(foncier:foncier)
             }
         }
     }

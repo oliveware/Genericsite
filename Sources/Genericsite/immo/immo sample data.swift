@@ -12,7 +12,7 @@ let immosample = """
             "terrain":{"territoire":1 ,"region":7 ,"commune":5 ,"quartier":1 , "terrain":148},
             "batiments":[
                 { "id":"122", "label":"rue",
-                    "immeuble": {
+"valeur":{"date":{"jour":31,"mois":12, "année":2022},"montant":{"nombre":{"entiere":300000,"decimales":""},"symbol":"€"}},                    "immeuble": {
                         "étages":[ 
                             {"label":"second",
                             "communs":[],
@@ -47,14 +47,16 @@ let immosample = """
                         ]
                     }
                 },
-                { "id":"123", "label":"cour" },
-                { "id":"124", "label":"grange"}
+                { "id":"123", "label":"cour", "valeur":{"date":{"jour":1,"mois":1, "année":2000},"montant":{"nombre":{"decimales":""},"symbol":"€"}} },
+                { "id":"124", "label":"grange", "valeur":{"date":{"jour":1,"mois":1, "année":2000},"montant":{"nombre":{"decimales":""},"symbol":"€"}}}
             ]
         },
         {"id":"17", 
             "terrain":{"territoire":1 ,"region":7 ,"commune":1 ,"quartier":1 , "terrain":395},
             "batiments": [
-                {"id":"122", "label":"Lambersart" ,"maison":
+                {"id":"122", "label":"Lambersart" ,
+                "valeur":{"date":{"jour":1,"mois":1, "année":2000},"montant":{"nombre":{"decimales":""},"symbol":"€"}},
+"maison":
                     { "principal":{
                             "local":{"id":"20","label":"maison", "description":"maison ancienne", 
                                 "surface":{"nombre":{"decimales":""},"quantité":"surface"}, "autreadresse":false, "emplacement":""}, 
@@ -67,7 +69,9 @@ let immosample = """
         {"id":"27", 
             "terrain":{"territoire":1 ,"region":7 ,"commune":1 ,"quartier":1 , "terrain":570},
             "batiments": [
-                {"id":"122" ,"label":"garages Soubise", "cour":
+                {"id":"122" ,"label":"garages Soubise",
+                "valeur":{"date":{"jour":1,"mois":1, "année":2000},"montant":{"nombre":{"decimales":""},"symbol":"€"}},
+ "cour":
                     {"id":"122", "label":"garages Soubise", "garages":[
                         {"parking":false,
                         "local":{"id":"30","label":"grand garage", "description":"garage", 
@@ -89,7 +93,9 @@ let immosample = """
         {"id":"28", 
             "terrain":{"territoire":1 ,"region":7 ,"commune":1 ,"quartier":1 , "terrain":580},
             "batiments": [
-                {"id":"122", "label":"garages Watteau" ,"cour":
+                {"id":"122", "label":"garages Watteau" ,
+                "valeur":{"date":{"jour":1,"mois":1, "année":2000},"montant":{"nombre":{"decimales":""},"symbol":"€"}},
+"cour":
                     {"id":"122", "garages":[
                         {"parking":false,
                         "local":{"id":"40","label":"garage 580", "description":"garage", 
