@@ -13,7 +13,7 @@ struct FonciertopicView: View {
     
     var body: some View {
         HStack(spacing:30) {
-            Text (foncier.adresse).frame(width:200)
+            Text (foncier.adresses[0]).frame(width:200)
             Text (foncier.valeur.euro).frame(width:200)
             Text ("aucun incident").frame(width:200)
             Spacer()
