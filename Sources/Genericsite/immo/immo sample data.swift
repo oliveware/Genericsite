@@ -9,10 +9,14 @@ let immosample = """
 {
     "fonciers" : [
         {"id":"11", 
-            "terrain":{"territoire":1 ,"region":7 ,"commune":5 ,"quartier":1 , "terrain":148},
+            "terrain":{"id":148,
+                "lid":{"continent":1,"territoire":1,"region":7,"commune":5},
+                "numvoie":{"voie":"rue du 14 juillet", "num":"67", "codepostal":"59131"},
+                "parcelles":[{"id":148, "surface":{"nombre":{"decimales":""},"quantité":"surface"}}]
+            },
             "batiments":[
-                { "id":"122", "label":"rue",
-"valeur":{"date":{"jour":31,"mois":12, "année":2022},"montant":{"nombre":{"entiere":300000,"decimales":""},"symbol":"€"}},                    "immeuble": {
+                { "id":11, "label":"rue",
+"valeur":{"date":{"jour":31,"mois":12, "année":2022},  "source":"", "montant":{"nombre":{"entiere":300000,"decimales":""},"symbol":"€"}},                    "immeuble": {
                         "étages":[ 
                             {"label":"second",
                             "communs":[],
@@ -47,15 +51,19 @@ let immosample = """
                         ]
                     }
                 },
-                { "id":"123", "label":"cour", "valeur":{"date":{"jour":1,"mois":1, "année":2000},"montant":{"nombre":{"decimales":""},"symbol":"€"}} },
-                { "id":"124", "label":"grange", "valeur":{"date":{"jour":1,"mois":1, "année":2000},"montant":{"nombre":{"decimales":""},"symbol":"€"}}}
+                { "id":123, "label":"cour", "valeur":{"date":{"jour":1,"mois":1, "année":2000},  "source":"", "montant":{"nombre":{"decimales":""},"symbol":"€"}} },
+                { "id":124, "label":"grange", "valeur":{"date":{"jour":1,"mois":1, "année":2000},  "source":"", "montant":{"nombre":{"decimales":""},"symbol":"€"}}}
             ]
         },
         {"id":"17", 
-            "terrain":{"territoire":1 ,"region":7 ,"commune":1 ,"quartier":1 , "terrain":395},
+            "terrain":{"id":14,
+                "lid":{"continent":1,"territoire":1,"region":7,"commune":1},
+                "numvoie":{"voie":"avenue Hippolyte Peslin", "num":"4", "codepostal":"59130"},
+                "parcelles":[{"id":148, "surface":{"nombre":{"decimales":""},"quantité":"surface"}}]
+            },
             "batiments": [
-                {"id":"122", "label":"Lambersart" ,
-                "valeur":{"date":{"jour":1,"mois":1, "année":2000},"montant":{"nombre":{"decimales":""},"symbol":"€"}},
+                {"id":12, "label":"Lambersart" ,
+                "valeur":{"date":{"jour":1,"mois":1, "année":2000},  "source":"", "montant":{"nombre":{"decimales":""},"symbol":"€"}},
 "maison":
                     { "principal":{
                             "local":{"id":"20","label":"maison", "description":"maison ancienne", 
@@ -66,13 +74,21 @@ let immosample = """
                 }
             ]
         },
-        {"id":"27", 
-            "terrain":{"territoire":1 ,"region":7 ,"commune":1 ,"quartier":1 , "terrain":570},
+        {"id":"57", 
+            "terrain":{"id":57,
+                "lid":{"continent":1,"territoire":1,"region":7,"commune":1},
+                "numvoie":{"voie":"avenue de Soubise", "num":"11", "codepostal":"59130"},
+                "parcelles":[
+                    {"id":570, "surface":{"nombre":{"decimales":""},"quantité":"surface"}},
+                    {"id":571, "surface":{"nombre":{"decimales":""},"quantité":"surface"}},
+                    {"id":572, "surface":{"nombre":{"decimales":""},"quantité":"surface"}}
+                ]
+            },
             "batiments": [
-                {"id":"122" ,"label":"garages Soubise",
-                "valeur":{"date":{"jour":1,"mois":1, "année":2000},"montant":{"nombre":{"decimales":""},"symbol":"€"}},
+                {"id":57 ,"label":"garages Soubise",
+                "valeur":{"date":{"jour":1,"mois":1, "année":2000},  "source":"", "montant":{"nombre":{"decimales":""},"symbol":"€"}},
  "cour":
-                    {"id":"122", "label":"garages Soubise", "garages":[
+                    {"id":"57", "label":"garages Soubise", "garages":[
                         {"parking":false,
                         "local":{"id":"30","label":"grand garage", "description":"garage", 
                                     "surface":{"nombre":{"decimales":""},"quantité":"surface"}, "autreadresse":false, "emplacement":""}
@@ -90,13 +106,27 @@ let immosample = """
                 }
             ]
         },
-        {"id":"28", 
-            "terrain":{"territoire":1 ,"region":7 ,"commune":1 ,"quartier":1 , "terrain":580},
+        {"id":"58", 
+            "terrain":{"id":58,
+                "lid":{"continent":1,"territoire":1,"region":7,"commune":1},
+                "numvoie":{"voie":"avenue Watteau", "num":"1", "codepostal":"59130"},
+                "parcelles":[
+                    {"id":580, "surface":{"nombre":{"decimales":""},"quantité":"surface"}},
+                    {"id":581, "surface":{"nombre":{"decimales":""},"quantité":"surface"}},
+                    {"id":582, "surface":{"nombre":{"decimales":""},"quantité":"surface"}},
+                    {"id":583, "surface":{"nombre":{"decimales":""},"quantité":"surface"}},
+                    {"id":584, "surface":{"nombre":{"decimales":""},"quantité":"surface"}},
+                    {"id":585, "surface":{"nombre":{"decimales":""},"quantité":"surface"}},
+                    {"id":586, "surface":{"nombre":{"decimales":""},"quantité":"surface"}},
+                    {"id":587, "surface":{"nombre":{"decimales":""},"quantité":"surface"}},
+                    {"id":588, "surface":{"nombre":{"decimales":""},"quantité":"surface"}}
+                ]
+            },
             "batiments": [
-                {"id":"122", "label":"garages Watteau" ,
-                "valeur":{"date":{"jour":1,"mois":1, "année":2000},"montant":{"nombre":{"decimales":""},"symbol":"€"}},
+                {"id":58, "label":"garages Watteau" ,
+                "valeur":{"date":{"jour":1,"mois":1, "année":2000},  "source":"", "montant":{"nombre":{"decimales":""},"symbol":"€"}},
 "cour":
-                    {"id":"122", "garages":[
+                    {"id":"58", "garages":[
                         {"parking":false,
                         "local":{"id":"40","label":"garage 580", "description":"garage", 
                                     "surface":{"nombre":{"decimales":""},"quantité":"surface"}, "autreadresse":false, "emplacement":""}

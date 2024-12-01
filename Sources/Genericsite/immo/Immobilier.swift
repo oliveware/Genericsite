@@ -21,7 +21,7 @@ public struct Immobilier : Codable {
     var valeur: Montant {
         var total = Montant(0)
         for foncier in fonciers {
-            total = total + foncier.valeur
+            total = total + foncier.valeur.courante
         }
         return total
     }
