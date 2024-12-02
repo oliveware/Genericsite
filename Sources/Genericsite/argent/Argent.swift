@@ -47,6 +47,7 @@ extension Sitemain {
        
        let contexte = Contexte()
        let immo = Immobilier()
+       let contacts = Contacts()
        
        let avoir = argent.avoir
         var rubrics: [Rubric] = []
@@ -89,6 +90,7 @@ extension Sitemain {
             accueil: "invitation à la suite",
             intro: theme,
             immobilier: immo,
+            contacts:contacts,
             contexte:contexte
         )
     }

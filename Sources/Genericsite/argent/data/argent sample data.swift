@@ -8,7 +8,7 @@
 let argentsite = Genericsite(
     siteroot: "argent/", localroot: "argent/site/",
     name: "nom", initials: "dd",
-    intro:intro, immo: "",
+    intro:intro, immo: "", contacts:"",
     tables:tables
 )
 

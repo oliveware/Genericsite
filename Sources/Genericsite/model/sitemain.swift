@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Oware
 
 
 // produit le fichier main json
@@ -34,6 +35,7 @@ public struct Sitemain : Codable {
         accueil:String,
         intro:Theme?,
         immobilier:Immobilier?,
+        contacts:Contacts?,
         contexte:Contexte? = nil
     ) {
         footexerg = exergue
