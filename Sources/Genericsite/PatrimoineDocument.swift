@@ -16,7 +16,7 @@ import UniformTypeIdentifiers
 }*/
 
 public struct PatrimoineDocument: FileDocument {
-    var sitemain: Sitemain
+    public var sitemain: Sitemain
     //var argent : Argent
     
     public init(_ sitemain:Sitemain) {
