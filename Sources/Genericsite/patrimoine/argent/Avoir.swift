@@ -38,8 +38,8 @@ public struct Avoir: Codable {
         fichier.write(self)
     }*/
 
-    public init(_ sitemain:Sitemain) {
-        let rubrics = sitemain.intro.items
+    public init(_ theme:Theme) {
+        let rubrics = theme.items
         courant = []
         epargne = []
         bourse = []
@@ -74,6 +74,44 @@ extension Theme {
         items[1].update(avoir.epargne)
         items[2].update(avoir.bourse)
     }
+    
+    init(_ avoir:Avoir) {
+        
+         var rubrics: [Rubric] = []
+         
+         var courantopics : [Topic] = []
+         for compte in avoir.courant {
+             courantopics.append(Topic(compte))
+         }
+         rubrics.append(
+             Rubric("comptes", "Comptes courants", "Comptes courants", argentsite.colors[1], "", "navigationcourant", courantopics)
+         )
+        
+        var epargnetopics : [Topic] = []
+        for compte in avoir.epargne {
+            epargnetopics.append(Topic(compte))
+        }
+        rubrics.append(
+            Rubric("epargne", "Epargne", "Epargne", argentsite.colors[2], "", "navigationepargne", epargnetopics)
+        )
+        
+        var boursetopics : [Topic] = []
+        for compte in avoir.bourse {
+            boursetopics.append(Topic(compte))
+        }
+        rubrics.append(
+            Rubric("bourse", "Bourse", "Bourse", argentsite.colors[3], "", "navigationbourse", boursetopics)
+        )
+         
+        self.init( "Affaires à suivre",
+             "intro",
+             "parents",
+             argentsite.colors[0],
+             "lastmaj",
+             "tabord",
+             rubrics
+        )
+     }
 }
 
 extension Rubric {

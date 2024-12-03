@@ -11,11 +11,11 @@ import Putex
 public struct Immobilier : Codable {
     var fonciers:[Foncier] = []
     
-    public init() {}
-    
-    init(_ json:String) {
-        let jsonData = json.data(using: .utf8)!
-        self = try! JSONDecoder().decode(Immobilier.self, from: jsonData)
+    init(_ json:String = "") {
+        if json != "" {
+            let jsonData = json.data(using: .utf8)!
+            self = try! JSONDecoder().decode(Immobilier.self, from: jsonData)
+        }
     }
     
     var valeur: Montant {

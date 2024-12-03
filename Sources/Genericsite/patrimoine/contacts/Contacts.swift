@@ -13,9 +13,7 @@ import Oware
 public struct Contacts: Codable {
     var contacts: [Contact] = []
     
-    public init() {}
-    
-    public init(_ json:String){
+    public init(_ json:String = ""){
         if json != "" {
             let jsonData = json.data(using: .utf8)!
             self = try! JSONDecoder().decode(Contacts.self, from: jsonData)
@@ -25,6 +23,11 @@ public struct Contacts: Codable {
 
 public struct ContactsView : View {
     @Binding var contacts:[Contact]
+    
+    public init(_ contacts:Binding<[Contact]>) {
+        _contacts = contacts
+    }
+    
     public var body: some View {
         ScrollView{
             VStack{

@@ -8,13 +8,14 @@
 let argentsite = Genericsite(
     siteroot: "argent/", localroot: "argent/site/",
     name: "nom", initials: "dd",
-    intro:intro, immo: "", contacts:"",
-    tables:tables
+    intro: argentintro,
+    patrimoine: Patrimoine()
+    //tables:tables
 )
 
 let argentmain = argentsite.main
 
-let intro = Theme(
+let argentintro = Theme(
     "Affaires à suivre","intro","argent",
     "dark",
     "lastmaj",

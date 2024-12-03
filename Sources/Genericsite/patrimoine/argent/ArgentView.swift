@@ -52,5 +52,5 @@ struct ArgentPreview: View {
 }
 
 #Preview("sample") {
-    ArgentPreview(argent:Argent(argentmain))
+ //   ArgentPreview(argent:Argent(argentmain).intro)
 }

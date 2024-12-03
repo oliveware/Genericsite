@@ -23,8 +23,8 @@ public struct Genericsite: Codable {
     public init(siteroot: String , localroot: String,
                 name: String, initials: String,
                 intro: Theme,
-                immo: String, contacts: String,
-                tables:String
+                patrimoine: Patrimoine?
+                //tables:String
     ) {
         self.siteroot = siteroot
         self.localroot = localroot
@@ -39,10 +39,10 @@ public struct Genericsite: Codable {
             maxime: "exergue d'accueil",
             accueil: "invitation à la suite",
             
-            intro: intro,
-            immobilier:Immobilier(immo),
-            contacts:Contacts(contacts),
-            contexte: Contexte(tables)
+            intro: argentintro,
+            
+            patrimoine: patrimoine
+            //contexte: Contexte(tables)
             )
         
         master = Sitemaster()
