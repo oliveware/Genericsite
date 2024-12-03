@@ -15,18 +15,18 @@ import UniformTypeIdentifiers
     }
 }*/
 
-struct PatrimoineDocument: FileDocument {
+public struct PatrimoineDocument: FileDocument {
     var sitemain: Sitemain
     //var argent : Argent
     
-    init(_ sitemain:Sitemain) {
+    public init(_ sitemain:Sitemain) {
         self.sitemain = sitemain
         //argent = Argent(sitemain)
     }
 
-  static var readableContentTypes: [UTType] { [.jsonText] }
+  public static var readableContentTypes: [UTType] { [.jsonText] }
 
-   init(configuration: ReadConfiguration) throws {
+   public init(configuration: ReadConfiguration) throws {
         guard let json = configuration.file.regularFileContents
         else {
             throw CocoaError(.fileReadCorruptFile)
@@ -35,7 +35,7 @@ struct PatrimoineDocument: FileDocument {
        //argent = Argent(sitemain)
     }
     
-   func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
+   public func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
         let json = try JSONEncoder().encode(sitemain)
        // let data = text.data(using: .utf8)!
         return .init(regularFileWithContents: json)
