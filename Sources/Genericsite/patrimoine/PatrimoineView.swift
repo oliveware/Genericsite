@@ -73,7 +73,7 @@ struct PatrimoinePreview: View {
     
 }
 #Preview {
-    PatrimoinePreview(argentmain)
+    PatrimoinePreview(samplemain)
 }
 
 

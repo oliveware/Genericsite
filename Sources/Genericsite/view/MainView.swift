@@ -22,7 +22,7 @@ public struct MainView: View {
 }
 
 struct Premain: View {
-    @State var site = argentmain
+    @State var site = samplemain
     var body: some View {
         MainView($site)
     }

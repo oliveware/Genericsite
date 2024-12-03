@@ -29,7 +29,7 @@ public struct TopicView: View {
 }
 
 struct TopicPreview: View {
-    @State var topic = argentmain.intro.items[0].items[0]
+    @State var topic = samplemain.intro.items[0].items[0]
     var body: some View {
         ItemView($topic)
     }
@@ -39,6 +39,6 @@ struct TopicPreview: View {
     TopicPreview()
 }
 #Preview("edit") {
-    ItemEdit(item:.constant(argentmain.intro.items[0].items[0]),
+    ItemEdit(item:.constant(samplemain.intro.items[0].items[0]),
               edition:.constant(true))
 }

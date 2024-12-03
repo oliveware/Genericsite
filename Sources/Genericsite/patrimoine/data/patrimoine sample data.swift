@@ -5,9 +5,47 @@
 //  Created by Herve Crespel on 06/11/2024.
 //
 
-let immosample = """
+let patrimoinesample = """
 {
-    "fonciers" : [
+    "contexte": {
+        "banques" : [
+            {"id":"bp", "codebanque":"20041","BIC":"PSSTFRPPLIL", "domiciliation":"LA BANQUE POSTALE\\nLILLE CENTRE FINANCIER", "codeguichet":"01005", "nom":"Banque Postale"},
+            {"id":"sg","BIC":"SOGEFRPP","nom":"Société Générale", "codebanque":"30003", "codeguichet":"01288", "domiciliation":"LAMBERSART CANTELEU\\n336/340 Av De Dunkerque \\n59130 Lambersart"},
+            {"id":"cm", "BIC":"", "nom":"Crédit Mutuel", "domiciliation":"", "codebanque":"10278", "codeguichet":"02717"}
+        ],
+        "tables" :
+        {}
+    },
+    "contact" : [
+        {"id":"t1", "human":{"nom":"De Roeck","prenoms":["Daniel"]}},
+        {"id":"t2", "human":{"nom":"Allemon","prenoms":["Guy"]}},
+        {"id":"t3", "human":{"nom":"Vanbleus","prenoms":["Emeline"]}},
+        {"id":"t4", "human":{"nom":"Verhelle","prenoms":[]}},
+        {"id":"t5", "human":{"nom":"Odouin","prenoms":["Nicolas"]}},
+        {"id":"t6", "human":{"nom":"Dussart","prenoms":[]}},
+        {"id":"t7", "human":{"nom":"Mohimont","prenoms":["Axel "]}},
+        
+        {"id":"t10", "company":{"nom":"CAF du Nord"}},
+        {"id":"t11", "company":{"nom":"CARSAT"}},
+        {"id":"t12", "company":{"nom":"Paierie Nord"}},
+        {"id":"t13", "company":{"nom":"MACIF"}},
+        {"id":"t14", "company":{"nom":"APIVIA MACIF"}},
+        {"id":"t15", "company":{"nom":"CPAM"}},
+        {"id":"t16", "company":{"nom":"GTS"}},
+        {"id":"t17", "company":{"nom":"Petits-fils"}},
+        {"id":"t18", "company":{"nom":"Orange SA"}},
+        {"id":"t19", "company":{"nom":"Abeille vie"}},
+        {"id":"t20", "company":{"nom":"SOGESSUR"}},
+        {"id":"t21", "company":{"nom":"MMA IARD SA-MMA IARD"}},
+        {"id":"t22", "company":{"nom":"ENI GAS POWER FRANCE SA"}},
+        {"id":"t23", "company":{"nom":"Direction Générale des Impôts"}},
+
+        {"id":"t30", "company":{"nom":"Société Générale"}},
+        {"id":"t31", "company":{"nom":"Banque Postale"}},
+        {"id":"t32", "company":{"nom":"Crédit Mutuel"}},
+        {"id":"t33", "company":{"nom":"BFORBANK"}}
+    ],
+    "immo" : [
         {"id":"11", 
             "terrain":{"id":148,
                 "lid":{"continent":1,"territoire":1,"region":7,"commune":5},
@@ -16,7 +54,7 @@ let immosample = """
             },
             "batiments":[
                 { "id":11, "label":"rue",
-"valeur":{"date":{"jour":31,"mois":12, "année":2022},  "source":"", "montant":{"nombre":{"entiere":300000,"decimales":""},"symbol":"€"}},                    "immeuble": {
+                   "immeuble": {
                         "étages":[ 
                             {"label":"second",
                             "communs":[],
@@ -51,8 +89,8 @@ let immosample = """
                         ]
                     }
                 },
-                { "id":123, "label":"cour", "valeur":{"date":{"jour":1,"mois":1, "année":2000},  "source":"", "montant":{"nombre":{"decimales":""},"symbol":"€"}} },
-                { "id":124, "label":"grange", "valeur":{"date":{"jour":1,"mois":1, "année":2000},  "source":"", "montant":{"nombre":{"decimales":""},"symbol":"€"}}}
+                { "id":123, "label":"cour"}, 
+                { "id":124, "label":"grange"} 
             ]
         },
         {"id":"17", 
@@ -63,7 +101,7 @@ let immosample = """
             },
             "batiments": [
                 {"id":12, "label":"Lambersart" ,
-                "valeur":{"date":{"jour":1,"mois":1, "année":2000},  "source":"", "montant":{"nombre":{"decimales":""},"symbol":"€"}},
+                
 "maison":
                     { "principal":{
                             "local":{"id":"20","label":"maison", "description":"maison ancienne", 
@@ -86,7 +124,7 @@ let immosample = """
             },
             "batiments": [
                 {"id":57 ,"label":"garages Soubise",
-                "valeur":{"date":{"jour":1,"mois":1, "année":2000},  "source":"", "montant":{"nombre":{"decimales":""},"symbol":"€"}},
+                
  "cour":
                     {"id":"57", "label":"garages Soubise", "garages":[
                         {"parking":false,
@@ -124,7 +162,7 @@ let immosample = """
             },
             "batiments": [
                 {"id":58, "label":"garages Watteau" ,
-                "valeur":{"date":{"jour":1,"mois":1, "année":2000},  "source":"", "montant":{"nombre":{"decimales":""},"symbol":"€"}},
+                
 "cour":
                     {"id":"58", "garages":[
                         {"parking":false,

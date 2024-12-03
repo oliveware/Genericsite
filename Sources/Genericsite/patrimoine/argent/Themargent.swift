@@ -41,7 +41,7 @@ public struct Themargent: View {
 }
 
 struct ThemargentPreview: View {
-    @State var theme = argentintro
+    @State var theme = sampleintro
     var body: some View {
         Themargent( $theme )
     }

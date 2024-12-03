@@ -39,5 +39,5 @@ struct Genericator: View {
 }
 
 #Preview {
-    Genericator(site:argentsite)
+    Genericator(site:samplesite)
 }

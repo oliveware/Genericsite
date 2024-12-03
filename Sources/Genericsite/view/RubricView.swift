@@ -31,5 +31,5 @@ public struct RubricView: View {
 }
 
 #Preview {
-    RubricView(.constant(argentmain.intro.items[0]))
+    RubricView(.constant(samplemain.intro.items[0]))
 }

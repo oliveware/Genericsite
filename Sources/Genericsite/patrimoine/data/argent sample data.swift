@@ -5,17 +5,17 @@
 //  Created by Herve Crespel on 18/09/2024.
 //
 
-let argentsite = Genericsite(
+let samplesite = Genericsite(
     siteroot: "argent/", localroot: "argent/site/",
     name: "nom", initials: "dd",
-    intro: argentintro,
-    patrimoine: Patrimoine()
+    intro: sampleintro,
+    patrimoine: Patrimoine(patrimoinesample)
     //tables:tables
 )
 
-let argentmain = argentsite.main
+let samplemain = samplesite.main
 
-let argentintro = Theme(
+let sampleintro = Theme(
     "Affaires à suivre","intro","argent",
     "dark",
     "lastmaj",

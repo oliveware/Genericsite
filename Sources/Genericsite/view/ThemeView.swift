@@ -32,5 +32,5 @@ public struct ThemeView: View {
 }
 
 #Preview {
-    ThemeView(.constant(argentmain.intro))
+    ThemeView(.constant(samplemain.intro))
 }
