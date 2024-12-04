@@ -5,11 +5,15 @@
 //  Created by Herve Crespel on 07/10/2024.
 //
 import SwiftUI
-import Putex
+
 import Semantex
+import Oware
 import Putex
 
 public struct Contexte:Codable {
+    var humans:[Human] = []
+    var companies:[Company] = []
+    
     var tables : [String:Coderef] = [:]
     var banques : [Banque] = []
     
@@ -23,14 +27,21 @@ public struct Contexte:Codable {
         self.tables = Coderef.all
     }
     
-    public init(_ json:String) {
+    /*public init(_ json:String) {
         let contextejson = "{" + common + "," + json + "}"
         let jsonData = contextejson.data(using: .utf8)!
         let contexte = try! JSONDecoder().decode(Contexte.self, from: jsonData)
         self = contexte
-        Banque.all = contexte.banques
-        Coderef.all = contexte.tables
+    }*/
+    
+    func update() {
+        Banque.all = banques
+        Coderef.all = tables
+
+        
     }
+    
+ 
 }
 
 

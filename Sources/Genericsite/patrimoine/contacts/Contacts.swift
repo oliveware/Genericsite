@@ -9,71 +9,51 @@
 import SwiftUI
 import Oware
 
-
-public struct Contacts: Codable {
-    var contacts: [Contact] = []
-    
-    public init(_ json:String = ""){
-        if json != "" {
-            let jsonData = json.data(using: .utf8)!
-            self = try! JSONDecoder().decode(Contacts.self, from: jsonData)
-        }
-    }
-}
-
 public struct ContactsView : View {
-    @Binding var contacts:[Contact]
+    @Binding var contexte: Contexte
     
-    @State var liste:[Contact] = []
-    @State var selected:Contact?
+    @State var human :Human?
+    @State var company: Company?
     
-    public init(_ contacts:Binding<[Contact]>) {
-        _contacts = contacts
+    public init(_ contexte:Binding<Contexte>) {
+        _contexte = contexte
     }
     
     public var body: some View {
-        HStack{
-            VStack{
-                HStack(spacing:10){
-                    Button(action:humanlist)
-                    {Image(systemName: "figure.stand.dress.line.vertical.figure")}
-                    Button(action:companylist)
-                    {Image(systemName: "building")}
-                }
-                
-                    VStack{
-                        ForEach(0..<liste.count, id:\.self){
-                            index in
-                            Button(action:{selected = liste[index]})
-                            {Text(liste[index].label).frame(width:250)}
-                            
-                        }
+        HStack(alignment:.top, spacing:30){
+            GroupBox("humains") {
+                VStack(alignment: .center) {
+                    ScrollView {
+                        ForEach(contexte.humans){
+                            contact in
+                            Button(action:{human = contact})
+                            {Text(contact.label).frame(width:200)}
+                        }.padding(10)
+                    }.frame(height: 150)
+                    if let contact : Binding<Human> = Binding($human) {
+                        HumanView(contact)
+                    } else {
+                        Text("choisir un contact")
                     }
-                
+                }.padding(10)
             }
-            if let contact:Binding<Contact> = Binding($selected) {
-                ContactView(contact)
-            } else {
-                Text("choisir un contact")
-            }
-        }
-    }
-    
-    func humanlist() {
-        liste = []
-        for contact in contacts {
-            if contact.ishuman {
-                liste.append(contact)
-            }
-        }
-    }
-    func companylist() {
-        liste = []
-         for contact in contacts {
-            if !contact.ishuman {
-                liste.append(contact)
+            GroupBox("entreprises") {
+                VStack(alignment: .center) {
+                    ScrollView {
+                        ForEach(contexte.companies){
+                            contact in
+                            Button(action:{company = contact})
+                            {Text(contact.label).frame(width:200)}
+                        }.padding(10)
+                    }.frame(height: 150)
+               
+                    if let contact : Binding<Company> = Binding($company) {
+                        CompanyView(contact)
+                    } else {
+                        Text("choisir un contact")
+                    }
+                }.padding(10)
             }
         }
-        
     }
 }

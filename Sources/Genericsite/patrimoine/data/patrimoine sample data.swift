@@ -7,44 +7,41 @@
 
 let patrimoinesample = """
 {
-    "contexte": {
-        "banques" : [
-            {"id":"bp", "codebanque":"20041","BIC":"PSSTFRPPLIL", "domiciliation":"LA BANQUE POSTALE\\nLILLE CENTRE FINANCIER", "codeguichet":"01005", "nom":"Banque Postale"},
-            {"id":"sg","BIC":"SOGEFRPP","nom":"Société Générale", "codebanque":"30003", "codeguichet":"01288", "domiciliation":"LAMBERSART CANTELEU\\n336/340 Av De Dunkerque \\n59130 Lambersart"},
-            {"id":"cm", "BIC":"", "nom":"Crédit Mutuel", "domiciliation":"", "codebanque":"10278", "codeguichet":"02717"}
-        ],
-        "tables" :
-        {}
-    },
-    "contact" : [
-        {"id":"t1", "human":{"nom":"De Roeck","prenoms":["Daniel"]}},
-        {"id":"t2", "human":{"nom":"Allemon","prenoms":["Guy"]}},
-        {"id":"t3", "human":{"nom":"Vanbleus","prenoms":["Emeline"]}},
-        {"id":"t4", "human":{"nom":"Verhelle","prenoms":[]}},
-        {"id":"t5", "human":{"nom":"Odouin","prenoms":["Nicolas"]}},
-        {"id":"t6", "human":{"nom":"Dussart","prenoms":[]}},
-        {"id":"t7", "human":{"nom":"Mohimont","prenoms":["Axel "]}},
-        
-        {"id":"t10", "company":{"nom":"CAF du Nord"}},
-        {"id":"t11", "company":{"nom":"CARSAT"}},
-        {"id":"t12", "company":{"nom":"Paierie Nord"}},
-        {"id":"t13", "company":{"nom":"MACIF"}},
-        {"id":"t14", "company":{"nom":"APIVIA MACIF"}},
-        {"id":"t15", "company":{"nom":"CPAM"}},
-        {"id":"t16", "company":{"nom":"GTS"}},
-        {"id":"t17", "company":{"nom":"Petits-fils"}},
-        {"id":"t18", "company":{"nom":"Orange SA"}},
-        {"id":"t19", "company":{"nom":"Abeille vie"}},
-        {"id":"t20", "company":{"nom":"SOGESSUR"}},
-        {"id":"t21", "company":{"nom":"MMA IARD SA-MMA IARD"}},
-        {"id":"t22", "company":{"nom":"ENI GAS POWER FRANCE SA"}},
-        {"id":"t23", "company":{"nom":"Direction Générale des Impôts"}},
-
-        {"id":"t30", "company":{"nom":"Société Générale"}},
-        {"id":"t31", "company":{"nom":"Banque Postale"}},
-        {"id":"t32", "company":{"nom":"Crédit Mutuel"}},
-        {"id":"t33", "company":{"nom":"BFORBANK"}}
+"contexte": {
+    "banques" : [
+        {"id":"bp", "codebanque":"20041","BIC":"PSSTFRPPLIL", "domiciliation":"LA BANQUE POSTALE\\nLILLE CENTRE FINANCIER", "codeguichet":"01005", "nom":"Banque Postale"},
+        {"id":"sg","BIC":"SOGEFRPP","nom":"Société Générale", "codebanque":"30003", "codeguichet":"01288", "domiciliation":"LAMBERSART CANTELEU\\n336/340 Av De Dunkerque \\n59130 Lambersart"},
+        {"id":"cm", "BIC":"", "nom":"Crédit Mutuel", "domiciliation":"", "codebanque":"10278", "codeguichet":"02717"}
     ],
+    "tables" :
+    {},   
+    "humans" :  [
+        {"id":"t1", "identity": {"name":{"nom":"De Roeck","prenoms":["Daniel"]}}, "sharing":{}
+        },
+        {"id":"t2", "identity": {"name":{"nom":"Allemon","prenoms":["Guy"]}}, "sharing":{}
+        },
+        {"id":"t3",  "identity": {"name":{"nom":"Vanbleus","prenoms":["Emeline"]}}, "sharing":{}
+        }
+      ],
+    "companies": [
+        {"id":"t10", "identity":{"name":{"nom":"CAF du Nord"}}, "sharing":{}
+                        },
+        {"id":"t18", "identity":{"name":{"nom":"Orange SA"}}, "sharing":{}
+        },
+        {"id":"t23", "identity":{"name":{"nom":"Direction Générale des Impôts"}}, "sharing":{}
+        },
+
+        {"id":"t30", "identity":{"name":{"nom":"Société Générale"}}, 
+        "business":{"id":"sg","BIC":"SOGEFRPP","nom":"Société Générale", "codebanque":"30003", "codeguichet":"01288", "domiciliation":"LAMBERSART CANTELEU\\n336/340 Av De Dunkerque \\n59130 Lambersart"}, "sharing":{}
+        },
+        {"id":"t31", "identity":{"name":{"nom":"Banque Postale"}},
+        "business":{"id":"bp", "codebanque":"20041","BIC":"PSSTFRPPLIL", "domiciliation":"LA BANQUE POSTALE\\nLILLE CENTRE FINANCIER", "codeguichet":"01005", "nom":"Banque Postale"}, "sharing":{}
+        },
+        {"id":"t32", "identity":{"name":{"nom":"Crédit Mutuel"}}, 
+        "business":{"id":"cm", "BIC":"", "nom":"Crédit Mutuel", "domiciliation":"", "codebanque":"10278", "codeguichet":"02717"}, "sharing":{}
+        }
+    ]
+},
     "immo" : [
         {"id":"11", 
             "terrain":{"id":148,

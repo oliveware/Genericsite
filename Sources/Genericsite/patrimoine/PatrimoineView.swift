@@ -30,7 +30,7 @@ public struct PatrimoineView: View {
                     .tabItem{Text("monétaire")}.tag(3)
                 DébitCrédit()
                     .tabItem{Text("versements")}.tag(5)
-                ContactsView(patrimoine.contact)
+                ContactsView(patrimoine.contexte)
                     .tabItem{Text("contacts")}.tag(7)
                 
                 

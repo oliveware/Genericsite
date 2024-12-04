@@ -7,18 +7,17 @@
 
 import SwiftUI
 import Oware
+import Semantex
+import Putex
 
 public struct Patrimoine : Codable {
     public var contexte = Contexte()
     public var immo : [Foncier] = []
-    public var contact : [Contact] = []
     
     init(_ immobilier:[Foncier],
-        _ contacts:[Contact],
         _ contexte:Contexte ) {
         self.immo = immobilier
         self.contexte = contexte
-        self.contact = contacts
     }
     
     public init(_ json:String = ""){
@@ -26,12 +25,10 @@ public struct Patrimoine : Codable {
             let jsonData = json.data(using: .utf8)!
             self = try! JSONDecoder().decode(Patrimoine.self, from: jsonData)
         }
+        contexte.update()
     }
+    
+  
 }
 
-let patrimoine = """
-{
-    "immo" : [],
-    "contact": []
-}
-"""
+
