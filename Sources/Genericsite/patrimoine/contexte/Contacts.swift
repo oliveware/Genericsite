@@ -24,6 +24,34 @@ public struct ContactsView : View {
     }
 }
 
+struct Humantopic : View {
+    @Binding var human: Human
+    @State var edit = false
+    
+    var body: some View {
+        HStack(spacing:30) {
+            Text(human.label).frame(width:200)
+            Spacer()
+            VStack(spacing:10) {
+                Button(action: {edit = true},
+                       label: {Text("détail")})
+                .sheet(isPresented: $edit, content: {
+                    HumanView($human)
+                        .frame(minWidth:1200, minHeight:200)
+                })
+                
+             /*   if comtopic.compte.contractuel.banque != nil {
+                    Button(action:{topicedit = true})
+                    {Text("navigation")}
+                    .sheet(isPresented: $topicedit)
+                    { ItemView($comtopic.nav) }
+                }*/
+            }.frame(width:120)
+        }.frame(width:350, height: 20)
+        .padding(5)
+    }
+}
+
 struct HumanContact : View {
     @Binding var contacts: [Human]
     @State var onsheet = false
@@ -38,16 +66,42 @@ struct HumanContact : View {
                 ScrollView {
                     ForEach($contacts){
                         contact in
-                        Button(action:{onsheet = true})
-                        {Text(contact.wrappedValue.label).frame(width:200)}
-                            .sheet(isPresented: $onsheet){
-                                HumanView(contact)}
+                        Humantopic(human:contact)
+                    }
                     }.padding(10)
-                }.frame(height: 150)
+                }.frame(height: 250)
                     
 
             }.padding(10)
-        }
+        
+    }
+}
+
+struct Companytopic : View {
+    @Binding var company: Company
+    @State var edit = false
+    
+    var body: some View {
+        HStack(spacing:30) {
+            Text(company.label).frame(width:200)
+            Spacer()
+            VStack(spacing:10) {
+                Button(action: {edit = true},
+                       label: {Text("détail")})
+                .sheet(isPresented: $edit, content: {
+                    CompanyView($company)
+                        .frame(minWidth:250, minHeight:200)
+                })
+                
+             /*   if comtopic.compte.contractuel.banque != nil {
+                    Button(action:{topicedit = true})
+                    {Text("navigation")}
+                    .sheet(isPresented: $topicedit)
+                    { ItemView($comtopic.nav) }
+                }*/
+            }.frame(width:120)
+        }.frame(minWidth:400, minHeight: 20)
+        .padding(5)
     }
 }
 
@@ -65,16 +119,13 @@ struct CompanyContact : View {
                 ScrollView {
                     ForEach($contacts){
                         contact in
-                        Button(action:{onsheet = true})
-                        {Text(contact.wrappedValue.label).frame(width:200)}
-                            .sheet(isPresented: $onsheet){
-                                CompanyView(contact)}
+                        Companytopic(company:contact)
+                    }
                     }.padding(10)
-                }.frame(height: 150)
+                }.frame(height: 250)
                     
 
             }.padding(10)
-        }
     }
 }
 
