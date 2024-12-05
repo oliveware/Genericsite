@@ -16,11 +16,11 @@ let patrimoinesample = """
     "tables" :
     {},   
     "humans" :  [
-        {"id":"t1", "identity": {"name":{"nom":"De Roeck","prenoms":["Daniel"]}}, "sharing":{}
+        {"id":"t1", "identity": {"name":{"nom":"De Roeck","prenom":"Daniel"}}, "sharing":{}
         },
-        {"id":"t2", "identity": {"name":{"nom":"Allemon","prenoms":["Guy"]}}, "sharing":{}
+        {"id":"t2", "identity": {"name":{"nom":"Allemon","prenom":"Guy"}}, "sharing":{}
         },
-        {"id":"t3",  "identity": {"name":{"nom":"Vanbleus","prenoms":["Emeline"]}}, "sharing":{}
+        {"id":"t3",  "identity": {"name":{"nom":"Vanbleus","prenom":"Emeline"}}, "sharing":{}
         }
       ],
     "companies": [
