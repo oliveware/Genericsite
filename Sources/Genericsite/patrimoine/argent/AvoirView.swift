@@ -18,6 +18,7 @@ import Semantex
 
 public struct AvoirView: View {
     @Binding var avoir:Avoir
+    var banques:[Banque] = []
     
     @State private var ajoutmode = false
     

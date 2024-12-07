@@ -9,7 +9,7 @@
 import SwiftUI
 import Oware
 
-public struct ContactsView : View {
+public struct ContactView : View {
     @Binding var contexte: Contexte
 
     public init(_ contexte:Binding<Contexte>) {
@@ -18,8 +18,8 @@ public struct ContactsView : View {
     
     public var body: some View {
         HStack(alignment:.top, spacing:30){
-            HumanContact($contexte.humans)
-            CompanyContact($contexte.companies)
+            HumanContacts($contexte.humans)
+            CompanyContacts($contexte.companies)
         }
     }
 }
@@ -131,27 +131,11 @@ struct CompanyContact : View {
 
 var contexte = Patrimoine(patrimoinesample).contexte
 
-struct HumanContactPreview: View {
-    @State var contacts: [Human] = contexte.humans
-    
-    var body: some View {
-        HumanContact($contacts)
-    }
-}
-
-struct CompanyContactPreview: View {
-    @State var contacts: [Company] = contexte.companies
-    
-    var body: some View {
-        CompanyContact($contacts)
-    }
-}
-
 struct ContactPreview: View {
     @State var context: Contexte = contexte
     
     var body: some View {
-        ContactsView($context)
+        ContactView($context)
     }
 }
 
@@ -159,10 +143,3 @@ struct ContactPreview: View {
     ContactPreview()
 }
 
-#Preview("humains"){
-    HumanContactPreview()
-}
-
-#Preview("entreprises"){
-    CompanyContactPreview()
-}
