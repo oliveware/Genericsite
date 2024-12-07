@@ -26,23 +26,7 @@ public struct ImmobilierView: View {
     }
     
     public var body:some View {
-        if immo.count > 0 {
-            VStack {
-                Text ("valeur totale estimée : \(valeur.euro)")
-                ScrollView {
-                    ForEach ($immo) {
-                        foncier in
-                        FonciertopicView(foncier:foncier).padding(10)
-                            .border(Color.gray).padding(10)
-                    }
-                }
-            }
-        } else {
-            Button(action:{immo.append(Foncier())})
-            {
-                Text("ajouter un foncier")
-            }
-        }
+        FonciersView($immo)
     }
 }
 
