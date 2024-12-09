@@ -8,6 +8,12 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
+extension UTType {
+    static var jsonSitemaster: UTType {
+        UTType(importedAs: "public.json")
+    }
+}
+
 
 public struct MasterDocument: FileDocument {
     public var sitemaster : Sitemaster
@@ -19,7 +25,7 @@ public struct MasterDocument: FileDocument {
         sitemaster = Sitemaster()
     }
 
-  public  static var readableContentTypes: [UTType] { [.jsonText] }
+  public  static var readableContentTypes: [UTType] { [.jsonSitemaster] }
 
    public init(configuration: ReadConfiguration) throws {
         guard let json = configuration.file.regularFileContents

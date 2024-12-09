@@ -9,11 +9,11 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
-/*extension UTType {
-    static var jsonText: UTType {
+extension UTType {
+    static var jsonPatrimoine: UTType {
         UTType(importedAs: "public.json")
     }
-}*/
+}
 
 public struct PatrimoineDocument: FileDocument {
     public var patrimoine : Patrimoine
@@ -31,7 +31,7 @@ public struct PatrimoineDocument: FileDocument {
         patrimoine.argent = Argent(Avoir(sitemain.intro))
     }
 
-  public static var readableContentTypes: [UTType] { [.jsonText] }
+    public static var readableContentTypes: [UTType] { [.jsonPatrimoine] }
 
    public init(configuration: ReadConfiguration) throws {
         guard let json = configuration.file.regularFileContents

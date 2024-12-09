@@ -9,7 +9,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 extension UTType {
-    static var jsonText: UTType {
+    static var jsonSitemain: UTType {
         UTType(importedAs: "public.json")
     }
 }
@@ -26,7 +26,7 @@ public struct MainDocument: FileDocument {
     }
     
 
-  public  static var readableContentTypes: [UTType] { [.jsonText] }
+  public  static var readableContentTypes: [UTType] { [.jsonSitemain] }
 
    public init(configuration: ReadConfiguration) throws {
         guard let json = configuration.file.regularFileContents
