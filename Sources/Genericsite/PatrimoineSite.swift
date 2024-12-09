@@ -8,7 +8,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 public struct PatrimoineSite: FileDocument {
-    var sitemain: Sitemain
+    public var sitemain: Sitemain
     //var argent : Argent
 
     public init(_ sitemain:Sitemain) {
