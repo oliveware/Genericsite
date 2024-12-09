@@ -9,7 +9,7 @@ import SwiftUI
 import Attribex
 import Semantex
 
-public struct Themargent: View {
+public struct Themavoir: View {
     @Binding var themavoir: Theme
     @State var avoir: Avoir
     @State var publier = false
@@ -40,13 +40,13 @@ public struct Themargent: View {
    
 }
 
-struct ThemargentPreview: View {
+struct ThemavoirPreview: View {
     @State var theme = sampleintro
     var body: some View {
-        Themargent( $theme )
+        Themavoir( $theme )
     }
 }
 
 #Preview {
-    ThemargentPreview()
+    ThemavoirPreview()
 }

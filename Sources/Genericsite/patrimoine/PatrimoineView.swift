@@ -26,7 +26,7 @@ public struct PatrimoineView: View {
                     .tabItem{Text("immobilier")}.tag(1)
                 Text("gestion des locations")
                     .tabItem{Text("location")}.tag(2)
-                Themargent($site.intro)
+                Themavoir($site.intro)
                     .tabItem{Text("monétaire")}.tag(3)
                 DébitCrédit()
                     .tabItem{Text("versements")}.tag(5)

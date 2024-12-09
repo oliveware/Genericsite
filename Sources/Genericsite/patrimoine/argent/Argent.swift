@@ -6,21 +6,31 @@
 //
 
 import Oware
-import Attribex
-import Semantex
-import Putex
+
 
 public struct Argent: Codable {
     
-    public var avoir: Avoir
-    public var tables : [String:Coderef] = [:]
-    
-    public init(_ compte:Comtopic) {
-        avoir = Avoir(compte)
+    static var nextid = 0
+    static func newid(_ domain:String) -> String {
+        nextid += 1
+        return domain + String(nextid)
     }
     
-    public init(_ c:[Comtopic], _ e:[Comtopic] = [], _ b:[Comtopic] = []) {
-        avoir = Avoir(c , e, b)
+    public var courant: [CompteBancaire] = [CompteBancaire(nil)]
+    public var epargne: [CompteBancaire] = []
+    public var bourse: [CompteBancaire] = []
+    
+    
+    init() { }
+    
+    public init(_ compte:CompteBancaire) {
+        courant = [compte]
+    }
+    
+    public init(_ c:[CompteBancaire], _ e:[CompteBancaire] = [], _ b:[CompteBancaire] = []) {
+        courant = c
+        epargne = e
+        bourse = b
     }
     
    /* public func save() {
@@ -36,24 +46,4 @@ public struct Argent: Codable {
     }*/
 }
 
-extension Sitemain {
-    mutating func update(_ argent:Argent) {
-        intro.update(argent.avoir)
-      //  contexte = Contexte()
-    }
-    
-    // création
-   public init(_ argent:Argent) {
-        
-       self.init(
-            exergue :
-                "exergue de bas de page",
-            go: "retour ...",
-            titrage : ["Grand", " ", "titre"],
-            maxime: "exergue d'accueil",
-            accueil: "invitation à la suite",
-            intro: Theme(argent.avoir),
-            patrimoine:Patrimoine()
-        )
-    }
-}
+

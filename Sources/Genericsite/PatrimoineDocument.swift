@@ -16,12 +16,10 @@ import UniformTypeIdentifiers
 }*/
 
 public struct PatrimoineDocument: FileDocument {
-    public var sitemain: Sitemain
-    //var argent : Argent
+    public var patrimoine : Patrimoine
     
-    public init(_ sitemain:Sitemain) {
-        self.sitemain = sitemain
-        //argent = Argent(sitemain)
+    public init(_ patrimoine:Patrimoine) {
+        self.patrimoine = patrimoine
     }
 
   public static var readableContentTypes: [UTType] { [.jsonText] }
@@ -31,12 +29,11 @@ public struct PatrimoineDocument: FileDocument {
         else {
             throw CocoaError(.fileReadCorruptFile)
         }
-        sitemain = try JSONDecoder().decode(Sitemain.self, from: json)
-       //argent = Argent(sitemain)
+        patrimoine = try JSONDecoder().decode(Patrimoine.self, from: json)
     }
     
    public func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
-        let json = try JSONEncoder().encode(sitemain)
+        let json = try JSONEncoder().encode(patrimoine)
        // let data = text.data(using: .utf8)!
         return .init(regularFileWithContents: json)
     }

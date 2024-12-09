@@ -17,14 +17,6 @@ public struct ImmobilierView: View {
         _immo = immo
     }
     
-    var valeur: Montant {
-        var total = Montant(0)
-        for foncier in immo {
-            total = total + foncier.valeur.courante
-        }
-        return total
-    }
-    
     public var body:some View {
         FonciersView($immo)
     }

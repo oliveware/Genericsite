@@ -12,12 +12,6 @@ import Semantex
 import Putex
 
 public struct Avoir: Codable {
-        
-    static var nextid = 0
-    static func newid(_ domain:String) -> String {
-        nextid += 1
-        return domain + String(nextid)
-    }
     
     public var courant: [Comtopic] = [Comtopic(nil)]
     public var epargne: [Comtopic] = []
@@ -65,6 +59,28 @@ public struct Avoir: Codable {
             CompteBancaire.courant.append(comtopic.compte)
         }
         let codecourant = Codref(Mot("comptes courants","compte courant"), compteBancaire.courant)*/
+    }
+}
+
+extension Sitemain {
+    mutating func update(_ avoir:Avoir) {
+        intro.update(avoir)
+      //  contexte = Contexte()
+    }
+    
+    // création
+   public init(_ avoir:Avoir) {
+        
+       self.init(
+            exergue :
+                "exergue de bas de page",
+            go: "retour ...",
+            titrage : ["Grand", " ", "titre"],
+            maxime: "exergue d'accueil",
+            accueil: "invitation à la suite",
+            intro: Theme(avoir),
+            patrimoine:Patrimoine()
+        )
     }
 }
 
