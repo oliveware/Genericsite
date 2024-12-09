@@ -9,34 +9,34 @@ import SwiftUI
 import Semantex
 
 public struct PatrimoineView: View {
-    @Binding var site: Sitemain
+    @Binding var patrimoine: Patrimoine
     
     @State var versement = Versement()
     @State var selectag = 1
     
-    public init(_ site: Binding<Sitemain>) {
-        _site = site
+    public init(_ patrimoine: Binding<Patrimoine>) {
+        _patrimoine = patrimoine
     }
     
     public var body: some View {
-        if let patrimoine : Binding<Patrimoine> = Binding($site.patrimoine) {
-            TabView(selection: $selectag)
-            {
-                ImmobilierView(patrimoine.immo)
-                    .tabItem{Text("immobilier")}.tag(1)
-                Text("gestion des locations")
-                    .tabItem{Text("location")}.tag(2)
-                Themavoir($site.intro)
-                    .tabItem{Text("monétaire")}.tag(3)
-                DébitCrédit()
-                    .tabItem{Text("versements")}.tag(5)
-                ContactView(patrimoine.contexte)
-                    .tabItem{Text("contacts")}.tag(7)
-                
-                
-            }.padding(10)
-                .frame(width:1200, height:800)
-        }
+
+        TabView(selection: $selectag)
+        {
+            ImmobilierView($patrimoine.immo)
+                .tabItem{Text("immobilier")}.tag(1)
+            Text("gestion des locations")
+                .tabItem{Text("location")}.tag(2)
+            ArgentView($patrimoine.argent)
+                .tabItem{Text("monétaire")}.tag(3)
+            DébitCrédit()
+                .tabItem{Text("versements")}.tag(5)
+            ContactView($patrimoine.contexte)
+                .tabItem{Text("contacts")}.tag(7)
+            
+            
+        }.padding(10)
+            .frame(width:1200, height:800)
+        
     }
 }
         
@@ -60,20 +60,20 @@ public struct PatrimoineView: View {
 
 
 struct PatrimoinePreview: View {
-    @State var site : Sitemain
+    @State var patrimoine: Patrimoine
     
-    init(_ sitemain:Sitemain){
-        site = sitemain
+    init(_ patrimoine:Patrimoine){
+        self.patrimoine = patrimoine
     }
     
     var body: some View {
-        PatrimoineView( $site)
+        PatrimoineView( $patrimoine)
             .frame(width:900, height:600)
     }
     
 }
 #Preview {
-    PatrimoinePreview(samplemain)
+    PatrimoinePreview(Patrimoine(patrimoinesample))
 }
 
 
