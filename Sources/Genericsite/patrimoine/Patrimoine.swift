@@ -13,7 +13,7 @@ import Putex
 public struct Patrimoine : Codable {
     public var contexte = Contexte()
     public var immo : [Foncier] = []
-    public var argent = Argent()
+    public var argent : Argent?
     
     init(_ immobilier:[Foncier], _ argent: Argent,
         _ contexte:Contexte ) {

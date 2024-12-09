@@ -23,6 +23,19 @@ public struct Argent: Codable {
     
     init() { }
     
+    init(_ avoir:Avoir) {
+        courant = []
+        for compte in avoir.courant {
+            courant.append(compte.compte)
+        }
+        for compte in avoir.epargne {
+            courant.append(compte.compte)
+        }
+        for compte in avoir.bourse {
+            courant.append(compte.compte)
+        }
+    }
+    
     public init(_ compte:CompteBancaire) {
         courant = [compte]
     }

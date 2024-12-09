@@ -21,6 +21,15 @@ public struct PatrimoineDocument: FileDocument {
     public init(_ patrimoine:Patrimoine) {
         self.patrimoine = patrimoine
     }
+    
+    public init(_ sitemain:Sitemain) {
+        if let patri = sitemain.patrimoine {
+            patrimoine = patri
+        } else {
+            patrimoine = Patrimoine()
+        }
+        patrimoine.argent = Argent(Avoir(sitemain.intro))
+    }
 
   public static var readableContentTypes: [UTType] { [.jsonText] }
 
