@@ -48,7 +48,7 @@ extension CompteBancaire {
         if let data = comptejson.data {
             self.init(comptejson.bankid, data, compte, comptejson.id, comptejson.cartes, comptejson.chequiers, comptejson.folio)
         } else {
-            self.init(BankingData(catégorie), compte, comptejson.id, comptejson.cartes, comptejson.chequiers, comptejson.folio)
+            self.init(comptejson.bankid, BankingData(catégorie), compte, comptejson.id, comptejson.cartes, comptejson.chequiers, comptejson.folio)
         }
     }
 }
