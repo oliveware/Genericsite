@@ -21,14 +21,9 @@ public struct ComtopicView: View {
     
     public var body: some View {
         HStack {
-            if comtopic.compte.contractuel.banquid == "" {
-                Button(action: {comptedit = true},
-                       label: {Text("Nouveau compte -> à renseigner").font(.title)})
-                .sheet(isPresented: $comptedit, content: {
-                    CompteBancaireView($comtopic.compte)})
-            } else {
+           
                 //CompteLabel($compte.compte)
-                BankingDataShow($comtopic.compte.contractuel)
+                Text(comtopic.compte.show)
                     .font(.title2)
                 Text(comtopic.solde.affiche("prévu"))
                     .font(.title)
@@ -43,14 +38,14 @@ public struct ComtopicView: View {
                             .frame(minWidth:1200, minHeight:200)
                     })
                     
-                    if comtopic.compte.contractuel.banque != nil {
+                  //  if comtopic.compte.contractuel.banque != nil {
                         Button(action:{topicedit = true})
                         {Text("navigation")}
                         .sheet(isPresented: $topicedit)
                         { ItemView($comtopic.nav) }
-                    }
+                  //  }
                 }
-            }
+            
         }.frame(minWidth:500, minHeight: 100)
         .padding(5)
     }
