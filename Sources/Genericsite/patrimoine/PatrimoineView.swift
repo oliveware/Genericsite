@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Oware
 import Semantex
 
 public struct PatrimoineView: View {
@@ -22,7 +23,7 @@ public struct PatrimoineView: View {
 
         TabView(selection: $selectag)
         {
-            ImmobilierView($patrimoine.immo)
+            FonciersView($patrimoine.immo)
                 .tabItem{Text("immobilier")}.tag(1)
             Text("gestion des locations")
                 .tabItem{Text("location")}.tag(2)
@@ -75,7 +76,7 @@ struct PatrimoinePreview: View {
     
 }
 #Preview {
-    PatrimoinePreview(Patrimoine(patrimoinesample))
+    PatrimoinePreview(Patrimoine(patrimoinesample, sampleintro))
 }
 
 

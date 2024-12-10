@@ -112,6 +112,9 @@ struct AvoirPreview: View {
     }
 }
 
-#Preview {
+#Preview("nil") {
     AvoirPreview()
+}
+#Preview("sample") {
+    AvoirPreview(avoir : Avoir(sampleintro))
 }

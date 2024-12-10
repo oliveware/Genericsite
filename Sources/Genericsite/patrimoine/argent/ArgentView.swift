@@ -9,11 +9,13 @@ import SwiftUI
 import Attribex
 import Semantex
 import Oware
+import Putex
 
 public struct ArgentView: View {
     @Binding var argent:Argent
     var banques:[Banque] = []
     
+    @State var modif = false
     @State private var ajoutmode = false
     
     public init(_ argent:Binding<Argent>) {
@@ -45,7 +47,13 @@ public struct ArgentView: View {
                     GroupBox("Compte courant"){
                         ForEach ($argent.courant) {
                             compte in
-                            CompteBancaireView(compte)
+                            HStack(spacing:30) {
+                                if modif {
+                                    ConfirmedButton("minus", "ce compte courant  (\(compte.id))", {deletecourant(compte.id)
+                                        modif = false})
+                                }
+                                CompteBancaireView(compte)
+                            }
                         }.frame(minWidth:900,alignment:.leading)
                     }
                     
@@ -53,7 +61,13 @@ public struct ArgentView: View {
                         GroupBox("Epargne"){
                             ForEach ($argent.epargne) {
                                 compte in
-                                CompteBancaireView(compte)
+                                HStack(spacing:30) {
+                                    if modif {
+                                        ConfirmedButton("minus", "ce compte épargne (\(compte.id))", {deletepargne(compte.id)
+                                            modif = false})
+                                    }
+                                    CompteBancaireView(compte)
+                                }
                             }.frame(minWidth:900,alignment:.leading)
                         }
                     }
@@ -62,15 +76,20 @@ public struct ArgentView: View {
                         GroupBox("Bourse"){
                             ForEach ($argent.bourse) {
                                 compte in
-                                CompteBancaireView(compte)
+                                HStack(spacing:30) {
+                                    if modif {
+                                        ConfirmedButton("minus", "ce compte titre  (\(compte.id))", {deletebourse(compte.id)
+                                            modif = false})
+                                    }
+                                    CompteBancaireView(compte)
+                                }
                             }.frame(minWidth:900,alignment:.leading)
                         }
                     }
                 }
             }.frame(minWidth:1000,minHeight:500)
-  
-            if ajoutmode {
-                HStack {
+            HStack {
+                if ajoutmode {
                     Text ("ajouter un compte")
                     Button("compte courant", action: {
                         argent.courant.append(CompteBancaire(nil))
@@ -82,18 +101,47 @@ public struct ArgentView: View {
                     Button("compte titre", action: { argent.bourse.append(CompteBancaire(true))
                         ajoutmode = false
                     } ).padding(20)
+                    
+                } else {
+                    if argent.courant.count > 0 {
+                        Button(action:{modif.toggle()})
+                        {Image(systemName: "minus")}
+                    }
+                    Spacer()
+                    Button("ajouter un compte", action:{ajoutmode = true})
+                        .padding(20)
                 }
-            } else {
-                Button("ajouter un compte", action:{ajoutmode = true})
-                    .padding(20)
-            }
+            }.padding(10)
         }
-        .padding(.bottom,10)
-        .padding(.top,10)
+        .padding(10)
     }
 
-    func delete(_ id:Int) {
-      //  argent.delete(id)
+    func deletecourant(_ id:String) {
+        var new : [CompteBancaire] = []
+        for item in argent.courant {
+            if item.id != id {
+                new.append(item)
+            }
+        }
+        argent.courant = new
+    }
+    func deletepargne(_ id:String) {
+        var new : [CompteBancaire] = []
+        for item in argent.epargne {
+            if item.id != id {
+                new.append(item)
+            }
+        }
+        argent.epargne = new
+    }
+    func deletebourse(_ id:String) {
+        var new : [CompteBancaire] = []
+        for item in argent.bourse {
+            if item.id != id {
+                new.append(item)
+            }
+        }
+        argent.bourse = new
     }
    
 }
@@ -110,5 +158,5 @@ struct ArgentPreview: View {
 }
 
 #Preview("sample") {
- //   ArgentPreview(argent:Argent(argentmain).intro)
+    ArgentPreview(argent:Argent(Avoir(sampleintro)))
 }
