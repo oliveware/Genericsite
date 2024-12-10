@@ -15,8 +15,9 @@ public struct Patrimoine : Codable {
     public var immo : [Foncier] = []
     public var argent : Argent?
     
-    init(_ immobilier:[Foncier], _ argent: Argent,
-        _ contexte:Contexte ) {
+    init(_ immobilier:[Foncier],
+         _ argent: Argent,
+         _ contexte:Contexte ) {
         self.immo = immobilier
         self.argent = argent
         self.contexte = contexte
@@ -30,7 +31,14 @@ public struct Patrimoine : Codable {
         contexte.update()
     }
     
-  
+    public init(_ json:String = "", _ intro:Theme){
+        if json != "" {
+            let jsonData = json.data(using: .utf8)!
+            self = try! JSONDecoder().decode(Patrimoine.self, from: jsonData)
+        }
+        contexte.update()
+        argent = Argent(Avoir(intro))
+    }
 }
 
 
