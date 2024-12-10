@@ -11,7 +11,7 @@ import UniformTypeIdentifiers
 
 extension UTType {
     static var jsonPatrimoine: UTType {
-        UTType(importedAs: "public.json")
+        UTType(importedAs: "org.inawani.do.patrimoine")
     }
 }
 
