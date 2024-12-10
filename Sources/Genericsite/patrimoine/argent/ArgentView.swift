@@ -110,6 +110,7 @@ public struct ArgentView: View {
                     Spacer()
                     Button("ajouter un compte", action:{ajoutmode = true})
                         .padding(20)
+                    Spacer()
                 }
             }.padding(10)
         }
