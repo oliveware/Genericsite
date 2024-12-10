@@ -8,6 +8,7 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
+import Oware
 
 extension UTType {
     static var jsonPatrimoine: UTType {
@@ -20,6 +21,7 @@ public struct PatrimoineDocument: FileDocument {
     
     public init(_ patrimoine:Patrimoine) {
         self.patrimoine = patrimoine
+        Company.all = patrimoine.contexte.companies
     }
     
   /*  public init(_ sitemain:Sitemain) {
@@ -39,6 +41,7 @@ public struct PatrimoineDocument: FileDocument {
             throw CocoaError(.fileReadCorruptFile)
         }
         patrimoine = try JSONDecoder().decode(Patrimoine.self, from: json)
+       Company.all = patrimoine.contexte.companies
     }
     
    public func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {
