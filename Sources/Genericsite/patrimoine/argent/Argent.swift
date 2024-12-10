@@ -29,10 +29,10 @@ public struct Argent: Codable {
             courant.append(compte.compte)
         }
         for compte in avoir.epargne {
-            courant.append(compte.compte)
+            epargne.append(compte.compte)
         }
         for compte in avoir.bourse {
-            courant.append(compte.compte)
+            bourse.append(compte.compte)
         }
     }
     

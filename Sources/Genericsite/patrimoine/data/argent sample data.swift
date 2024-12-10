@@ -7,13 +7,10 @@
 
 let samplesite = Genericsite(
     siteroot: "argent/", localroot: "argent/site/",
-    name: "nom", initials: "dd",
-    intro: sampleintro,
-    patrimoine: Patrimoine(patrimoinesample)
-    //tables:tables
+    name: "nom", initials: "dd"
 )
 
-let samplemain = samplesite.main
+let samplemain = samplesite.sitemain(theme:sampleintro)
 
 let sampleintro = Theme(
     "Affaires à suivre","intro","argent",

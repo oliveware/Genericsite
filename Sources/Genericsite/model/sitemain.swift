@@ -23,16 +23,13 @@ public struct Sitemain : Codable {
        
     public var intro : Theme
     
-    public var patrimoine: Patrimoine?
-    
     public init(
         exergue : String,
         go : String,
         titrage: [String],
         maxime:String,
         accueil:String,
-        intro:Theme?,
-        patrimoine: Patrimoine?
+        intro:Theme?
     ) {
         footexerg = exergue
         enter = go
@@ -40,7 +37,7 @@ public struct Sitemain : Codable {
         welcome = Welcome(maxime, accueil)
         
         self.intro = intro ?? Theme.intro
-        self.patrimoine = patrimoine
+
     }
 }
 

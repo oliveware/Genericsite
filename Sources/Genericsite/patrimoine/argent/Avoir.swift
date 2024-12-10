@@ -27,6 +27,21 @@ public struct Avoir: Codable {
         bourse = b
     }
     
+    init(_ argent:Argent?) {
+        if argent != nil {
+            courant = []
+            for compte in argent!.courant {
+                courant.append(Comtopic(compte))
+            }
+            for compte in argent!.epargne {
+                epargne.append(Comtopic(compte))
+            }
+            for compte in argent!.bourse {
+                bourse.append(Comtopic(compte))
+            }
+        }
+    }
+    
    /* public func save() {
         let fichier = Fichierjson("argent","moi")
         fichier.write(self)
@@ -78,8 +93,7 @@ extension Sitemain {
             titrage : ["Grand", " ", "titre"],
             maxime: "exergue d'accueil",
             accueil: "invitation à la suite",
-            intro: Theme(avoir),
-            patrimoine:Patrimoine()
+            intro: Theme(avoir)
         )
     }
 }

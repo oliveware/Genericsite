@@ -22,14 +22,14 @@ public struct PatrimoineDocument: FileDocument {
         self.patrimoine = patrimoine
     }
     
-    public init(_ sitemain:Sitemain) {
+  /*  public init(_ sitemain:Sitemain) {
         if let patri = sitemain.patrimoine {
             patrimoine = patri
         } else {
             patrimoine = Patrimoine()
         }
         patrimoine.argent = Argent(Avoir(sitemain.intro))
-    }
+    }*/
 
     public static var readableContentTypes: [UTType] { [.jsonPatrimoine] }
 
