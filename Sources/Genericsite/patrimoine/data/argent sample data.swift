@@ -32,6 +32,39 @@ let sampleintro = Theme(
     ]
 )
 
+let contexte = """
+{
+    "tables" :
+    {},   
+    "humans" :  [
+        {"id":"t1", "identity": {"name":{"nom":"De Roeck","prenom":"Daniel"}}, "sharing":{}
+        },
+        {"id":"t2", "identity": {"name":{"nom":"Allemon","prenom":"Guy"}}, "sharing":{}
+        },
+        {"id":"t3",  "identity": {"name":{"nom":"Vanbleus","prenom":"Emeline"}}, "sharing":{}
+        }
+      ],
+    "companies": [
+        {"id":"t10", "identity":{"name":{"nom":"CAF du Nord"}}, "sharing":{}
+                        },
+        {"id":"t18", "identity":{"name":{"nom":"Orange SA"}}, "sharing":{}
+        },
+        {"id":"t23", "identity":{"name":{"nom":"Direction Générale des Impôts"}}, "sharing":{}
+        },
+
+        {"id":"t30", "identity":{"name":{"nom":"Société Générale"}},
+        "business":{"id":"sg","BIC":"SOGEFRPP","nom":"Société Générale", "codebanque":"30003", "codeguichet":"01288", "domiciliation":"LAMBERSART CANTELEU\\n336/340 Av De Dunkerque \\n59130 Lambersart"}, "sharing":{}
+        },
+        {"id":"t31", "identity":{"name":{"nom":"Banque Postale"}},
+        "business":{"id":"bp", "codebanque":"20041","BIC":"PSSTFRPPLIL", "domiciliation":"LA BANQUE POSTALE\\nLILLE CENTRE FINANCIER", "codeguichet":"01005", "nom":"Banque Postale"}, "sharing":{}
+        },
+        {"id":"t32", "identity":{"name":{"nom":"Crédit Mutuel"}},
+        "business":{"id":"cm", "BIC":"", "nom":"Crédit Mutuel", "domiciliation":"", "codebanque":"10278", "codeguichet":"02717"}, "sharing":{}
+        }
+    ]
+}
+"""
+
 let common = """
     "banques" : [
         {"id":"bp", "codebanque":"20041","BIC":"PSSTFRPPLIL", "domiciliation":"LA BANQUE POSTALE\\nLILLE CENTRE FINANCIER", "codeguichet":"01005", "nom":"Banque Postale"},
@@ -106,7 +139,7 @@ let BP = """
 }
 """
 
-// données pour initialiser Patrimoine.Argent
+// données pour initialiser Patrimoine.argent
 // les écritures restent à mettre au bon format (Ecriture)
 let purargent = """
 

@@ -24,10 +24,10 @@ public struct ContactView : View {
     }
 }
 
-var contexte = Patrimoine(patrimoinesample).contexte
+
 
 struct ContactPreview: View {
-    @State var context: Contexte = contexte
+    @State var context: Contexte = Patrimoine(patrimoinesample).contexte
     
     var body: some View {
         ContactView($context)

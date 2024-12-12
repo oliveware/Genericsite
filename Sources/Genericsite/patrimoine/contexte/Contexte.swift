@@ -53,11 +53,19 @@ public struct Contexte:Codable {
         self = contexte
     }*/
     
-    func update() {
+    func setables() {
        // Banque.all = banques
         Coderef.all = tables
 
         
+    }
+    
+    public init(_ json:String = ""){
+        if json != "" {
+            let jsonData = json.data(using: .utf8)!
+            self = try! JSONDecoder().decode(Contexte.self, from: jsonData)
+            Company.all = companies
+        }
     }
     
  

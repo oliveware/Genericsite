@@ -28,7 +28,7 @@ public struct Patrimoine : Codable {
             let jsonData = json.data(using: .utf8)!
             self = try! JSONDecoder().decode(Patrimoine.self, from: jsonData)
         }
-        contexte.update()
+        contexte.setables()
     }
     
     public init(_ json:String = "", _ intro:Theme){
@@ -36,7 +36,7 @@ public struct Patrimoine : Codable {
             let jsonData = json.data(using: .utf8)!
             self = try! JSONDecoder().decode(Patrimoine.self, from: jsonData)
         }
-        contexte.update()
+        contexte.setables()
         argent = Argent(Avoir(intro))
     }
 }

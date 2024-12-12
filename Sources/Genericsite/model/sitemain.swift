@@ -23,13 +23,16 @@ public struct Sitemain : Codable {
        
     public var intro : Theme
     
+    var companies :[Company] = []
+    
     public init(
         exergue : String,
         go : String,
         titrage: [String],
         maxime:String,
         accueil:String,
-        intro:Theme?
+        intro:Theme?,
+        companies:[Company] = []
     ) {
         footexerg = exergue
         enter = go
@@ -37,7 +40,7 @@ public struct Sitemain : Codable {
         welcome = Welcome(maxime, accueil)
         
         self.intro = intro ?? Theme.intro
-
+        self.companies = companies
     }
 }
 
