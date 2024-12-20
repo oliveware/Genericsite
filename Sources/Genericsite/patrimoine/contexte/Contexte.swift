@@ -11,30 +11,9 @@ import Oware
 import Putex
 
 public struct Contexte:Codable {
-
-     func company(_ id:String) -> Company? {
-        var found : Company? = nil
-        for company in companies {
-            if company.id == id { found = company }
-        }
-        return found
-    }
-    
-    var humans:[Human] = []
-    var companies:[Company] = []
     
     var tables : [String:Coderef] = [:]
-    var banques : [String:Banque] {  //= []
-        var banks : [String:Banque] = [:]
-        for company in companies {
-            if let business = company.business {
-                if let banque = business.banque {
-                    banks[company.id] = banque
-                }
-            }
-        }
-        return banks
-    }
+   
     
   /*  public init( _ tables : [String:Table]) {
         self.tables = tables
@@ -42,7 +21,6 @@ public struct Contexte:Codable {
     }*/
     
     public init () {
-        //self.banques = Banque.all
         self.tables = Coderef.all
     }
     
@@ -60,13 +38,7 @@ public struct Contexte:Codable {
         
     }
     
-    public init(_ json:String = ""){
-        if json != "" {
-            let jsonData = json.data(using: .utf8)!
-            self = try! JSONDecoder().decode(Contexte.self, from: jsonData)
-            Company.all = companies
-        }
-    }
+    
     
  
 }

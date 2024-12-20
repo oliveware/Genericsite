@@ -52,13 +52,13 @@ let contexte = """
         {"id":"t23", "identity":{"name":{"nom":"Direction Générale des Impôts"}}, "sharing":{}
         },
 
-        {"id":"t30", "identity":{"name":{"nom":"Société Générale"}},
+        {"id":"sg", "identity":{"name":{"nom":"Société Générale"}},
         "business":{"id":"sg","BIC":"SOGEFRPP","nom":"Société Générale", "codebanque":"30003", "codeguichet":"01288", "domiciliation":"LAMBERSART CANTELEU\\n336/340 Av De Dunkerque \\n59130 Lambersart"}, "sharing":{}
         },
-        {"id":"t31", "identity":{"name":{"nom":"Banque Postale"}},
+        {"id":"bp", "identity":{"name":{"nom":"Banque Postale"}},
         "business":{"id":"bp", "codebanque":"20041","BIC":"PSSTFRPPLIL", "domiciliation":"LA BANQUE POSTALE\\nLILLE CENTRE FINANCIER", "codeguichet":"01005", "nom":"Banque Postale"}, "sharing":{}
         },
-        {"id":"t32", "identity":{"name":{"nom":"Crédit Mutuel"}},
+        {"id":"cm", "identity":{"name":{"nom":"Crédit Mutuel"}},
         "business":{"id":"cm", "BIC":"", "nom":"Crédit Mutuel", "domiciliation":"", "codebanque":"10278", "codeguichet":"02717"}, "sharing":{}
         }
     ]
