@@ -33,8 +33,8 @@ public struct PatrimoineView: View {
             }
             DébitCrédit()
                 .tabItem{Text("versements")}.tag(5)
-            ContactView($patrimoine.contexte)
-                .tabItem{Text("contacts")}.tag(7)
+          //  ContactView($patrimoine.contexte)
+          //      .tabItem{Text("contacts")}.tag(7)
             
             
         }.padding(10)

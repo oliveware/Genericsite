@@ -22,7 +22,7 @@ public struct MainDocument: FileDocument {
     }
     
     public init(_ avoir:Avoir) {
-        sitemain = Sitemain(avoir, contexte)
+        sitemain = Sitemain(avoir)  //, contexte)
     }
     
 

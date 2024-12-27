@@ -84,8 +84,8 @@ extension Sitemain {
     }
     
     // création
-    public init(_ avoir:Avoir, _ json:String = "") {
-        let contexte = Contexte(json)
+    public init(_ avoir:Avoir) {    //}, _ json:String = "") {
+       // let contexte = Contexte(json)
        self.init(
             exergue :
                 "exergue de bas de page",
@@ -93,8 +93,8 @@ extension Sitemain {
             titrage : ["Grand", " ", "titre"],
             maxime: "exergue d'accueil",
             accueil: "invitation à la suite",
-            intro: Theme(avoir),
-            companies:contexte.companies
+            intro: Theme(avoir)
+        //    companies:contexte.companies
         )
     }
 }
