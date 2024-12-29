@@ -21,7 +21,7 @@ public struct PatrimoineDocument: FileDocument {
     
     public init(_ patrimoine:Patrimoine) {
         self.patrimoine = patrimoine
-        //Company.all = patrimoine.contexte.companies
+        Company.all = patrimoine.contacts.companies
     }
 
     public static var readableContentTypes: [UTType] { [.jsonPatrimoine] }
@@ -32,7 +32,7 @@ public struct PatrimoineDocument: FileDocument {
             throw CocoaError(.fileReadCorruptFile)
         }
         patrimoine = try JSONDecoder().decode(Patrimoine.self, from: json)
-       //Company.all = patrimoine.contexte.companies
+       Company.all = patrimoine.contacts.companies
     }
     
    public func fileWrapper(configuration: WriteConfiguration) throws -> FileWrapper {

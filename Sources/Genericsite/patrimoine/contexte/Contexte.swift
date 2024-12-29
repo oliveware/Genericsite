@@ -11,7 +11,6 @@ import Oware
 import Putex
 
 public struct Contexte:Codable {
-    
     var tables : [String:Coderef] = [:]
    
     

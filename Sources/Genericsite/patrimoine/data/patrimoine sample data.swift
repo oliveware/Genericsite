@@ -14,7 +14,9 @@ let patrimoinesample = """
         {"id":"cm", "BIC":"", "nom":"Crédit Mutuel", "domiciliation":"", "codebanque":"10278", "codeguichet":"02717"}
     ],
     "tables" :
-    {},   
+    {}
+},
+"contacts": {  
     "humans" :  [
         {"id":"t1", "identity": {"name":{"nom":"De Roeck","prenom":"Daniel"}}, "sharing":{}
         },
