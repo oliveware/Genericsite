@@ -14,16 +14,19 @@ public struct Patrimoine : Codable {
     public var contexte = Contexte()
     public var contacts = Contacts()
     public var immo : [Foncier] = []
+    public var locations: [Location] = []
     public var argent : Argent?
     
     init(_ immobilier:[Foncier],
          _ argent: Argent,
+         _ locations: [Location],
          _ contexte:Contexte,
          _ contacts:Contacts ) {
         self.immo = immobilier
         self.argent = argent
         self.contexte = contexte
         self.contacts = contacts
+        self.locations = locations
     }
     
     public init(_ json:String = ""){

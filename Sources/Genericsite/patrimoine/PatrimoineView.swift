@@ -33,8 +33,8 @@ public struct PatrimoineView: View {
             }
             DébitCrédit()
                 .tabItem{Text("versements")}.tag(5)
-          //  ContactView($patrimoine.contexte)
-          //      .tabItem{Text("contacts")}.tag(7)
+            ContactsView($patrimoine.contacts)
+                .tabItem{Text("contacts")}.tag(7)
             
             
         }.padding(10)
@@ -71,7 +71,7 @@ struct PatrimoinePreview: View {
     
     var body: some View {
         PatrimoineView( $patrimoine)
-            .frame(width:900, height:600)
+            .frame(width:1000, height:600)
     }
     
 }

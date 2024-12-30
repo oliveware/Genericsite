@@ -109,7 +109,7 @@ let tables = """
 """
 
 let BP = """
-{ 
+{ "bankid":"bp",
 "data": { "banquid":"bp",
     "iban":{"one":"FR35","two":"2004","three":"1010","four":"0511","five":"1537","six":"2F02", "seven":"669"},
     "titulaire":"MME CRESPEL JACQUELINE\\n4 AVENUE HIPPOLYTE PESLIN\\n59130 LAMBERSART", "numéro":"1115372F026", "clé":"69"
@@ -144,7 +144,7 @@ let BP = """
 let purargent = """
 
 "argent": {
-"courant":[
+"courant":["bankid":"bp",
 { "id":"bp", "label":"BP",
 "contractuel": { "banquid":"bp",
     "iban":{"one":"FR35","two":"2004","three":"1010","four":"0511","five":"1537","six":"2F02", "seven":"669"},

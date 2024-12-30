@@ -44,7 +44,7 @@ let patrimoinesample = """
         }
     ]
 },
-
+"locations": [],
     "immo" : [
         {"id":"11", 
             "terrain":{"id":148,
