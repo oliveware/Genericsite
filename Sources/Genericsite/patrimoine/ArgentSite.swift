@@ -8,7 +8,7 @@
 import SwiftUI
 import Semantex
 
-public struct PatrimoineSite: View {
+public struct ArgentSite: View {
     @Binding var site: Sitemain
     
     @State var versement = Versement()
@@ -52,15 +52,15 @@ public struct PatrimoineSite: View {
         }*/
 
 
-struct PatrimoineSitePreview: View {
+struct ArgentSitePreview: View {
     @State var site : Sitemain = samplemain
     
     var body: some View {
-        PatrimoineSite( $site)
+        ArgentSite( $site)
             .frame(width:900, height:600)
     }
     
 }
 #Preview {
-    PatrimoineSitePreview()
+    ArgentSitePreview()
 }
