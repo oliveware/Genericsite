@@ -20,14 +20,15 @@ public struct PatrimoineSite: View {
     
     public var body: some View {
 
-        TabView(selection: $selectag)
-        {
+       // TabView(selection: $selectag)
+       // {
             Themavoir($site.intro)
                 .tabItem{Text("monétaire")}.tag(3)
-            DébitCrédit()
-                .tabItem{Text("versements")}.tag(5)
-        }.padding(10)
-            .frame(width:1200, height:800)
+        //    DébitCrédit()
+        //        .tabItem{Text("versements")}.tag(5)
+       // }
+        .padding(10)
+        .frame(width:1200, height:800)
         
     }
 }
