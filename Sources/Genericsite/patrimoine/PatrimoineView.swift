@@ -38,7 +38,7 @@ public struct PatrimoineView: View {
             
             
         }.padding(10)
-            .frame(width:1200, height:800)
+            
         
     }
 }

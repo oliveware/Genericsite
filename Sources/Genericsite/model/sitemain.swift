@@ -42,6 +42,16 @@ public struct Sitemain : Codable {
         self.intro = intro ?? Theme.intro
         self.companies = companies
     }
+    
+    public init() {
+        footexerg = "exergue"
+        enter = "go"
+        titre = MainTitle("","titre","")
+        welcome = Welcome("", "")
+        
+        intro = Theme.intro
+        companies = []
+    }
 }
 
 
