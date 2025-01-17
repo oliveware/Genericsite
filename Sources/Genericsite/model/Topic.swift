@@ -11,7 +11,7 @@ import Oware
 public struct Topic: Codable,Identifiable, Item {
     public var id:String {name}
     // Catalink
-    var catalog = ""
+    var catalog : String?
         
     // topic
     var name: String
