@@ -1,5 +1,5 @@
 {
-  "originHash" : "79b29cd40e403f1c2bf797b6912a2371224c76325e8b2dc50062ef7dae43ce97",
+  "originHash" : "31975ad1656b14696eee5fd6007b3fad569813cab158e7a51899d6f77c9f21f1",
   "pins" : [
     {
       "identity" : "attribex",
@@ -7,7 +7,16 @@
       "location" : "http://github.com/oliveware/Attribex",
       "state" : {
         "branch" : "main",
-        "revision" : "a34b7935e0ced1d2ebaac3e019d6cb70b056b438"
+        "revision" : "b4c0ebde7f9f04b5bc6088bf4994226545214228"
+      }
+    },
+    {
+      "identity" : "fichiers",
+      "kind" : "remoteSourceControl",
+      "location" : "http://github.com/oliveware/Fichiers",
+      "state" : {
+        "branch" : "main",
+        "revision" : "e82915f0b3ab67d9f7801e6c85dc77e8c96f5c35"
       }
     },
     {
@@ -16,7 +25,7 @@
       "location" : "http://github.com/oliveware/Oware",
       "state" : {
         "branch" : "main",
-        "revision" : "8948c43c639d900723ac11c7d2864557fe217646"
+        "revision" : "5518790cbe3858fb279607dadd99929041e0c5c0"
       }
     },
     {

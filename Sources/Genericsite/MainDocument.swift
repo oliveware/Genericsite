@@ -8,6 +8,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 import Oware
+import Fichiers
 
 extension UTType {
     static var jsonSitemain: UTType {
@@ -18,12 +19,12 @@ extension UTType {
 public struct MainDocument: FileDocument {
     public var sitemain = Sitemain()
     
-    public init(_ filename:String) {
-        let fichier = Fichierjson("essais", filename)
-        sitemain = fichier.read(sitemain) ?? sitemain
+    public init(_ repertoire:String,_ filename:String) {
+        let fichier = Fichierjson(repertoire, filename)
+        sitemain = fichier.read() ?? sitemain
     }
     
-    public init(_ site:Sitemain) {
+    public init(_ site:Sitemain = Sitemain()) {
         sitemain = site
     }
     
