@@ -9,6 +9,7 @@
 import SwiftUI
 import UniformTypeIdentifiers
 import Oware
+import Fichiers
 
 extension UTType {
     static var jsonPatrimoine: UTType {
@@ -22,6 +23,17 @@ public struct PatrimoineDocument: FileDocument {
     public init(_ patrimoine:Patrimoine) {
         self.patrimoine = patrimoine
         Company.all = patrimoine.contacts.companies
+    }
+    
+    public init(_ repertoire:String,_ patrimoinefile:String, _ argentfile:String? = nil) {
+        let fichierpatrimoine = Fichierjson(repertoire, patrimoinefile)
+        patrimoine = fichierpatrimoine.read() ?? Patrimoine()
+        if argentfile != nil {
+            let fichierargent = Fichierjson(repertoire, argentfile)
+            if let sitemain:Sitemain = fichierargent.read() {
+                patrimoine.argent = Argent(Avoir(sitemain.intro))
+            }
+        }
     }
 
     public static var readableContentTypes: [UTType] { [.jsonPatrimoine] }
