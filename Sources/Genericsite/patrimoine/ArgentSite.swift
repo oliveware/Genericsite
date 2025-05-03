@@ -11,7 +11,7 @@ import Semantex
 public struct ArgentSite: View {
     @Binding var site: Sitemain
     
-    @State var versement = Versement()
+  //  @State var versement = Versement()
     @State var selectag = 1
     
     public init(_ site: Binding<Sitemain>) {

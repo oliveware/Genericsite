@@ -36,7 +36,7 @@ struct Navigation: Codable,Identifiable,Item {
     }
     
     init(_ cb:CompteBancaire) {
-        let data = cb.contractuel
+        let data = cb.data
         name = cb.id
         exergue = data.exergue
         label = data.label

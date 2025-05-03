@@ -1,5 +1,5 @@
 {
-  "originHash" : "31975ad1656b14696eee5fd6007b3fad569813cab158e7a51899d6f77c9f21f1",
+  "originHash" : "d252436530c427197263027a70bcbdcb4b03da2ceed7e7e375fd9b09253e084b",
   "pins" : [
     {
       "identity" : "attribex",
@@ -7,7 +7,7 @@
       "location" : "http://github.com/oliveware/Attribex",
       "state" : {
         "branch" : "main",
-        "revision" : "b4c0ebde7f9f04b5bc6088bf4994226545214228"
+        "revision" : "faa0fed766b9149c710ed065ac14f576868448a7"
       }
     },
     {
@@ -16,7 +16,7 @@
       "location" : "http://github.com/oliveware/Fichiers",
       "state" : {
         "branch" : "main",
-        "revision" : "e82915f0b3ab67d9f7801e6c85dc77e8c96f5c35"
+        "revision" : "3b58f7a144b89e533f51e508f97e46d51536e02d"
       }
     },
     {
@@ -25,7 +25,7 @@
       "location" : "http://github.com/oliveware/Oware",
       "state" : {
         "branch" : "main",
-        "revision" : "5518790cbe3858fb279607dadd99929041e0c5c0"
+        "revision" : "2eda9e4d1d2359eb2198a9f585cc9e982cfc5e27"
       }
     },
     {
@@ -34,7 +34,7 @@
       "location" : "http://github.com/oliveware/Putex",
       "state" : {
         "branch" : "main",
-        "revision" : "86e10bc32f3ea7bc2d652d8be04e0df3eb62cbcc"
+        "revision" : "f44c96fd3a1d80d9401fb86d5077e0f121a47abb"
       }
     },
     {
@@ -43,7 +43,7 @@
       "location" : "http://github.com/oliveware/Semantex",
       "state" : {
         "branch" : "main",
-        "revision" : "d9d04ffaa1f3f2c6ab8ca110569584290986b152"
+        "revision" : "aa8f4112c9bb13f8c3cb5a76a31c4e124ab7bd7b"
       }
     }
   ],

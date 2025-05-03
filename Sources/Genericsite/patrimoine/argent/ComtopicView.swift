@@ -27,7 +27,7 @@ public struct ComtopicView: View {
                     .font(.title2)
                 Text(comtopic.solde.affiche("prévu"))
                     .font(.title)
-                Text(comtopic.compte.contractuel.titulaire)
+                Text(comtopic.compte.data.titulaire)
                     .padding(.leading,20)
                 Spacer()
                 VStack(spacing:10) {

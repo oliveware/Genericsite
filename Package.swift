@@ -26,6 +26,7 @@ let package = Package(
         ),
         .testTarget(
             name: "GenericsiteTests",
-            dependencies: ["Genericsite"]),
+            dependencies: ["Genericsite"]
+        )
     ]
 )

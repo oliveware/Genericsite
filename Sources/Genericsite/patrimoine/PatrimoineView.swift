@@ -12,7 +12,7 @@ import Semantex
 public struct PatrimoineView: View {
     @Binding var patrimoine: Patrimoine
     
-    @State var versement = Versement()
+  //  @State var versement = Versement()
     @State var selectag = 1
     
     public init(_ patrimoine: Binding<Patrimoine>) {
