@@ -16,7 +16,7 @@ public struct Argent: Codable {
         return domain + String(nextid)
     }
     
-    public var courant: [CompteBancaire] = [CompteBancaire(nil)]
+    public var courant: [CompteBancaire] = [CompteBancaire(.courant)]
     public var epargne: [CompteBancaire] = []
     public var bourse: [CompteBancaire] = []
     

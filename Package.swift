@@ -14,7 +14,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "http://github.com/oliveware/Oware", branch: "main"),
+        .package(url: "http://github.com/oliveware/Oware", branch: "refontefoncier"),
         .package(url: "http://github.com/oliveware/Fichiers", branch: "main")
     ],
     targets: [

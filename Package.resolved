@@ -1,13 +1,13 @@
 {
-  "originHash" : "d252436530c427197263027a70bcbdcb4b03da2ceed7e7e375fd9b09253e084b",
+  "originHash" : "a07bdd29d466fb0ab810d08075aa8b32443a815adee3b5056b8c3d789a1edf3f",
   "pins" : [
     {
       "identity" : "attribex",
       "kind" : "remoteSourceControl",
       "location" : "http://github.com/oliveware/Attribex",
       "state" : {
-        "branch" : "main",
-        "revision" : "faa0fed766b9149c710ed065ac14f576868448a7"
+        "branch" : "refontefoncier-equip1D",
+        "revision" : "39d1755f661e82e4f21b95886242d5965a4aef20"
       }
     },
     {
@@ -16,7 +16,7 @@
       "location" : "http://github.com/oliveware/Fichiers",
       "state" : {
         "branch" : "main",
-        "revision" : "3b58f7a144b89e533f51e508f97e46d51536e02d"
+        "revision" : "39a32bcef0c79579520fb5fabe15ba9e39495396"
       }
     },
     {
@@ -24,8 +24,8 @@
       "kind" : "remoteSourceControl",
       "location" : "http://github.com/oliveware/Oware",
       "state" : {
-        "branch" : "main",
-        "revision" : "2eda9e4d1d2359eb2198a9f585cc9e982cfc5e27"
+        "branch" : "refontefoncier",
+        "revision" : "bf5c5a8184b24a727e7b03e41c8c0e9aa650f0f8"
       }
     },
     {
@@ -34,7 +34,7 @@
       "location" : "http://github.com/oliveware/Putex",
       "state" : {
         "branch" : "main",
-        "revision" : "f44c96fd3a1d80d9401fb86d5077e0f121a47abb"
+        "revision" : "7e5302f80d961eaff32af75e615c77450b5dc03b"
       }
     },
     {
@@ -42,8 +42,17 @@
       "kind" : "remoteSourceControl",
       "location" : "http://github.com/oliveware/Semantex",
       "state" : {
+        "branch" : "operationbancaire",
+        "revision" : "50ab8d83bb1ed968ca3eb469bf6edb3f13cabf0c"
+      }
+    },
+    {
+      "identity" : "taxionomy",
+      "kind" : "remoteSourceControl",
+      "location" : "http://github.com/oliveware/Taxionomy",
+      "state" : {
         "branch" : "main",
-        "revision" : "aa8f4112c9bb13f8c3cb5a76a31c4e124ab7bd7b"
+        "revision" : "43283f8256f90da82abf66d750f1ad1a0870cf71"
       }
     }
   ],

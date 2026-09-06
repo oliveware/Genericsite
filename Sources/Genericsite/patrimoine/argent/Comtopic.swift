@@ -26,13 +26,13 @@ public struct Comtopic: Codable, Identifiable {
         compte = c
         nav = Navigation(c)
     }
-    init(_ catégorie:Bool?) {
+    init(_ catégorie:NatureCompte) {
         let cb = CompteBancaire(catégorie)
         compte = cb
         nav = Navigation(cb)
     }
     
-    init(_ topic:Topic, _ catégorie:Bool?) {
+    init(_ topic:Topic, _ catégorie:NatureCompte) {
         nav = Navigation(topic)
         if let comptejson = topic.releve {
             compte = CompteBancaire(comptejson, catégorie)
@@ -43,7 +43,7 @@ public struct Comtopic: Codable, Identifiable {
 }
 
 extension CompteBancaire {
-    init(_ comptejson:Comptejson,_ catégorie:Bool?) {
+    init(_ comptejson:Comptejson,_ catégorie:NatureCompte) {
         let compte = Compte(comptejson.soldebanque, Ecritures(comptejson.ecritures))
         if let data = comptejson.data {
             self.init( data, compte, comptejson.id, comptejson.cartes, comptejson.chequiers, comptejson.folio)
@@ -67,7 +67,7 @@ public struct Comptejson : Codable {
     public var ecritures: [Ecriturejson]
     var cartes: CartesBancaires?
     var chequiers: Chequiers?
-    public var folio:Foliojson?
+    public var folio:Portefeuille?
     
     public init(_ compte: CompteBancaire) {
         id = compte.id
@@ -112,6 +112,7 @@ public struct Ecriturejson: Codable {
         self.envoi = ecriture.envoi
         self.montant = ecriture.montant
     }
+
 }
 
 extension Ecritures {
