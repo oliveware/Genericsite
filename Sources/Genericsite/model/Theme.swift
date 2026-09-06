@@ -25,7 +25,7 @@ public struct Theme: Codable, Identifiable, Item {
     var last: Int?
     
     //var edition: String? //= "S0F0"
-    var d:Int = 1
+    var d:Int?
     
     public var items: [Rubric] = []
     var colors:[String] {
