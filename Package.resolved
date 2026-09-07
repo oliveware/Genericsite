@@ -1,5 +1,5 @@
 {
-  "originHash" : "a07bdd29d466fb0ab810d08075aa8b32443a815adee3b5056b8c3d789a1edf3f",
+  "originHash" : "2951d4aa56dcfbab7d80de7aaed52673febdf68ca286bf629010f3680372e2e8",
   "pins" : [
     {
       "identity" : "attribex",
@@ -8,6 +8,15 @@
       "state" : {
         "branch" : "refontefoncier-equip1D",
         "revision" : "39d1755f661e82e4f21b95886242d5965a4aef20"
+      }
+    },
+    {
+      "identity" : "datavault",
+      "kind" : "remoteSourceControl",
+      "location" : "http://github.com/oliveware/Datavault",
+      "state" : {
+        "branch" : "main",
+        "revision" : "11e453bf40077710cb966b323ad868af3edaee82"
       }
     },
     {
@@ -53,6 +62,24 @@
       "state" : {
         "branch" : "main",
         "revision" : "43283f8256f90da82abf66d750f1ad1a0870cf71"
+      }
+    },
+    {
+      "identity" : "universalservice",
+      "kind" : "remoteSourceControl",
+      "location" : "http://github.com/oliveware/UniversalService",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ae815724f4d1a13cf1929e517f20e8ed80f73fe1"
+      }
+    },
+    {
+      "identity" : "xbus",
+      "kind" : "remoteSourceControl",
+      "location" : "http://github.com/oliveware/Xbus",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ed27ce1af721bda8c1d41eb357522c9e4c327a12"
       }
     }
   ],

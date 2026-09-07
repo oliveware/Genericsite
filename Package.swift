@@ -14,7 +14,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "http://github.com/oliveware/Oware", branch: "refontefoncier"),
+        .package(url: "http://github.com/oliveware/Datavault", branch: "main"),
         .package(url: "http://github.com/oliveware/Fichiers", branch: "main")
     ],
     targets: [
@@ -22,7 +22,7 @@ let package = Package(
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "Genericsite",
-            dependencies: ["Oware","Fichiers"]
+            dependencies: ["Datavault","Fichiers"]
         ),
         .testTarget(
             name: "GenericsiteTests",
