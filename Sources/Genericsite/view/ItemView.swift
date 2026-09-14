@@ -190,14 +190,4 @@ struct ItemView<T:Item>: View {
     }
 }
 
-struct ItemPreview: View {
-    @State var theme = samplemain.intro
-    var body: some View {
-        ItemView($theme)
-            .frame(minHeight:400)
-    }
-}
 
-#Preview("theme") {
-    ItemPreview()
-}

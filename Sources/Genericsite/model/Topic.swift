@@ -28,30 +28,6 @@ public struct Topic: Codable,Identifiable, Item {
     var edition: String?  //= "S0F0"
     var d:Int?            //=1
     
-    // compte bancaire
-    public var releve: Comptejson?
-
-    init (_ comtopic:Comtopic) {
-        let item = comtopic.nav
-        name = item.name
-        label = item.label
-        titre = item.titre
-        exergue = item.exergue
-        slide = item.slide
-        first = item.first
-        last = item.last
-        color = item.color
-        releve = Comptejson(comtopic.compte)
-    }
-    public init(_ n:String, _ t:String?, _ cj:Comptejson, _ cl:String) {
-        name = n
-        titre = t
-        label = t ?? n
-        color = cl
-        exergue = ""
-        releve = cj
-    }
-    
     public enum KindofTopic : String, Codable {
         case courant
         case epargne

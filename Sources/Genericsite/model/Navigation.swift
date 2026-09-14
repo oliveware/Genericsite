@@ -5,8 +5,6 @@
 //  Created by Herve Crespel on 10/10/2024.
 //
 
-import Oware
-
 struct Navigation: Codable,Identifiable,Item {
     var id:String {name}
     
@@ -35,12 +33,4 @@ struct Navigation: Codable,Identifiable,Item {
         exergue = x
     }
     
-    init(_ cb:CompteBancaire) {
-        let data = cb.data
-        name = cb.id
-        exergue = data.exergue
-        label = data.label
-        titre = data.titre
-        //color = item.color
-    }
 }

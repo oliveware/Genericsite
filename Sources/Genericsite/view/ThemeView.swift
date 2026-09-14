@@ -31,6 +31,4 @@ public struct ThemeView: View {
     }
 }
 
-#Preview {
-    ThemeView(.constant(samplemain.intro))
-}
+

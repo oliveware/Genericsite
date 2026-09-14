@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Putex
+
 
 public struct Rubric: Codable, Identifiable, Item {
     public var id:String {name}

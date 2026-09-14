@@ -30,6 +30,4 @@ public struct RubricView: View {
     }
 }
 
-#Preview {
-    RubricView(.constant(samplemain.intro.items[0]))
-}
+

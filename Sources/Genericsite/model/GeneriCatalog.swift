@@ -5,7 +5,6 @@
 //  Created by Herve Crespel on 26/02/2023.
 //
 
-import Foundation
 import SwiftUI
 import Putex
 
@@ -102,6 +101,7 @@ struct GeneriCatalog {
                 break   // le site web n'a plus de raison d'être apès archivage
             }
         }
+        
         mutating func insert(_ indice:Int) {
             let new = indice
             if itemids.count == 0 {

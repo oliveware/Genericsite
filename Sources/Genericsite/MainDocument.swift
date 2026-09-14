@@ -27,11 +27,6 @@ public struct MainDocument: FileDocument {
     public init(_ site:Sitemain = Sitemain()) {
         sitemain = site
     }
-    
-    public init(_ avoir:Avoir) {
-        sitemain = Sitemain(avoir)  //, contexte)
-    }
-    
 
   public  static var readableContentTypes: [UTType] { [.jsonSitemain] }
 

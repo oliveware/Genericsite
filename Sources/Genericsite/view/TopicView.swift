@@ -20,25 +20,7 @@ public struct TopicView: View {
     
     public var body: some View {
         ItemView($topic)
-        if let comptejson = topic.releve {
-            Button("voir le compte (\(comptejson.soldebanque))"){show = true }
-               // .sheet(isPresented: $show,
-               //        content: {CompteBancaireView(CompteBancaire(comptejson))})
-        }
     }
 }
 
-struct TopicPreview: View {
-    @State var topic = samplemain.intro.items[0].items[0]
-    var body: some View {
-        ItemView($topic)
-    }
-}
 
-#Preview("view") {
-    TopicPreview()
-}
-#Preview("edit") {
-    ItemEdit(item:.constant(samplemain.intro.items[0].items[0]),
-              edition:.constant(true))
-}
