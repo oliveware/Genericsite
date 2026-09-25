@@ -1,24 +1,6 @@
 {
-  "originHash" : "2951d4aa56dcfbab7d80de7aaed52673febdf68ca286bf629010f3680372e2e8",
+  "originHash" : "3256b85d2649eea82c2e28a3534b745f164729b008a6f2f2ec652f3a3fab6e60",
   "pins" : [
-    {
-      "identity" : "attribex",
-      "kind" : "remoteSourceControl",
-      "location" : "http://github.com/oliveware/Attribex",
-      "state" : {
-        "branch" : "refontefoncier-equip1D",
-        "revision" : "39d1755f661e82e4f21b95886242d5965a4aef20"
-      }
-    },
-    {
-      "identity" : "datavault",
-      "kind" : "remoteSourceControl",
-      "location" : "http://github.com/oliveware/Datavault",
-      "state" : {
-        "branch" : "main",
-        "revision" : "11e453bf40077710cb966b323ad868af3edaee82"
-      }
-    },
     {
       "identity" : "fichiers",
       "kind" : "remoteSourceControl",
@@ -26,15 +8,6 @@
       "state" : {
         "branch" : "main",
         "revision" : "39a32bcef0c79579520fb5fabe15ba9e39495396"
-      }
-    },
-    {
-      "identity" : "oware",
-      "kind" : "remoteSourceControl",
-      "location" : "http://github.com/oliveware/Oware",
-      "state" : {
-        "branch" : "refontefoncier",
-        "revision" : "bf5c5a8184b24a727e7b03e41c8c0e9aa650f0f8"
       }
     },
     {
@@ -47,39 +20,12 @@
       }
     },
     {
-      "identity" : "semantex",
-      "kind" : "remoteSourceControl",
-      "location" : "http://github.com/oliveware/Semantex",
-      "state" : {
-        "branch" : "operationbancaire",
-        "revision" : "50ab8d83bb1ed968ca3eb469bf6edb3f13cabf0c"
-      }
-    },
-    {
       "identity" : "taxionomy",
       "kind" : "remoteSourceControl",
       "location" : "http://github.com/oliveware/Taxionomy",
       "state" : {
         "branch" : "main",
         "revision" : "43283f8256f90da82abf66d750f1ad1a0870cf71"
-      }
-    },
-    {
-      "identity" : "universalservice",
-      "kind" : "remoteSourceControl",
-      "location" : "http://github.com/oliveware/UniversalService",
-      "state" : {
-        "branch" : "main",
-        "revision" : "ae815724f4d1a13cf1929e517f20e8ed80f73fe1"
-      }
-    },
-    {
-      "identity" : "xbus",
-      "kind" : "remoteSourceControl",
-      "location" : "http://github.com/oliveware/Xbus",
-      "state" : {
-        "branch" : "main",
-        "revision" : "ed27ce1af721bda8c1d41eb357522c9e4c327a12"
       }
     }
   ],

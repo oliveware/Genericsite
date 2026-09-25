@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Oware
 
 public struct Topic: Codable,Identifiable, Item {
     public var id:String {name}

@@ -7,7 +7,7 @@
 
 
 import SwiftUI
-import Oware
+
 
 public struct TopicView: View {
     @Binding var topic: Topic

@@ -7,7 +7,6 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
-import Oware
 import Fichiers
 
 extension UTType {
