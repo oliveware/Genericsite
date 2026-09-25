@@ -7,7 +7,7 @@
       "location" : "http://github.com/oliveware/Fichiers",
       "state" : {
         "branch" : "main",
-        "revision" : "39a32bcef0c79579520fb5fabe15ba9e39495396"
+        "revision" : "9f219cb7a7b62e62b052530355fa30059d31d49a"
       }
     },
     {
@@ -16,7 +16,7 @@
       "location" : "http://github.com/oliveware/Putex",
       "state" : {
         "branch" : "main",
-        "revision" : "7e5302f80d961eaff32af75e615c77450b5dc03b"
+        "revision" : "ff12229b6d6afcf1255d309880903bcd3d8e4231"
       }
     },
     {

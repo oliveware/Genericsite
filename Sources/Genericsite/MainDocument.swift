@@ -19,7 +19,7 @@ public struct MainDocument: FileDocument {
     public var sitemain = Sitemain()
     
     public init(_ repertoire:String,_ filename:String) {
-        let fichier = Fichierjson(repertoire, filename)
+        let fichier = Fichierjson(repertoire, filename, .json)
         sitemain = fichier.read() ?? sitemain
     }
     
