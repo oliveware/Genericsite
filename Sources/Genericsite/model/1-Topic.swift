@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Topic: Codable,Identifiable, Item {
+public struct Topic<T:Codable>: Codable,Identifiable, Item {
     public var id:String {name}
     // Catalink
     var catalog : String?
@@ -25,8 +25,11 @@ public struct Topic: Codable,Identifiable, Item {
     var first: Int?
     var last: Int?
     
-    var edition: String?  //= "S0F0"
-    var d:Int?            //=1
+    var edition: String?  // "S0F0"
+    var d:Int?            // 1
+    
+    public var releve: T?
+    
     
     public init(_ page:Page) {
         catalog = page.catalog
