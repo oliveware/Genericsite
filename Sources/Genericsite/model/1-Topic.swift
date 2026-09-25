@@ -20,12 +20,32 @@ public struct Topic: Codable,Identifiable, Item {
     var titre: String?
     var color: String?
     
+    var type:String?
     var slide: String?
     var first: Int?
     var last: Int?
     
     var edition: String?  //= "S0F0"
     var d:Int?            //=1
+    
+    public init(_ page:Page) {
+        catalog = page.catalog
+
+        name    = page.name
+        exergue = page.exergue
+        
+        label   = page.label
+        titre   = page.titre
+        color   = page.color
+        
+        type    = page.type
+        slide   = page.slide
+        first   = page.first
+        last    = page.last
+        
+        edition = page.edition
+        d       = page.d
+    }
     
     public enum KindofTopic : String, Codable {
         case courant

@@ -16,6 +16,7 @@ public struct Rubric: Codable, Identifiable, Item {
     var titre: String?        //= "année \(Immeuble.begining.année)"
     var exergue: String = ""
     
+    var type:String?
     var slide: String?     //= "second\(Immeuble.begining.année)"
     
     var first: Int?
@@ -26,13 +27,23 @@ public struct Rubric: Codable, Identifiable, Item {
     
     public var items: [Topic]
     
-    public init(_ n:String, _ t:String, _ l:String?, _ c:String, _ ex:String, _ sl: String, _ topics:[Topic]) {
-        name = n
-        titre = t
-        label = l ?? t
-        color = c
-        exergue = ex
-        slide = sl
+    public init(_ page:Page, _ topics:[Topic]) {
+
+        name    = page.name
+        exergue = page.exergue
+        
+        label   = page.label
+        titre   = page.titre
+        color   = page.color
+        
+        type    = page.type
+        slide   = page.slide
+        first   = page.first
+        last    = page.last
+        
+        edition = page.edition
+        d       = page.d
+        
         items = topics
     }
 }

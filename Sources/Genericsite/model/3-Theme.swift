@@ -14,17 +14,18 @@ public struct Theme: Codable, Identifiable, Item {
     public var id:String {name}
     
     var name: String = "intro"
+    var exergue: String = ""
+    
     var label: String?
     var color: String?
     var titre: String?
-    var exergue: String = ""
-    
+   
     var slide: String?      //= "TIchart"
-    var type :String?       //= "pdfimg"
+    var type :String?
     var first: Int?
     var last: Int?
     
-    //var edition: String? //= "S0F0"
+    var edition: String?    //= "S0F0"
     var d:Int?
     
     public var items: [Rubric] = []
@@ -43,14 +44,24 @@ public struct Theme: Codable, Identifiable, Item {
         color = c
     }
     
-    public init(_ t:String, _ n:String?, _ l:String?, _ c:String, _ ex:String, _ sl: String, _ rubrics:[Rubric]) {
-        name = n ?? "intro"
-        titre = t
-        label = l ?? ""
-        color = c
-        slide = sl
+    public init(_ page:Page,_ rubrics:[Rubric]) {
+        name    = page.name
+        exergue = page.exergue
+        
+        label   = page.label
+        titre   = page.titre
+        color   = page.color
+        
+        type    = page.type
+        slide   = page.slide
+        first   = page.first
+        last    = page.last
+        
+        edition = page.edition
+        d       = page.d
+        
         items = rubrics
-        if ex == "lastmaj" { exergue = Theme.lastmaj } else { exergue = ex }
+       
     }
     
    /* mutating func update(_ ex:String, _ sl: String, _ rubrics:[Rubric]) {
