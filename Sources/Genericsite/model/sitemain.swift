@@ -12,8 +12,8 @@ import Foundation
 // produit le fichier main json
 public struct Sitemain : Codable {
     var footexerg : String
-    var enter : String
-    var titre : MainTitle
+    var enter : String = "retour ..."
+    var titre : MainTitle = MainTitle("Grand", "" , "Titre")
 
     var welcome : Welcome
     var advice = "conseil.txt"
@@ -23,6 +23,11 @@ public struct Sitemain : Codable {
        
     public var intro : Theme
     
+    public init(_ theme:Theme, _ exergue:String) {
+        footexerg = exergue
+        welcome = Welcome(exergue)
+        intro = theme
+    }
     
     public init(
         exergue : String,
@@ -72,7 +77,7 @@ struct Welcome : Codable {
     var exergue: String
     var enter: String
     
-    init (_ maxime:String, _ intro:String) {
+    init (_ maxime:String, _ intro:String = "invitation à la suite") {
         exergue = maxime
         enter = intro
     }
